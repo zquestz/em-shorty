@@ -66,15 +66,14 @@ class App < Sinatra::Base
   end
   
   get '/:shortened' do
-    unless params[:shortened].match('.')
-      short_url = ShortenedUrl.find_by_shortened(params[:shortened])
-      if short_url
-        redirect short_url.url
-      else
-        @flash = {}
-        @flash[:error] = t('no_url')
-        haml :index
-      end
+    return if params[:shortened].match('.')
+    short_url = ShortenedUrl.find_by_shortened(params[:shortened])
+    if short_url
+      redirect short_url.url
+    else
+      @flash = {}
+      @flash[:error] = t('no_url')
+      haml :index
     end
   end
 
