@@ -38,7 +38,6 @@ end
 # Main application class.
 class App < Sinatra::Base
   use Rack::FiberPool
-  @fiber_pool = ::FiberPool.new
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config/en.yml')
@@ -67,13 +66,15 @@ class App < Sinatra::Base
   end
   
   get '/:shortened' do
-    short_url = ShortenedUrl.find_by_shortened(params[:shortened])
-    if short_url
-      redirect short_url.url
-    else
-      @flash = {}
-      @flash[:error] = t('no_url')
-      haml :index
+    unless params[:shortened].match('.')
+      short_url = ShortenedUrl.find_by_shortened(params[:shortened])
+      if short_url
+        redirect short_url.url
+      else
+        @flash = {}
+        @flash[:error] = t('no_url')
+        haml :index
+      end
     end
   end
 
