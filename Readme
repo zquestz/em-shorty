@@ -1,0 +1,17 @@
+One of many url shortening apps out there. Was inspired by an article I read at:
+
+http://screencasts.org/episodes/activerecord-with-sinatra
+
+I added quite a few things.
+
+1. Now uses rack-fiber_pool for async requests.
+2. Fully localized with i18n
+3. Templates are flushed out and look good.
+4. Added bundler and rvm support.
+5. Added less support.
+
+To start the server:
+
+thin -R config.ru start
+
+This will fire it up on port 3000. You can set your hostname in en.yml
