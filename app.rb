@@ -66,7 +66,7 @@ class App < Sinatra::Base
   end
   
   get '/:shortened' do
-    return if params[:shortened].match('.')
+    return if params[:shortened].index('.')
     short_url = ShortenedUrl.find_by_shortened(params[:shortened])
     if short_url
       redirect short_url.url
