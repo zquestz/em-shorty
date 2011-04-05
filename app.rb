@@ -53,13 +53,13 @@ class App < Sinatra::Base
     short_url = ShortenedUrl.find_by_shortened(params[:shortened])
     if short_url
       shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.id.alphadecimal}"}
-      case params[:format]
-        when 'json' then shorty.to_json
-        when 'xml' then shorty.to_xml
-        when 'yaml' then shorty.to_yaml      
-      end
     else
-      {:error => t('no_record_found')}.to_xml
+      shorty = {:error => t('no_record_found')}
+    end
+    case params[:format]
+      when 'json' then shorty.to_json 
+      when 'xml' then shorty.to_xml
+      when 'yaml' then shorty.to_yaml 
     end
   end
   
