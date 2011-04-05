@@ -6,7 +6,7 @@
 @notice-color: #333;
 @error-color: red;
 @button-background: #222;
-@button-background-hover: #444;
+@button-background-hover: #333;
 @link-color: orange;
 
 body {
@@ -39,7 +39,7 @@ body {
     
     #footer {
       color: @theme-color;
-      padding-top: 8px;
+      padding-top: 12px;
       clear: both;
     }
 
@@ -88,7 +88,7 @@ body {
     }
     
     input#submit:hover {
-      background-color: button-background-hover;
+      background-color: @button-background-hover;
     }
     
     #shortened_url {
