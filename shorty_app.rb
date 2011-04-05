@@ -29,7 +29,7 @@ class ShortyApp < Sinatra::Base
   use Rack::FiberPool unless ENV['RACK_ENV'] == 'test'
 
   set :root, File.dirname(__FILE__)
-  set :locales, File.join(File.dirname(__FILE__), 'config/en.yml')
+  set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
 
   register Sinatra::I18n
 
