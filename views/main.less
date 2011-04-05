@@ -1,5 +1,5 @@
 /* ###################################### */
-/* Setup a few vars.                 */
+/* Setup a few vars.                      */
 /* ###################################### */
 @theme-color: #666;
 @highlight-color: #EEE;
@@ -17,6 +17,10 @@ body {
     margin: auto;
     width: 400px;
     text-align:center;
+    
+    div#form_inputs {
+      text-align: center;
+    }
     
     a {
       :link {
@@ -65,10 +69,9 @@ body {
     }
     
     input#url {
-      float:left;
-      margin: 10px 0 0;
-      width: 290px;
       display: block;
+      margin: 10px 0 0;
+      width: 390px;
       padding: 5px;
       color: @theme-color;
       font-size: 24px;
@@ -77,11 +80,9 @@ body {
     
     input#submit {
       font-weight: bold;
-      float: right;
-      padding: 3px 10px;
+      padding: 4px 15px;
       margin: 10px 0 0;
-      display: block;
-      height: 26px;
+      font-size: 16px;
       border: 1px solid @theme-color;
       background-color: @button-background;
       color: white;
