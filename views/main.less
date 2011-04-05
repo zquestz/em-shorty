@@ -1,3 +1,14 @@
+/* ###################################### */
+/* Setup a few vars.                 */
+/* ###################################### */
+@theme-color: #666;
+@highlight-color: #EEE;
+@notice-color: #333;
+@error-color: red;
+@button-background: #222;
+@button-background-hover: #444;
+@link-color: orange;
+
 body {
   background-color: black;
   color: white;
@@ -10,29 +21,35 @@ body {
     a {
       :link {
         text-decoration: none;
-        color: orange
+        color: @link-color;
       }
       
       :visited {
-        color: orange;
+        color: @link-color;
       }
       
       :hover { 
-        color: #EEE;
+        color: @highlight-color;
       }
       
       :active {
-        color: #EEE;
+        color: @highlight-color;
       }
+    }
+    
+    #footer {
+      color: @theme-color;
+      padding-top: 4px;
+      clear: both;
     }
 
     div#error {
-      background-color: red;
+      background-color: @error-color;
       padding: 5px;
     }
 
     div#notice {
-      background-color: #333;
+      background-color: @notice-color;
       padding: 5px;
     }
     
@@ -53,9 +70,9 @@ body {
       width: 290px;
       display: block;
       padding: 5px;
-      color: #666;
+      color: @theme-color;
       font-size: 24px;
-      border: 1px solid #EEE;
+      border: 1px solid @highlight-color;
     }
     
     input#submit {
@@ -65,20 +82,20 @@ body {
       margin: 10px 0 0;
       display: block;
       height: 26px;
-      border: 1px solid #666;
-      background-color: #222;
+      border: 1px solid @theme-color;
+      background-color: @button-background;
       color: white;
     }
     
     input#submit:hover {
-      background-color: #444;
+      background-color: button-background-hover;
     }
     
     #shortened_url {
       margin: 10px 0 0;
       width: 100%;
       display: block;
-      color: #666;
+      color: @theme-color;
       font-size: 24px;
     }
   }

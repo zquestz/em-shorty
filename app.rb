@@ -7,6 +7,8 @@
 # Raise an error if we don't have a compatible ruby version.
 raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
 
+$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
+
 # Require needed libs
 require 'fiber'
 require 'rack/fiber_pool'
@@ -15,25 +17,7 @@ require 'sinatra/activerecord'
 require 'sinatra/i18n'
 require 'alphadecimal'
 require 'less'
-
-# Define class for ShortenedUrl
-class ShortenedUrl < ActiveRecord::Base
-  validates_uniqueness_of :url
-  validates_presence_of :url
-  validates_format_of :url, :with => /^\b((?:https?:\/\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?]))$/
-  
-  # Shortens an ID by using alphadecimal format (base62)
-  def shorten
-    self.id.alphadecimal
-  end
-  
-  # Find url by its alphadecimal value
-  def self.find_by_shortened(shortened)
-    find(shortened.alphadecimal)
-  rescue ActiveRecord::RecordNotFound
-    nil
-  end
-end
+require 'shortened_url'
 
 # Main application class.
 class App < Sinatra::Base
