@@ -7,6 +7,10 @@
 # Raise an error if we don't have a compatible ruby version.
 raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
 
+if ENV['RACK_ENV'] == 'production'
+  ENV['DATABASE_URL'] = "mysql2://root:root@localhost:3306/em_shorty"
+end
+
 # Add lib directory to load path
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
