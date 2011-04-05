@@ -36,6 +36,12 @@ class TestShortyApp < Test::Unit::TestCase
     end
   end
   
+  def test_focus
+    get '/'
+    assert last_response.ok?
+    assert last_response.body.include?("document.getElementById('url').focus();")
+  end
+  
   def test_url_redirect
     short_url = ShortenedUrl.create!(:url => "http://google.com/")
     get "/#{short_url.id.alphadecimal}"
