@@ -12,7 +12,7 @@ class TestShortyApp < Test::Unit::TestCase
   def test_front_page_essentials
     get '/'
     assert last_response.ok?
-    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', Time.now.year.to_s]
+    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('shorten_button'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end

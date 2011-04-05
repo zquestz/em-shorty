@@ -6,3 +6,4 @@ en:
   url_shortened: "%{original_url} has been shortened"
   no_record_found: "No record found"
   source_url: "http://github.com/zquestz/em-shorty"
+  shorten_button: "Shorten URL"
