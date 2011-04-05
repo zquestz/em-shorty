@@ -9,6 +9,12 @@ I added quite a few things.
 3. Templates are flushed out and look good.
 4. Added bundler and rvm support.
 5. Added less support.
+6. Battery of Unit Tests.
+
+To run the tests:
+
+RACK_ENV=test rake db:migrate
+rake test
 
 To start the server:
 

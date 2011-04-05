@@ -1,4 +1,5 @@
-# Class to store necessary info for shortening. Just a url to shorten, and an id. so simple.
+# Class to store necessary info for shortening. 
+# Just a url to shorten, and an id. so simple.
 class ShortenedUrl < ActiveRecord::Base
   validates_uniqueness_of :url
   validates_presence_of :url

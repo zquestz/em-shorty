@@ -7,6 +7,7 @@
 # Raise an error if we don't have a compatible ruby version.
 raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
 
+# Add lib directory to load path
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
 # Require needed libs
@@ -20,8 +21,8 @@ require 'less'
 require 'shortened_url'
 
 # Main application class.
-class App < Sinatra::Base
-  use Rack::FiberPool
+class ShortyApp < Sinatra::Base
+  use Rack::FiberPool unless ENV['RACK_ENV'] == 'test'
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config/en.yml')
