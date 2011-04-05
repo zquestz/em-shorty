@@ -18,6 +18,12 @@ class TestShortyApp < Test::Unit::TestCase
     end
   end
   
+  def test_focus
+    get '/'
+    assert last_response.ok?
+    assert last_response.body.include?("document.getElementById('url').focus();")
+  end
+  
   def test_post_valid_new_url
     post '/', :url => "http://involver.com"
     assert last_response.ok?
@@ -34,12 +40,6 @@ class TestShortyApp < Test::Unit::TestCase
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
-  end
-  
-  def test_focus
-    get '/'
-    assert last_response.ok?
-    assert last_response.body.include?("document.getElementById('url').focus();")
   end
   
   def test_url_redirect
