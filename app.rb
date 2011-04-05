@@ -40,7 +40,8 @@ class App < Sinatra::Base
     @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
     if @short_url.valid?
       @flash = {}
-      @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url]) 
+      @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
+      @viewed_url = "#{t('app_host')}/#{@short_url.shorten}"
       haml :success
     else
       @flash = {}

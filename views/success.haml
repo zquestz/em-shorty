@@ -1,3 +1,18 @@
+:javascript
+  document.addEventListener('keydown', urljumper, true);
+  
+  function urljumper(e) {
+    if (enterPressed(e)) {
+      window.location = "#{@viewed_url}";
+    }
+  }
+  
+  function enterPressed(e) {
+    if (e.keyIdentifier == "Enter") {
+      return true;
+    }
+    return false;
+  }
 %div(id="shortened_url")
-  %a(href="#{t('app_host')}/#{@short_url.shorten}")
-    %span(class="short_url")= "#{t('app_host')}/#{@short_url.shorten}"
+  %a(href=@viewed_url)
+    %span(class="short_url")= @viewed_url
