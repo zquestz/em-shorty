@@ -51,7 +51,7 @@ class ShortyApp < Sinatra::Base
       end
       @flash = {}
       @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
-      @viewed_url = "#{t('app_host')}/#{@short_url.shorten}"
+      @viewed_url = "#{current_url}/#{@short_url.shorten}"
       haml :success
     else
       @flash = {}
@@ -70,7 +70,7 @@ class ShortyApp < Sinatra::Base
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
         short_url.increment!("#{format}_count")
-        shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.shorten}"}
+        shorty = {:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}
       else
         shorty = {:error => t('no_record_found')}
       end
@@ -101,6 +101,12 @@ class ShortyApp < Sinatra::Base
     @flash = {}
     @flash[:error] = t('http_error')
     haml :index
+  end
+  
+  helpers do
+    def current_url
+      "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+    end
   end
 
 end

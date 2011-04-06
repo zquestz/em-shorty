@@ -1,6 +1,5 @@
 en:
   app_name: "em-shorty"
-  app_host: "http://localhost:3000"
   enter_valid_url: "Please enter a valid URL" 
   no_url: "URL is invalid"
   url_shortened: "%{original_url} has been shortened"

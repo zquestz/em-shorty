@@ -8,6 +8,10 @@ class TestShortyApp < Test::Unit::TestCase
   def app
     ShortyApp
   end
+  
+  def current_url
+    "#{last_request.env['rack.url_scheme']}://#{last_request.env['HTTP_HOST']}"
+  end
 
   def test_front_page_essentials
     get '/'
@@ -34,7 +38,7 @@ class TestShortyApp < Test::Unit::TestCase
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 0
-    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
@@ -50,7 +54,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
     short_url.delete
   end
   
@@ -63,7 +67,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
     short_url.delete
   end
   
@@ -76,7 +80,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
     short_url.delete
   end
   
@@ -126,7 +130,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.xml_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
   end
   
   def test_json
@@ -136,7 +140,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.json_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
   end
   
   def test_yaml
@@ -146,7 +150,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.yaml_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
   end
   
   def test_bad_xml
