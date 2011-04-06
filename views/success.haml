@@ -1,6 +1,7 @@
 %div(id="shortened_url")
   %a(href="/#{@short_url.shorten}")
     %span(class="short_url")= @viewed_url
+%div(id="copy_to_clipboard")
   %div(id="clip_container" style="position:relative")
     %div(id="clip_button")= "Copy to Clipboard"
 %script(type="text/javascript" src="ZeroClipboard.js")

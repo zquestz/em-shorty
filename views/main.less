@@ -64,10 +64,10 @@ body {
     
     div#clip_container {
       margin-top: 8px;
-      
-      :hover {
+    }
+    
+    div#clip_button.hover, div#clip_button.active {
         color: @highlight-color;
-      }
     }
     
     div.overflow {
@@ -110,6 +110,14 @@ body {
       display: block;
       color: @theme-color;
       font-size: 24px;
+    }
+    
+    #copy_to_clipboard {
+      margin: 10px 0 0;
+      width: 100%;
+      display: block;
+      color: @theme-color;
+      font-size: 22px;
     }
   }
 }
