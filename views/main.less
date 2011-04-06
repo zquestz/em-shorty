@@ -49,16 +49,19 @@ body {
 
     div#error {
       background-color: @error-color;
-      padding: 5px;
     }
 
     div#notice {
       background-color: @notice-color;
-      padding: 5px;
     }
     
     div.flash {
       margin-bottom: 8px;
+      padding: 5px 10px;
+    }
+    
+    div.overflow {
+      overflow: hidden;
     }
 
     .rounded {
@@ -69,7 +72,6 @@ body {
     }
     
     input#url {
-      display: block;
       margin: 10px 0 0;
       width: 388px;
       padding: 5px;
@@ -81,7 +83,7 @@ body {
     input#submit {
       font-weight: bold;
       padding: 4px 15px;
-      margin: 10px 0 0;
+      margin: 12px 0 0;
       font-size: 16px;
       border: 1px solid @theme-color;
       background-color: @button-background;

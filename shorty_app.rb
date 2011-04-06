@@ -26,7 +26,7 @@ require 'shortened_url'
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool unless ENV['RACK_ENV'] == 'test'
+  use Rack::FiberPool, :size => 100 unless ENV['RACK_ENV'] == 'test'
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')

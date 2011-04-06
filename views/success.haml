@@ -3,7 +3,7 @@
   
   function urljumper(e) {
     if (enterPressed(e)) {
-      window.location = "#{@viewed_url}";
+      window.location = "/#{@short_url.shorten}";
     }
   }
   
@@ -14,5 +14,5 @@
     return false;
   }
 %div(id="shortened_url")
-  %a(href=@viewed_url)
+  %a(href="/#{@short_url.shorten}")
     %span(class="short_url")= @viewed_url
