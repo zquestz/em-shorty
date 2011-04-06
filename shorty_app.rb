@@ -64,16 +64,17 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
-    short_url = ShortenedUrl.find_by_shortened(params[:shortened])
-    if short_url
-      shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.shorten}"}
-    else
-      shorty = {:error => t('no_record_found')}
-    end
-    case params[:format]
-      when 'json' then shorty.to_json 
-      when 'xml' then shorty.to_xml
-      when 'yaml' then shorty.to_yaml
+    formats = [:json, :xml, :yaml]
+    format = params[:format]
+    if formats.include?(format.to_sym)
+      short_url = ShortenedUrl.find_by_shortened(params[:shortened])
+      if short_url
+        short_url.increment!("#{format}_count")
+        shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.shorten}"}
+      else
+        shorty = {:error => t('no_record_found')}
+      end
+      return eval("shorty.to_#{format}")
     end
   end
   
@@ -81,6 +82,7 @@ class ShortyApp < Sinatra::Base
     return if params[:shortened].index('.')
     short_url = ShortenedUrl.find_by_shortened(params[:shortened])
     if short_url
+      short_url.increment!("redirect_count")
       redirect short_url.url
     else
       @flash = {}

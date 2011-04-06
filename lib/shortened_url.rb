@@ -16,4 +16,9 @@ class ShortenedUrl < ActiveRecord::Base
   rescue ActiveRecord::RecordNotFound
     nil
   end
+  
+  def total_count
+    redirect_count + json_count + xml_count + yaml_count
+  end
+  alias :count :total_count
 end
