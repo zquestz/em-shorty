@@ -43,9 +43,9 @@ class ShortyApp < Sinatra::Base
     
   post '/' do
     @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
+    formats = [:json, :xml, :yaml]
+    format = params[:format]
     if @short_url.valid?
-      formats = [:json, :xml, :yaml]
-      format = params[:format]
       unless format.blank?
         (redirect "/#{@short_url.shorten}.#{format}") if formats.include?(format.to_sym)
       end
@@ -56,6 +56,9 @@ class ShortyApp < Sinatra::Base
     else
       @flash = {}
       @flash[:error] = t('enter_valid_url')
+      unless format.blank?
+        return eval("{:error => @flash[:error]}.to_#{format}") if formats.include?(format.to_sym)
+      end
       haml :index
     end
   end
