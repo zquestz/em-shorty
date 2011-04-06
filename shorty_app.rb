@@ -90,5 +90,17 @@ class ShortyApp < Sinatra::Base
       haml :index
     end
   end
+  
+  not_found do
+    @flash = {}
+    @flash[:error] = t('http_not_found')
+    haml :'404'
+  end
+
+  error do
+    @flash = {}
+    @flash[:error] = t('http_error')
+    haml :'500'
+  end
 
 end

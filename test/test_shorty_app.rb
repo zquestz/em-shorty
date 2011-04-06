@@ -167,4 +167,9 @@ class TestShortyApp < Test::Unit::TestCase
     assert_equal ({:error => I18n.translate('no_record_found')}.to_yaml), last_response.body
   end
   
+  def test_404
+    get "/fake/path"
+    assert last_response.body.include?(I18n.translate('http_not_found'))
+  end
+  
 end
