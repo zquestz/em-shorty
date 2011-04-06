@@ -31,12 +31,55 @@ class TestShortyApp < Test::Unit::TestCase
     url = "http://involver.com"
     post '/', :url => url
     assert last_response.ok?
-    shorty_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil shorty_url
-    matchers = ["/#{shorty_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
+    short_url.delete
+  end
+  
+  def test_post_valid_new_url_json
+    url = "http://involver.com"
+    post '/', {:url => url, :format => 'json'}
+    follow_redirect!
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+    short_url.delete
+  end
+  
+  def test_post_valid_new_url_xml
+    url = "http://involver.com"
+    post '/', {:url => url, :format => 'xml'}
+    follow_redirect!
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+    short_url.delete
+  end
+  
+  def test_post_valid_new_url_yaml
+    url = "http://involver.com"
+    post '/', {:url => url, :format => 'yaml'}
+    follow_redirect!
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+    short_url.delete
   end
   
   def test_zeroclipboard
@@ -59,7 +102,7 @@ class TestShortyApp < Test::Unit::TestCase
   
   def test_url_redirect
     short_url = ShortenedUrl.create!(:url => "http://google.com/")
-    get "/#{short_url.id.alphadecimal}"
+    get "/#{short_url.shorten}"
     follow_redirect!
     assert last_response.ok?
     assert_equal short_url.url, last_request.url
@@ -77,23 +120,23 @@ class TestShortyApp < Test::Unit::TestCase
   
   def test_xml
     short_url = ShortenedUrl.create(:url => "http://reddit.com/r/xml")
-    get "/#{short_url.id.alphadecimal}.xml"
+    get "/#{short_url.shorten}.xml"
     assert last_response.ok?
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.id.alphadecimal}"}.to_xml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml), last_response.body
   end
   
   def test_json
     short_url = ShortenedUrl.create(:url => "http://reddit.com/r/json")
-    get "/#{short_url.id.alphadecimal}.json"
+    get "/#{short_url.shorten}.json"
     assert last_response.ok?
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.id.alphadecimal}"}.to_json), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json), last_response.body
   end
   
   def test_yaml
     short_url = ShortenedUrl.create(:url => "http://reddit.com/r/yaml")
-    get "/#{short_url.id.alphadecimal}.yaml"
+    get "/#{short_url.shorten}.yaml"
     assert last_response.ok?
-    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.id.alphadecimal}"}.to_yaml), last_response.body
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml), last_response.body
   end
   
   def test_bad_xml
