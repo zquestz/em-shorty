@@ -1,3 +1,9 @@
+%div(id="shortened_url")
+  %a(href="/#{@short_url.shorten}")
+    %span(class="short_url")= @viewed_url
+  %div(id="clip_container" style="position:relative")
+    %div(id="clip_button")= "Copy to Clipboard"
+%script(type="text/javascript" src="ZeroClipboard.js")
 :javascript
   document.addEventListener('keydown', urljumper, true);
   
@@ -6,13 +12,21 @@
       window.location = "/#{@short_url.shorten}";
     }
   }
-  
+
   function enterPressed(e) {
     if (e.keyIdentifier == "Enter") {
       return true;
     }
     return false;
   }
-%div(id="shortened_url")
-  %a(href="/#{@short_url.shorten}")
-    %span(class="short_url")= @viewed_url
+  
+  ZeroClipboard.setMoviePath( 'ZeroClipboard10.swf' );
+  
+  function setupZeroClipboard() {
+    clip = new ZeroClipboard.Client();
+    clip.setText( '#{@viewed_url}' );
+    clip.setHandCursor( true );
+    clip.glue( 'clip_button', 'clip_container' );
+  }
+  
+  setupZeroClipboard();

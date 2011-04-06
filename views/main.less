@@ -8,10 +8,12 @@
 @button-background: #222;
 @button-background-hover: #333;
 @link-color: orange;
+@background-color: black;
+@text-color: white;
 
 body {
-  background-color: black;
-  color: white;
+  background-color: @background-color;
+  color: @text-color;
 
   div#content {
     margin: auto;
@@ -58,6 +60,14 @@ body {
     div.flash {
       margin-bottom: 8px;
       padding: 5px 10px;
+    }
+    
+    div#clip_container {
+      margin-top: 8px;
+      
+      :hover {
+        color: @highlight-color;
+      }
     }
     
     div.overflow {
