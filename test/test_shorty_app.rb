@@ -47,10 +47,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
-    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json]
-    matchers.each do |match|
-      assert last_response.body.include?(match)
-    end
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_json), last_response.body
     short_url.delete
   end
   
@@ -61,10 +58,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
-    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml]
-    matchers.each do |match|
-      assert last_response.body.include?(match)
-    end
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_xml), last_response.body
     short_url.delete
   end
   
@@ -75,10 +69,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
-    matchers = [{:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml]
-    matchers.each do |match|
-      assert last_response.body.include?(match)
-    end
+    assert_equal ({:url => short_url.url, :short_url => "#{I18n.translate('app_host')}/#{short_url.shorten}"}.to_yaml), last_response.body
     short_url.delete
   end
   
