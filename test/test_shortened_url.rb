@@ -2,10 +2,6 @@ require 'helper'
 
 class TestShortenedUrl < Test::Unit::TestCase
   include Rack::Test::Methods
-
-  def app
-    ShortyApp
-  end
   
   def test_empty_shortened_url
     short_url = ShortenedUrl.new
