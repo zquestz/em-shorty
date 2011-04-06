@@ -24,13 +24,15 @@ class TestShortenedUrl < Test::Unit::TestCase
   end
   
   def test_shorten
+    short_url = ShortenedUrl.create(:url => "http://thelag.dyndns.org")
+    assert_equal short_url.shorten, short_url.id.alphadecimal
     assert_equal 1.alphadecimal, '1'
     assert_equal 10.alphadecimal, 'A'
   end
   
   def test_find_by_shorten
     short_url = ShortenedUrl.create(:url => "http://intrarts.com")
-    assert_equal ShortenedUrl.find_by_shortened(short_url.id.alphadecimal), short_url
+    assert_equal ShortenedUrl.find_by_shortened(short_url.shorten), short_url
     short_url.delete
   end
 end
