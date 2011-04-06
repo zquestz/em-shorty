@@ -11,7 +11,7 @@ I added quite a few things.
 5. Added less support.
 6. Battery of Unit Tests.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
-8. XML, JSON, YAML support for reverse lookup.
+8. XML, JSON, YAML support.
 
 To run the tests:
 
