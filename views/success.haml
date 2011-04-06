@@ -21,13 +21,13 @@
     return false;
   }
   
-  ZeroClipboard.setMoviePath( 'ZeroClipboard10.swf' );
+  ZeroClipboard.setMoviePath('ZeroClipboard10.swf');
   
   function setupZeroClipboard() {
     clip = new ZeroClipboard.Client();
-    clip.setText( '#{@viewed_url}' );
-    clip.setHandCursor( true );
-    clip.glue( 'clip_button', 'clip_container' );
+    clip.setText('#{@viewed_url}');
+    clip.setHandCursor(true);
+    clip.glue('clip_button', 'clip_container');
   }
   
   setupZeroClipboard();
