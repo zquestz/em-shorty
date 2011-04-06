@@ -7,5 +7,5 @@ en:
   no_record_found: "No record found"
   source_url: "http://github.com/zquestz/em-shorty"
   shorten_button: "Shorten URL"
-  http_not_found: "Page Not Found"
-  http_error: "An Error Has Occurred"
+  http_not_found: "404 - Page Not Found"
+  http_error: "500 - An Error Has Occurred"

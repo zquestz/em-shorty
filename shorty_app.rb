@@ -94,13 +94,13 @@ class ShortyApp < Sinatra::Base
   not_found do
     @flash = {}
     @flash[:error] = t('http_not_found')
-    haml :'404'
+    haml :index
   end
 
   error do
     @flash = {}
     @flash[:error] = t('http_error')
-    haml :'500'
+    haml :index
   end
 
 end
