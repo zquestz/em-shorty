@@ -70,7 +70,7 @@ class ShortyApp < Sinatra::Base
     case params[:format]
       when 'json' then shorty.to_json 
       when 'xml' then shorty.to_xml
-      when 'yaml' then shorty.to_yaml 
+      when 'yaml' then shorty.to_yaml
     end
   end
   
