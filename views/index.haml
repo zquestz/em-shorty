@@ -1,8 +1,13 @@
-%form(action="/" method="POST")
+%form(action="/" method="POST" onsubmit="return checkUrl();")
   %div(id="form_inputs")
     %input(type="text" name="url" id="url" class="rounded")
     %br
     %input(id="submit" type="submit" value="#{t('shorten_button')}")
     
 :javascript
-  document.getElementById('url').focus();
+  url = document.getElementById('url');
+  url.focus();
+  
+  function checkUrl() {
+    return (url.value.length > 0 ? true : false);
+  }
