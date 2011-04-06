@@ -76,7 +76,7 @@ class TestShortyApp < Test::Unit::TestCase
   def test_zeroclipboard
     post '/', :url => "http://involver.com"
     assert last_response.ok?
-    matchers = ["ZeroClipboard.setMoviePath( 'ZeroClipboard10.swf' );", "function setupZeroClipboard()", "clip = new ZeroClipboard.Client();", "clip.setText", "clip.setHandCursor( true );", "clip.glue( 'clip_button', 'clip_container' );"]
+    matchers = ["ZeroClipboard.min.js", "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", "function setupZeroClipboard()", "clip = new ZeroClipboard.Client();", "clip.setText", "clip.setHandCursor(true);", "clip.glue('clip_button', 'clip_container');"]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
