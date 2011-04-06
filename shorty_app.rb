@@ -36,6 +36,8 @@ class ShortyApp < Sinatra::Base
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
 
   register Sinatra::I18n
+  
+  API_FORMATS = [:json, :xml, :yaml]
 
   get '/' do
     haml :index
@@ -47,11 +49,10 @@ class ShortyApp < Sinatra::Base
     
   post '/' do
     @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
-    formats = [:json, :xml, :yaml]
     format = params[:format]
     if @short_url.valid?
       unless format.blank?
-        (redirect "/#{@short_url.shorten}.#{format}") if formats.include?(format.to_sym)
+        (redirect "/#{@short_url.shorten}.#{format}") if API_FORMATS.include?(format.to_sym)
       end
       @flash = {}
       @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
@@ -61,16 +62,15 @@ class ShortyApp < Sinatra::Base
       @flash = {}
       @flash[:error] = t('enter_valid_url')
       unless format.blank?
-        return eval("{:error => @flash[:error]}.to_#{format}") if formats.include?(format.to_sym)
+        return eval("{:error => @flash[:error]}.to_#{format}") if API_FORMATS.include?(format.to_sym)
       end
       haml :index
     end
   end
   
   get '/:shortened.:format' do
-    formats = [:json, :xml, :yaml]
     format = params[:format]
-    if formats.include?(format.to_sym)
+    if API_FORMATS.include?(format.to_sym)
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
         short_url.increment!("#{format}_count")
