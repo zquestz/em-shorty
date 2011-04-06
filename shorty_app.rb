@@ -7,12 +7,12 @@
 # Raise an error if we don't have a compatible ruby version.
 raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
 
+# Add lib directory to load path
+$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
+
 if ENV['RACK_ENV'] == 'production'
   ENV['DATABASE_URL'] = "mysql2://root:root@localhost:3306/em_shorty"
 end
-
-# Add lib directory to load path
-$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
 # Require needed libs
 require 'fiber'
@@ -23,6 +23,10 @@ require 'sinatra/i18n'
 require 'alphadecimal'
 require 'less'
 require 'shortened_url'
+
+# Get rid of debug output in ActiveRecord...
+# What a terrible default.
+ActiveRecord::Base.logger.level = Logger::INFO
 
 # Main application class.
 class ShortyApp < Sinatra::Base
