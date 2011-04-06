@@ -21,6 +21,7 @@ GEM
     less (1.2.21)
       mutter (>= 0.4.2)
       treetop (>= 1.4.2)
+    mime-types (1.16)
     mutter (0.5.3)
     mysql2 (0.2.7)
     polyglot (0.3.1)
@@ -51,6 +52,7 @@ DEPENDENCIES
   alphadecimal
   haml
   less
+  mime-types
   mysql2
   rack-fiber_pool
   rack-test
