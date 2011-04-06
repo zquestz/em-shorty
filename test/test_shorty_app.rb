@@ -12,7 +12,7 @@ class TestShortyApp < Test::Unit::TestCase
   def test_front_page_essentials
     get '/'
     assert last_response.ok?
-    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('shorten_button'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', Time.now.year.to_s]
+    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('shorten_button'), 'url.value.length > 0 ? true : false', 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
@@ -21,13 +21,25 @@ class TestShortyApp < Test::Unit::TestCase
   def test_focus
     get '/'
     assert last_response.ok?
-    assert last_response.body.include?("document.getElementById('url').focus();")
+    matchers = ["document.getElementById('url')", "url.focus();"]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
   end
-  
+    
   def test_post_valid_new_url
     post '/', :url => "http://involver.com"
     assert last_response.ok?
-    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'enterPressed', 'notice', Time.now.year.to_s]
+    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+  end
+  
+  def test_zeroclipboard
+    post '/', :url => "http://involver.com"
+    assert last_response.ok?
+    matchers = ["ZeroClipboard.setMoviePath( 'ZeroClipboard10.swf' );", "function setupZeroClipboard()", "clip = new ZeroClipboard.Client();", "clip.setText", "clip.setHandCursor( true );", "clip.glue( 'clip_button', 'clip_container' );"]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end

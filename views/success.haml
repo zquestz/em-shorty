@@ -9,12 +9,12 @@
   document.addEventListener('keydown', urljumper, true);
   
   function urljumper(e) {
-    if (enterPressed(e)) {
+    if (keyPressed(e)) {
       window.location = "/#{@short_url.shorten}";
     }
   }
 
-  function enterPressed(e) {
+  function keyPressed(e) {
     if (e.keyIdentifier == "Enter") {
       return true;
     }
