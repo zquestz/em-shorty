@@ -44,6 +44,11 @@ class ShortyApp < Sinatra::Base
   post '/' do
     @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
     if @short_url.valid?
+      formats = [:json, :xml, :yaml]
+      format = params[:format]
+      unless format.blank?
+        (redirect "/#{@short_url.shorten}.#{format}") if formats.include?(format.to_sym)
+      end
       @flash = {}
       @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
       @viewed_url = "#{t('app_host')}/#{@short_url.shorten}"
@@ -58,7 +63,7 @@ class ShortyApp < Sinatra::Base
   get '/:shortened.:format' do
     short_url = ShortenedUrl.find_by_shortened(params[:shortened])
     if short_url
-      shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.id.alphadecimal}"}
+      shorty = {:url => short_url.url, :short_url => "#{t('app_host')}/#{short_url.shorten}"}
     else
       shorty = {:error => t('no_record_found')}
     end

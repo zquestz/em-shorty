@@ -28,9 +28,12 @@ class TestShortyApp < Test::Unit::TestCase
   end
     
   def test_post_valid_new_url
-    post '/', :url => "http://involver.com"
+    url = "http://involver.com"
+    post '/', :url => url
     assert last_response.ok?
-    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    shorty_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil shorty_url
+    matchers = ["/#{shorty_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('app_host'), I18n.translate('url_shortened', :original_url => "http://involver.com"), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
