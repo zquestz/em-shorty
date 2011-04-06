@@ -52,7 +52,8 @@ class ShortyApp < Sinatra::Base
     format = params[:format]
     if @short_url.valid?
       unless format.blank?
-        (redirect "/#{@short_url.shorten}.#{format}") if API_FORMATS.include?(format.to_sym)
+        @short_url.increment!("#{format}_count")
+        (return eval("api_object(@short_url).to_#{format}")) if API_FORMATS.include?(format.to_sym)
       end
       @flash = {}
       @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
@@ -74,7 +75,7 @@ class ShortyApp < Sinatra::Base
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
         short_url.increment!("#{format}_count")
-        shorty = {:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}
+        shorty = api_object(short_url)
       else
         shorty = {:error => t('no_record_found')}
       end
@@ -110,6 +111,10 @@ class ShortyApp < Sinatra::Base
   helpers do
     def current_url
       "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+    end
+    
+    def api_object(short_url)
+      {:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}
     end
   end
 

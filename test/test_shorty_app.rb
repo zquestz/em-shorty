@@ -48,7 +48,6 @@ class TestShortyApp < Test::Unit::TestCase
   def test_post_valid_new_url_json
     url = "http://involver.com"
     post '/', {:url => url, :format => 'json'}
-    follow_redirect!
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
@@ -61,7 +60,6 @@ class TestShortyApp < Test::Unit::TestCase
   def test_post_valid_new_url_xml
     url = "http://involver.com"
     post '/', {:url => url, :format => 'xml'}
-    follow_redirect!
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
@@ -74,7 +72,6 @@ class TestShortyApp < Test::Unit::TestCase
   def test_post_valid_new_url_yaml
     url = "http://involver.com"
     post '/', {:url => url, :format => 'yaml'}
-    follow_redirect!
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
