@@ -169,6 +169,7 @@ class TestShortyApp < Test::Unit::TestCase
   
   def test_404
     get "/fake/path"
+    assert_equal 404, last_response.status
     assert last_response.body.include?(I18n.translate('http_not_found'))
   end
   
