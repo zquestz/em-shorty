@@ -21,11 +21,14 @@ require 'less'
 require 'shortened_url'
 require 'resolv'
 require 'mime/types'
-require 'em-resolv-replace' if Sinatra::Application.environment == :production
+
+# Conditional require's based on environment.
+ENVIRONMENT = Sinatra::Application.environment 
+require 'em-resolv-replace' if ENVIRONMENT == :production
 
 configure do  
   def db_config
-    YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[Sinatra::Application.environment.to_s]
+    YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[ENVIRONMENT.to_s]
   end
 
   # Establish connection and set logging level.
@@ -35,7 +38,7 @@ end
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 if ShortyApp.environment == :production
+  use Rack::FiberPool, :size => 100 if ENVIRONMENT == :production
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')

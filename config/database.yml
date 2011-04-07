@@ -9,7 +9,7 @@ test:
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
-  
+
 production:
   adapter: em_mysql2
   database: em_shorty
