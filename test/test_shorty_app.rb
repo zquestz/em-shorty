@@ -22,6 +22,12 @@ class TestShortyApp < Test::Unit::TestCase
     end
   end
   
+  def test_main_css
+    get '/main.css'
+    assert last_response.ok?
+    assert last_response.body.include?('background')
+  end
+  
   def test_focus
     get '/'
     assert last_response.ok?
@@ -97,6 +103,24 @@ class TestShortyApp < Test::Unit::TestCase
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
+  end
+  
+  def test_post_invalid_new_url_json
+    post '/', {:url => "blah", :format => 'json'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_json), last_response.body
+  end
+  
+  def test_post_invalid_new_url_xml
+    post '/', {:url => "blah", :format => 'xml'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_xml), last_response.body
+  end
+  
+  def test_post_invalid_new_url_yaml
+    post '/', {:url => "blah", :format => 'yaml'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_yaml), last_response.body
   end
   
   def test_url_redirect

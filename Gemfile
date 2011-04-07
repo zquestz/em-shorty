@@ -14,3 +14,4 @@ gem 'rack-test'
 gem 'mime-types'
 gem 'em-resolv-replace'
 gem 'sqlite3'
+gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
