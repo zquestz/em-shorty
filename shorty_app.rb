@@ -74,7 +74,10 @@ class ShortyApp < Sinatra::Base
       @flash = {}
       @flash[:error] = t('enter_valid_url')
       unless format.blank?
-        return eval("{:error => @flash[:error]}.to_#{format}") if API_FORMATS.include?(format.to_sym)
+        if API_FORMATS.include?(format.to_sym)
+          content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+          return eval("{:error => @flash[:error]}.to_#{format}")
+        end
       end
       haml :index
     end
@@ -85,12 +88,12 @@ class ShortyApp < Sinatra::Base
     if API_FORMATS.include?(format.to_sym)
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
-        content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
         short_url.increment!("#{format}_count")
         shorty = api_object(short_url)
       else
         shorty = {:error => t('no_record_found')}
       end
+      content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
       return eval("shorty.to_#{format}")
     end
   end
