@@ -33,7 +33,7 @@ ActiveRecord::Base.logger.level = Logger::INFO
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 1024 if ShortyApp.environment == :production
+  use Rack::FiberPool if ShortyApp.environment == :production
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')

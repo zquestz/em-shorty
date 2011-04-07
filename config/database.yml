@@ -11,7 +11,7 @@ test:
   timeout: 5000
   
 production:
-  adapter: em_mysql2
+  adapter: mysql2
   database: em_shorty
   encoding: utf8
   pool: 5
