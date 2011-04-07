@@ -20,6 +20,7 @@ require 'alphadecimal'
 require 'less'
 require 'shortened_url'
 require 'resolv'
+require 'mime/types'
 require 'em-resolv-replace' if Sinatra::Application.environment == :production
 
 def db_config
@@ -34,7 +35,7 @@ ActiveRecord::Base.logger.level = Logger::INFO
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool if ShortyApp.environment == :production
+  use Rack::FiberPool, :size => 1024 if ShortyApp.environment == :production
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
@@ -56,8 +57,11 @@ class ShortyApp < Sinatra::Base
     format = params[:format]
     if @short_url.valid?
       unless format.blank?
-        @short_url.increment!("#{format}_count")
-        (return eval("api_object(@short_url).to_#{format}")) if API_FORMATS.include?(format.to_sym)
+        if API_FORMATS.include?(format.to_sym)
+          @short_url.increment!("#{format}_count")
+          content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+          return eval("api_object(@short_url).to_#{format}")
+        end
       end
       @flash = {}
       @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
@@ -78,6 +82,7 @@ class ShortyApp < Sinatra::Base
     if API_FORMATS.include?(format.to_sym)
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
+        content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
         short_url.increment!("#{format}_count")
         shorty = api_object(short_url)
       else
