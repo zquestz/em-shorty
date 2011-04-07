@@ -17,4 +17,4 @@ production:
   pool: 100
   username: root
   password: root
-  socket: /opt/local/var/run/mysql5/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
