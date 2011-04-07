@@ -1,10 +1,16 @@
+em-shorty 0.3.0
+
 One of many url shortening apps out there. Was inspired by an article I read at:
 
 http://screencasts.org/episodes/activerecord-with-sinatra
 
+This project is currently live at:
+
+http://emlink.me
+
 I added quite a few things.
 
-1. Now uses rack-fiber_pool for async requests.
+1. Now uses rack-fiber_pool, em_mysql2, and em-resolv-replace for async requests.
 2. Fully localized with i18n
 3. Templates are flushed out and look good.
 4. Added bundler and rvm support.
