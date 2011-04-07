@@ -27,10 +27,8 @@ def db_config
   YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[Sinatra::Application.environment.to_s]
 end
 
+# Establish connection and set logging level.
 ActiveRecord::Base.establish_connection(db_config)
-
-# Get rid of debug output in ActiveRecord...
-# What a terrible default.
 ActiveRecord::Base.logger.level = Logger::INFO
 
 # Main application class.
