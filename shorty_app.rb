@@ -10,10 +10,6 @@ raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
 # Add lib directory to load path
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
-if ENV['RACK_ENV'] == 'production'
-  ENV['DATABASE_URL'] = "mysql2://root:root@localhost:3306/em_shorty"
-end
-
 # Require needed libs
 require 'fiber'
 require 'rack/fiber_pool'
@@ -23,6 +19,14 @@ require 'sinatra/i18n'
 require 'alphadecimal'
 require 'less'
 require 'shortened_url'
+require 'resolv'
+require 'em-resolv-replace' unless Sinatra::Application.environment == :test
+
+def db_config
+  YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[Sinatra::Application.environment.to_s]
+end
+
+ActiveRecord::Base.establish_connection(db_config)
 
 # Get rid of debug output in ActiveRecord...
 # What a terrible default.
@@ -30,7 +34,7 @@ ActiveRecord::Base.logger.level = Logger::INFO
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 unless ENV['RACK_ENV'] == 'test'
+  use Rack::FiberPool unless ShortyApp.environment == :test
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')

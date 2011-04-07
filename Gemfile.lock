@@ -15,6 +15,7 @@ GEM
     arel (2.0.9)
     builder (2.1.2)
     daemons (1.1.2)
+    em-resolv-replace (1.1.1)
     eventmachine (0.12.10)
     haml (3.0.25)
     i18n (0.5.0)
@@ -50,6 +51,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   alphadecimal
+  em-resolv-replace
   haml
   less
   mime-types
