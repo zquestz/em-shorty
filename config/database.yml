@@ -11,10 +11,10 @@ test:
   timeout: 5000
   
 production:
-  adapter: mysql2
+  adapter: em_mysql2
   database: em_shorty
   encoding: utf8
-  pool: 5
+  pool: 100
   username: root
   password: root
   socket: /opt/local/var/run/mysql5/mysqld.sock

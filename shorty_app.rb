@@ -23,17 +23,19 @@ require 'resolv'
 require 'mime/types'
 require 'em-resolv-replace' if Sinatra::Application.environment == :production
 
-def db_config
-  YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[Sinatra::Application.environment.to_s]
-end
+configure do  
+  def db_config
+    YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[Sinatra::Application.environment.to_s]
+  end
 
-# Establish connection and set logging level.
-ActiveRecord::Base.establish_connection(db_config)
-ActiveRecord::Base.logger.level = Logger::INFO
+  # Establish connection and set logging level.
+  ActiveRecord::Base.establish_connection(db_config)
+  ActiveRecord::Base.logger.level = Logger::INFO
+end
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool if ShortyApp.environment == :production
+  use Rack::FiberPool, :size => 100 if ShortyApp.environment == :production
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
