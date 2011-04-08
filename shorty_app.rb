@@ -62,13 +62,11 @@ class ShortyApp < Sinatra::Base
           return eval("api_object(@short_url).to_#{format}")
         end
       end
-      @flash = {}
-      @flash[:notice] = I18n.translate(:url_shortened, :original_url => params[:url])
+      @flash = {:notice => I18n.translate(:url_shortened, :original_url => params[:url])}
       @viewed_url = "#{current_url}/#{@short_url.shorten}"
       haml :success
     else
-      @flash = {}
-      @flash[:error] = t('enter_valid_url')
+      @flash = {:error => t('enter_valid_url')}
       unless format.blank?
         if API_FORMATS.include?(format.to_sym)
           content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
@@ -101,21 +99,18 @@ class ShortyApp < Sinatra::Base
       short_url.increment!("redirect_count")
       redirect short_url.url
     else
-      @flash = {}
-      @flash[:error] = t('no_url')
+      @flash = {:error => t('no_url')}
       haml :index
     end
   end
   
   not_found do
-    @flash = {}
-    @flash[:error] = t('http_not_found')
+    @flash = {:error => t('http_not_found')}
     haml :index
   end
 
   error do
-    @flash = {}
-    @flash[:error] = t('http_error')
+    @flash = {:error => t('http_error')}
     haml :index
   end
   
