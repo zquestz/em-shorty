@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-07T23:53:40-07:00">2011-04-07T23:53:40-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-08T00:02:26-07:00">2011-04-08T00:02:26-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -838,7 +838,7 @@
         <pre>31</pre>
       </td>
       <td>
-        <pre>    YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[ENVIRONMENT.to_s]</pre>
+        <pre>    YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s]</pre>
       </td>
       <td class="hits">
         1

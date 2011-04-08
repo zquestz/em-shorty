@@ -28,7 +28,7 @@ require 'em-resolv-replace' unless ENVIRONMENT == :test
 
 configure do  
   def db_config
-    YAML::load(File.read(File.join(File.dirname(__FILE__), 'config', 'database.yml')))[ENVIRONMENT.to_s]
+    YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s]
   end
 
   # Establish connection and set logging level.
