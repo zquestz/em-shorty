@@ -26,16 +26,6 @@ require 'mime/types'
 ENVIRONMENT = Sinatra::Application.environment 
 require 'em-resolv-replace' unless ENVIRONMENT == :test
 
-configure do  
-  def db_config
-    YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s]
-  end
-
-  # Establish connection and set logging level.
-  ActiveRecord::Base.establish_connection(db_config)
-  ActiveRecord::Base.logger.level = Logger::INFO
-end
-
 # Main application class.
 class ShortyApp < Sinatra::Base
   use Rack::FiberPool, :size => 100 unless ENVIRONMENT == :test
@@ -46,6 +36,12 @@ class ShortyApp < Sinatra::Base
   register Sinatra::I18n
   
   API_FORMATS = [:json, :xml, :yaml]
+  
+  configure do  
+    # Establish connection and set logging level.
+    ActiveRecord::Base.establish_connection(YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s])
+    ActiveRecord::Base.logger.level = Logger::INFO
+  end
 
   get '/' do
     haml :index

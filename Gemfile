@@ -1,17 +1,17 @@
-source :gemcutter
+source :rubygems
 
 gem 'thin'
 gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
-gem 'mysql2'
-gem 'rack-fiber_pool'
-gem 'haml'
-gem 'alphadecimal'
-gem 'less'
 gem 'sinatra-i18n'
-gem 'rack-test'
-gem 'mime-types'
-gem 'em-resolv-replace'
+gem 'mysql2'
 gem 'sqlite3'
+gem 'rack-fiber_pool'
+gem 'em-resolv-replace'
+gem 'alphadecimal'
+gem 'mime-types'
+gem 'haml'
+gem 'less'
+gem 'rack-test'
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
