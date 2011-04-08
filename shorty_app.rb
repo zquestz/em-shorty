@@ -122,7 +122,7 @@ class ShortyApp < Sinatra::Base
   
   helpers do
     def cache
-      @cache ||= Dalli::Client.new('127.0.0.1:11211', {:namespace => 'shorty_'})
+      Dalli::Client.new('127.0.0.1:11211', {:namespace => 'shorty_'})
     end
     
     def current_url
