@@ -24,12 +24,11 @@ require 'mime/types'
 require 'dalli'
 
 # Conditional require's based on environment.
-ENVIRONMENT = Sinatra::Application.environment 
-require 'em-resolv-replace' unless ENVIRONMENT == :test
+require 'em-resolv-replace' unless settings.environment == :test
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 unless ENVIRONMENT == :test
+  use Rack::FiberPool, :size => 100 unless settings.environment == :test
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
@@ -39,7 +38,7 @@ class ShortyApp < Sinatra::Base
   API_FORMATS = [:json, :xml, :yaml]
   
   configure do
-    ActiveRecord::Base.establish_connection(YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s])
+    ActiveRecord::Base.establish_connection(YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s])
     ActiveRecord::Base.logger.level = Logger::INFO
   end
 
