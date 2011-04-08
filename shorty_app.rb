@@ -24,7 +24,7 @@ require 'mime/types'
 
 # Conditional require's based on environment.
 ENVIRONMENT = Sinatra::Application.environment 
-require 'em-resolv-replace' if ENVIRONMENT == :production
+require 'em-resolv-replace' unless ENVIRONMENT == :test
 
 configure do  
   def db_config
@@ -38,7 +38,7 @@ end
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 if ENVIRONMENT == :production
+  use Rack::FiberPool, :size => 100 unless ENVIRONMENT == :test
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
