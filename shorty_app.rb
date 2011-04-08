@@ -21,6 +21,7 @@ require 'less'
 require 'shortened_url'
 require 'resolv'
 require 'mime/types'
+require 'dalli'
 
 # Conditional require's based on environment.
 ENVIRONMENT = Sinatra::Application.environment 
@@ -51,55 +52,61 @@ class ShortyApp < Sinatra::Base
   end
     
   post '/' do
-    @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
-    format = params[:format]
-    if @short_url.valid?
-      unless format.blank?
-        if API_FORMATS.include?(format.to_sym)
-          @short_url.increment!("#{format}_count")
-          content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-          return eval("api_object(@short_url).to_#{format}")
+    cache.fetch "post_#{params[:url]}_#{params[:format]}" do
+      @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
+      format = params[:format]
+      if @short_url.valid?
+        unless format.blank?
+          if API_FORMATS.include?(format.to_sym)
+            @short_url.increment!("#{format}_count")
+            content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+            return eval("api_object(@short_url).to_#{format}")
+          end
         end
-      end
-      @flash = {:notice => I18n.translate(:url_shortened, :original_url => params[:url])}
-      @viewed_url = "#{current_url}/#{@short_url.shorten}"
-      haml :success
-    else
-      @flash = {:error => t('enter_valid_url')}
-      unless format.blank?
-        if API_FORMATS.include?(format.to_sym)
-          content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-          return eval("{:error => @flash[:error]}.to_#{format}")
+        @flash = {:notice => I18n.translate(:url_shortened, :original_url => params[:url])}
+        @viewed_url = "#{current_url}/#{@short_url.shorten}"
+        haml :success
+      else
+        @flash = {:error => t('enter_valid_url')}
+        unless format.blank?
+          if API_FORMATS.include?(format.to_sym)
+            content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+            return eval("{:error => @flash[:error]}.to_#{format}")
+          end
         end
+        haml :index
       end
-      haml :index
     end
   end
   
   get '/:shortened.:format' do
-    format = params[:format]
-    if API_FORMATS.include?(format.to_sym)
-      short_url = ShortenedUrl.find_by_shortened(params[:shortened])
-      if short_url
-        short_url.increment!("#{format}_count")
-        shorty = api_object(short_url)
-      else
-        shorty = {:error => t('no_record_found')}
+    cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}", 60 do
+      format = params[:format]
+      if API_FORMATS.include?(format.to_sym)
+        short_url = ShortenedUrl.find_by_shortened(params[:shortened])
+        if short_url
+          short_url.increment!("#{format}_count")
+          shorty = api_object(short_url)
+        else
+          shorty = {:error => t('no_record_found')}
+        end
+        content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
+        return eval("shorty.to_#{format}")
       end
-      content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
-      return eval("shorty.to_#{format}")
     end
   end
   
   get '/:shortened' do
-    return if params[:shortened].index('.')
-    short_url = ShortenedUrl.find_by_shortened(params[:shortened])
-    if short_url
-      short_url.increment!("redirect_count")
-      redirect short_url.url
-    else
-      @flash = {:error => t('no_url')}
-      haml :index
+    cache.fetch "redirect_#{request.ip}_#{params[:shortened]}", 60 do
+      return if params[:shortened].index('.')
+      short_url = ShortenedUrl.find_by_shortened(params[:shortened])
+      if short_url
+        short_url.increment!("redirect_count")
+        redirect short_url.url
+      else
+        @flash = {:error => t('no_url')}
+        haml :index
+      end
     end
   end
   
@@ -114,8 +121,12 @@ class ShortyApp < Sinatra::Base
   end
   
   helpers do
+    def cache
+      @cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
+    end
+    
     def current_url
-      "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+      @current_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
     end
     
     def api_object(short_url)

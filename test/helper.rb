@@ -11,3 +11,5 @@ SimpleCov.start
 require 'shorty_app'
 require 'test/unit'
 require 'rack/test'
+
+Dalli::Client.new('localhost:11211').flush
