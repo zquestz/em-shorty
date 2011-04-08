@@ -37,8 +37,7 @@ class ShortyApp < Sinatra::Base
   
   API_FORMATS = [:json, :xml, :yaml]
   
-  configure do  
-    # Establish connection and set logging level.
+  configure do
     ActiveRecord::Base.establish_connection(YAML.load_file(File.join('config', 'database.yml'))[ENVIRONMENT.to_s])
     ActiveRecord::Base.logger.level = Logger::INFO
   end
