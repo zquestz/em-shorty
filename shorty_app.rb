@@ -48,6 +48,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/main.css' do
+    content_type 'text/css', :charset => 'utf-8'
     less :main
   end
     
