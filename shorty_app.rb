@@ -52,7 +52,7 @@ class ShortyApp < Sinatra::Base
   end
     
   post '/' do
-    cache.fetch "post_#{params[:url]}_#{params[:format]}" do
+    cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}", 60 do
       @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
       format = params[:format]
       if @short_url.valid?
@@ -122,11 +122,11 @@ class ShortyApp < Sinatra::Base
   
   helpers do
     def cache
-      @cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
+      @@cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
     end
     
     def current_url
-      @current_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+      @@current_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
     end
     
     def api_object(short_url)
