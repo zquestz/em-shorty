@@ -122,11 +122,11 @@ class ShortyApp < Sinatra::Base
   
   helpers do
     def cache
-      @@cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
+      @cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
     end
     
     def current_url
-      @@current_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+      @current_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
     end
     
     def api_object(short_url)
