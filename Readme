@@ -18,6 +18,7 @@ I added quite a few things.
 6. Battery of Unit Tests.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
 8. XML, JSON, YAML support.
+9. Dalli for speedy memcache support.
 
 To run the tests:
 
