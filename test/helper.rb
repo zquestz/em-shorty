@@ -12,4 +12,5 @@ require 'shorty_app'
 require 'test/unit'
 require 'rack/test'
 
+# Flush memcache before tests.
 Dalli::Client.new('localhost:11211').flush

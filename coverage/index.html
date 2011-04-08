@@ -21,21 +21,21 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-08T03:20:27-07:00">2011-04-08T03:20:27-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-08T03:21:43-07:00">2011-04-08T03:21:43-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">99.16%</span>)
+    (<span class="red">73.0%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>3</b> files in total.
     <b>237</b> relevant lines. 
-    <span class="green"><b>235</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <span class="green"><b>173</b> lines covered</span> and
+    <span class="red"><b>64</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -70,11 +70,11 @@
       
       <tr>
         <td><a href="#0d8a61662dcd0fb3d6936afed0bad39825f8cacf" class="src_link" title="./test/test_shorty_app.rb">./test/test_shorty_app.rb</a></td>
-        <td class="green">100.0 %</td>
+        <td class="red">57.24 %</td>
         <td>201</td>
         <td>145</td>
-        <td>145</td>
-        <td>0</td>
+        <td>83</td>
+        <td>62</td>
       </tr>
       
     </tbody>
@@ -227,7 +227,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="22">
+    <tr class="hit" data-hits="15">
       <td class="line_number">
         <pre>10</pre>
       </td>
@@ -235,7 +235,7 @@
         <pre>    self.id.alphadecimal</pre>
       </td>
       <td class="hits">
-        22
+        15
       </td>
     </tr>
   
@@ -370,7 +370,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="12">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>21</pre>
       </td>
@@ -378,7 +378,7 @@
         <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
       </td>
       <td class="hits">
-        12
+        4
       </td>
     </tr>
   
@@ -1028,7 +1028,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="2">
       <td class="line_number">
         <pre>46</pre>
       </td>
@@ -1036,7 +1036,7 @@
         <pre>    haml :index</pre>
       </td>
       <td class="hits">
-        3
+        2
       </td>
     </tr>
   
@@ -2233,7 +2233,7 @@
     <tr>
       <td colspan="3">
         <h3>./test/test_shorty_app.rb</h3>
-        <h4><span class="green">100.0 %</span> covered</h4>
+        <h4><span class="red">57.24 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -2401,7 +2401,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="7">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>13</pre>
       </td>
@@ -2409,7 +2409,7 @@
         <pre>    &quot;#{last_request.env['rack.url_scheme']}://#{last_request.env['HTTP_HOST']}&quot;</pre>
       </td>
       <td class="hits">
-        7
+        0
       </td>
     </tr>
   
@@ -2479,7 +2479,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>19</pre>
       </td>
@@ -2487,12 +2487,12 @@
         <pre>    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('shorten_button'), 'url.value.length &gt; 0 ? true : false', 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>20</pre>
       </td>
@@ -2500,12 +2500,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="10">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>21</pre>
       </td>
@@ -2513,7 +2513,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        10
+        0
       </td>
     </tr>
   
@@ -2596,7 +2596,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>28</pre>
       </td>
@@ -2604,7 +2604,7 @@
         <pre>    assert last_response.body.include?('background')</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -2674,7 +2674,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>34</pre>
       </td>
@@ -2682,12 +2682,12 @@
         <pre>    matchers = [&quot;document.getElementById('url')&quot;, &quot;url.focus();&quot;]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>35</pre>
       </td>
@@ -2695,12 +2695,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="2">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>36</pre>
       </td>
@@ -2708,7 +2708,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        2
+        0
       </td>
     </tr>
   
@@ -2804,7 +2804,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>44</pre>
       </td>
@@ -2812,12 +2812,12 @@
         <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>45</pre>
       </td>
@@ -2825,12 +2825,12 @@
         <pre>    assert_not_nil short_url</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>46</pre>
       </td>
@@ -2838,12 +2838,12 @@
         <pre>    assert_equal short_url.count, 0</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>47</pre>
       </td>
@@ -2851,12 +2851,12 @@
         <pre>    matchers = [&quot;/#{short_url.shorten}&quot;, I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url =&gt; &quot;http://involver.com&quot;), 'main.css', 'favicon.png', 'logo.png', 'http://involver.com', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>48</pre>
       </td>
@@ -2864,12 +2864,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="13">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>49</pre>
       </td>
@@ -2877,7 +2877,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        13
+        0
       </td>
     </tr>
   
@@ -2895,7 +2895,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>51</pre>
       </td>
@@ -2903,7 +2903,7 @@
         <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -2986,7 +2986,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>58</pre>
       </td>
@@ -2994,12 +2994,12 @@
         <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>59</pre>
       </td>
@@ -3007,12 +3007,12 @@
         <pre>    assert_not_nil short_url</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>60</pre>
       </td>
@@ -3020,12 +3020,12 @@
         <pre>    assert_equal short_url.count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>61</pre>
       </td>
@@ -3033,12 +3033,12 @@
         <pre>    assert_equal short_url.json_count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>62</pre>
       </td>
@@ -3046,12 +3046,12 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_json), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>63</pre>
       </td>
@@ -3059,7 +3059,7 @@
         <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3142,7 +3142,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>70</pre>
       </td>
@@ -3150,12 +3150,12 @@
         <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>71</pre>
       </td>
@@ -3163,12 +3163,12 @@
         <pre>    assert_not_nil short_url</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>72</pre>
       </td>
@@ -3176,12 +3176,12 @@
         <pre>    assert_equal short_url.count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>73</pre>
       </td>
@@ -3189,12 +3189,12 @@
         <pre>    assert_equal short_url.xml_count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>74</pre>
       </td>
@@ -3202,12 +3202,12 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_xml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>75</pre>
       </td>
@@ -3215,7 +3215,7 @@
         <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3298,7 +3298,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>82</pre>
       </td>
@@ -3306,12 +3306,12 @@
         <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>83</pre>
       </td>
@@ -3319,12 +3319,12 @@
         <pre>    assert_not_nil short_url</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>84</pre>
       </td>
@@ -3332,12 +3332,12 @@
         <pre>    assert_equal short_url.count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>85</pre>
       </td>
@@ -3345,12 +3345,12 @@
         <pre>    assert_equal short_url.yaml_count, 1</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>86</pre>
       </td>
@@ -3358,12 +3358,12 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_yaml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>87</pre>
       </td>
@@ -3371,7 +3371,7 @@
         <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3441,7 +3441,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>93</pre>
       </td>
@@ -3449,12 +3449,12 @@
         <pre>    matchers = [&quot;ZeroClipboard.min.js&quot;, &quot;ZeroClipboard.setMoviePath('ZeroClipboard10.swf');&quot;, &quot;function setupZeroClipboard()&quot;, &quot;clip = new ZeroClipboard.Client();&quot;, &quot;clip.setText&quot;, &quot;clip.setHandCursor(true);&quot;, &quot;clip.glue('clip_button', 'clip_container');&quot;]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>94</pre>
       </td>
@@ -3462,12 +3462,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="7">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>95</pre>
       </td>
@@ -3475,7 +3475,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        7
+        0
       </td>
     </tr>
   
@@ -3558,7 +3558,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>102</pre>
       </td>
@@ -3566,12 +3566,12 @@
         <pre>    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('enter_valid_url'), 'main.css', 'favicon.png', 'logo.png', 'error', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>103</pre>
       </td>
@@ -3579,12 +3579,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>104</pre>
       </td>
@@ -3592,7 +3592,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        8
+        0
       </td>
     </tr>
   
@@ -3675,7 +3675,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>111</pre>
       </td>
@@ -3683,7 +3683,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('enter_valid_url')}.to_json), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3753,7 +3753,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>117</pre>
       </td>
@@ -3761,7 +3761,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('enter_valid_url')}.to_xml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3831,7 +3831,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>123</pre>
       </td>
@@ -3839,7 +3839,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('enter_valid_url')}.to_yaml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3935,7 +3935,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>131</pre>
       </td>
@@ -3943,12 +3943,12 @@
         <pre>    assert last_response.ok?</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>132</pre>
       </td>
@@ -3956,12 +3956,12 @@
         <pre>    assert_equal short_url.reload.count, (old_count + 1) </pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>133</pre>
       </td>
@@ -3969,12 +3969,12 @@
         <pre>    assert_equal short_url.redirect_count, (old_count + 1) </pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>134</pre>
       </td>
@@ -3982,7 +3982,7 @@
         <pre>    assert_equal short_url.url, last_request.url</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4065,7 +4065,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>141</pre>
       </td>
@@ -4073,12 +4073,12 @@
         <pre>    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('no_url'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', 'error', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>142</pre>
       </td>
@@ -4086,12 +4086,12 @@
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="10">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>143</pre>
       </td>
@@ -4099,7 +4099,7 @@
         <pre>      assert last_response.body.include?(match)</pre>
       </td>
       <td class="hits">
-        10
+        0
       </td>
     </tr>
   
@@ -4208,7 +4208,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>152</pre>
       </td>
@@ -4216,12 +4216,12 @@
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>153</pre>
       </td>
@@ -4229,12 +4229,12 @@
         <pre>    assert_equal short_url.reload.xml_count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>154</pre>
       </td>
@@ -4242,7 +4242,7 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_xml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4338,7 +4338,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>162</pre>
       </td>
@@ -4346,12 +4346,12 @@
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>163</pre>
       </td>
@@ -4359,12 +4359,12 @@
         <pre>    assert_equal short_url.reload.json_count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>164</pre>
       </td>
@@ -4372,7 +4372,7 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_json), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4468,7 +4468,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>172</pre>
       </td>
@@ -4476,12 +4476,12 @@
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>173</pre>
       </td>
@@ -4489,12 +4489,12 @@
         <pre>    assert_equal short_url.reload.yaml_count, (old_count + 1)</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>174</pre>
       </td>
@@ -4502,7 +4502,7 @@
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_yaml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4572,7 +4572,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>180</pre>
       </td>
@@ -4580,7 +4580,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_xml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4650,7 +4650,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>186</pre>
       </td>
@@ -4658,7 +4658,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_json), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4728,7 +4728,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>192</pre>
       </td>
@@ -4736,7 +4736,7 @@
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_yaml), last_response.body</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -4806,7 +4806,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>198</pre>
       </td>
@@ -4814,7 +4814,7 @@
         <pre>    assert last_response.body.include?(I18n.translate('http_not_found'))</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
