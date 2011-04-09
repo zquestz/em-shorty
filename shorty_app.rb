@@ -5,7 +5,7 @@
 # http://localhost:3000/
 
 # Raise an error if we don't have a compatible ruby version.
-raise LoadError, "Ruby 1.9.2 required" if RUBY_VERSION < '1.9.2'
+raise LoadError, 'Ruby 1.9.2 required' if RUBY_VERSION < '1.9.2'
 
 # Add lib directory to load path
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
@@ -48,7 +48,7 @@ class ShortyApp < Sinatra::Base
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end
-
+  
   get '/' do
     cache_control :public, :must_revalidate, :max_age => 3600
     haml :index
@@ -112,7 +112,7 @@ class ShortyApp < Sinatra::Base
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
-        short_url.increment!("redirect_count")
+        short_url.increment!('redirect_count')
         redirect short_url.url
       else
         @flash = {:error => t('no_url')}
@@ -138,6 +138,10 @@ class ShortyApp < Sinatra::Base
       else
         CacheProxy.new()
       end
+    end
+    
+    def flush_cache
+      cache.flush
     end
     
     def current_url

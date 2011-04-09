@@ -12,5 +12,6 @@ require 'shorty_app'
 require 'test/unit'
 require 'rack/test'
 
-# Flush memcache before tests.
-Dalli::Client.new('localhost:11211').flush
+# Cleanup data sources
+ShortenedUrl.all.map(&:delete)
+ShortyApp.new.flush_cache

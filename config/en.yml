@@ -1,10 +1,10 @@
 en:
-  app_name: "em-shorty"
-  enter_valid_url: "Please enter a valid URL" 
-  no_url: "URL is invalid"
+  app_name: em-shorty
+  enter_valid_url: Please enter a valid URL
+  no_url: URL is invalid
   url_shortened: "%{original_url} has been shortened"
-  no_record_found: "No record found"
-  source_url: "http://github.com/zquestz/em-shorty"
-  shorten_button: "Shorten URL"
-  http_not_found: "404 - Page Not Found"
-  http_error: "500 - An Error Has Occurred"
+  no_record_found: No record found
+  source_url: http://github.com/zquestz/em-shorty
+  shorten_button: Shorten URL
+  http_not_found: 404 - Page Not Found
+  http_error: 500 - An Error Has Occurred

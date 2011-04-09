@@ -17,10 +17,7 @@ class ShortenedUrl < ActiveRecord::Base
     nil
   end
   
-  def sleep
-    query("select sleep(1)")
-  end
-  
+  # Total access count of all api requests and redirects
   def total_count
     redirect_count + json_count + xml_count + yaml_count
   end
