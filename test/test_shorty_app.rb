@@ -198,4 +198,16 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.body.include?(I18n.translate('http_not_found'))
   end
   
+  def test_memcached
+    shorty = ShortyApp.new
+    shorty.settings.caching = true
+    assert_equal shorty.cache.class, Dalli::Client
+  end
+  
+  def test_cache_proxy
+    shorty = ShortyApp.new
+    shorty.settings.caching = false
+    assert_equal shorty.cache.class, CacheProxy
+  end
+  
 end

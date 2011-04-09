@@ -19,6 +19,7 @@ require 'sinatra/i18n'
 require 'alphadecimal'
 require 'less'
 require 'shortened_url'
+require 'cache_proxy'
 require 'resolv'
 require 'mime/types'
 require 'dalli'
@@ -32,6 +33,7 @@ class ShortyApp < Sinatra::Base
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
+  set :caching, true
   set :api_formats, [:json, :xml, :yaml]
   set :memcached, 'localhost:11211'
   set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', 
@@ -133,7 +135,11 @@ class ShortyApp < Sinatra::Base
   
   helpers do
     def cache
-      @cache ||= Dalli::Client.new(settings.memcached, {:namespace => 'shorty_'})
+      @cache ||= if settings.caching
+        Dalli::Client.new(settings.memcached, {:namespace => 'shorty_'})
+      else
+        CacheProxy.new()
+      end
     end
     
     def current_url
