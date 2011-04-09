@@ -32,17 +32,16 @@ class ShortyApp < Sinatra::Base
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
+  set :api_formats, [:json, :xml, :yaml]
+  set :sockets, [ '/opt/local/var/run/mysql5/mysqld.sock', 
+              '/var/run/mysqld/mysqld.sock', 
+              '/tmp/mysql.sock' ]
 
   register Sinatra::I18n
   
-  API_FORMATS = [:json, :xml, :yaml]
-  SOCKETS = [ '/opt/local/var/run/mysql5/mysqld.sock', 
-              '/var/run/mysqld/mysqld.sock', 
-              '/tmp/mysql.sock' ]
-  
   configure do
     db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]
-    db_config.merge!({'socket' => SOCKETS.find { |f| File.exist? f } }) if db_config['socket']
+    db_config.merge!({'socket' => setting.sockets.find { |f| File.exist? f } }) if db_config['socket']
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end
@@ -64,7 +63,7 @@ class ShortyApp < Sinatra::Base
       format = params[:format]
       if @short_url.valid?
         unless format.blank?
-          if API_FORMATS.include?(format.to_sym)
+          if settings.api_formats.include?(format.to_sym)
             @short_url.increment!("#{format}_count")
             content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
             return eval("api_object(@short_url).to_#{format}")
@@ -76,7 +75,7 @@ class ShortyApp < Sinatra::Base
       else
         @flash = {:error => t('enter_valid_url')}
         unless format.blank?
-          if API_FORMATS.include?(format.to_sym)
+          if settings.api_formats.include?(format.to_sym)
             content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
             return eval("{:error => @flash[:error]}.to_#{format}")
           end
@@ -90,7 +89,7 @@ class ShortyApp < Sinatra::Base
     cache_control :public, :must_revalidate, :max_age => 60
     cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}", 60 do
       format = params[:format]
-      if API_FORMATS.include?(format.to_sym)
+      if settings.api_formats.include?(format.to_sym)
         short_url = ShortenedUrl.find_by_shortened(params[:shortened])
         if short_url
           short_url.increment!("#{format}_count")
