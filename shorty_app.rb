@@ -24,11 +24,11 @@ require 'mime/types'
 require 'dalli'
 
 # Conditional require's based on environment.
-require 'em-resolv-replace' unless settings.environment == :test
+require 'em-resolv-replace' unless test?
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 unless settings.environment == :test
+  use Rack::FiberPool, :size => 100 unless test?
 
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')

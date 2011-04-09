@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-08T09:58:44-07:00">2011-04-08T09:58:44-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-08T20:51:08-07:00">2011-04-08T20:51:08-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -786,7 +786,7 @@
         <pre>27</pre>
       </td>
       <td>
-        <pre>require 'em-resolv-replace' unless settings.environment == :test</pre>
+        <pre>require 'em-resolv-replace' unless test?</pre>
       </td>
       <td class="hits">
         1
@@ -838,7 +838,7 @@
         <pre>31</pre>
       </td>
       <td>
-        <pre>  use Rack::FiberPool, :size =&gt; 100 unless settings.environment == :test</pre>
+        <pre>  use Rack::FiberPool, :size =&gt; 100 unless test?</pre>
       </td>
       <td class="hits">
         1
@@ -2060,7 +2060,7 @@
         <pre>125</pre>
       </td>
       <td>
-        <pre>      @@cache ||= Dalli::Client.new('localhost:11211', {:namespace =&gt; 'shorty_'})</pre>
+        <pre>      @cache ||= Dalli::Client.new('localhost:11211', {:namespace =&gt; 'shorty_'})</pre>
       </td>
       <td class="hits">
         17
@@ -2112,7 +2112,7 @@
         <pre>129</pre>
       </td>
       <td>
-        <pre>      @@current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
+        <pre>      @current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
       </td>
       <td class="hits">
         7
