@@ -21,21 +21,21 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T02:43:53-07:00">2011-04-09T02:43:53-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T02:48:03-07:00">2011-04-09T02:48:03-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">98.6%</span>)
+    (<span class="green">98.94%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>286</b> relevant lines. 
-    <span class="green"><b>282</b> lines covered</span> and
-    <span class="red"><b>4</b> lines missed </span>
+    <b>284</b> relevant lines. 
+    <span class="green"><b>281</b> lines covered</span> and
+    <span class="red"><b>3</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -70,11 +70,11 @@
       
       <tr>
         <td><a href="#1409cadf89cec1fb8a0af5a17da83e83a7bb2d73" class="src_link" title="./shorty_app.rb">./shorty_app.rb</a></td>
-        <td class="green">96.81 %</td>
-        <td>154</td>
-        <td>94</td>
-        <td>91</td>
-        <td>3</td>
+        <td class="green">97.83 %</td>
+        <td>152</td>
+        <td>92</td>
+        <td>90</td>
+        <td>2</td>
       </tr>
       
       <tr>
@@ -613,7 +613,7 @@
     <tr>
       <td colspan="3">
         <h3>./shorty_app.rb</h3>
-        <h4><span class="green">96.81 %</span> covered</h4>
+        <h4><span class="green">97.83 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -1228,7 +1228,7 @@
         <pre>47</pre>
       </td>
       <td>
-        <pre>    db_config.merge!({'socket' =&gt; setting.sockets.find { |f| File.exist? f } }) if db_config['socket']</pre>
+        <pre>    db_config.merge!({'socket' =&gt; settings.sockets.find { |f| File.exist? f } }) if db_config['socket']</pre>
       </td>
       <td class="hits">
         1
@@ -2242,7 +2242,7 @@
         <pre>125</pre>
       </td>
       <td>
-        <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 3600</pre>
+        <pre>    @flash = {:error =&gt; t('http_not_found')}</pre>
       </td>
       <td class="hits">
         1
@@ -2255,19 +2255,6 @@
         <pre>126</pre>
       </td>
       <td>
-        <pre>    @flash = {:error =&gt; t('http_not_found')}</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>127</pre>
-      </td>
-      <td>
         <pre>    haml :index</pre>
       </td>
       <td class="hits">
@@ -2278,7 +2265,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>128</pre>
+        <pre>127</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2291,7 +2278,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>129</pre>
+        <pre>128</pre>
       </td>
       <td>
         <pre></pre>
@@ -2304,7 +2291,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>130</pre>
+        <pre>129</pre>
       </td>
       <td>
         <pre>  error do</pre>
@@ -2317,20 +2304,7 @@
     
     <tr class="miss" data-hits="0">
       <td class="line_number">
-        <pre>131</pre>
-      </td>
-      <td>
-        <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 3600</pre>
-      </td>
-      <td class="hits">
-        0
-      </td>
-    </tr>
-  
-    
-    <tr class="miss" data-hits="0">
-      <td class="line_number">
-        <pre>132</pre>
+        <pre>130</pre>
       </td>
       <td>
         <pre>    @flash = {:error =&gt; t('http_error')}</pre>
@@ -2343,7 +2317,7 @@
     
     <tr class="miss" data-hits="0">
       <td class="line_number">
-        <pre>133</pre>
+        <pre>131</pre>
       </td>
       <td>
         <pre>    haml :index</pre>
@@ -2356,7 +2330,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>134</pre>
+        <pre>132</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2369,7 +2343,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>135</pre>
+        <pre>133</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -2382,7 +2356,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>136</pre>
+        <pre>134</pre>
       </td>
       <td>
         <pre>  helpers do</pre>
@@ -2395,7 +2369,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>137</pre>
+        <pre>135</pre>
       </td>
       <td>
         <pre>    def cache</pre>
@@ -2408,7 +2382,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>138</pre>
+        <pre>136</pre>
       </td>
       <td>
         <pre>      @cache ||= if settings.caching</pre>
@@ -2421,7 +2395,7 @@
     
     <tr class="hit" data-hits="16">
       <td class="line_number">
-        <pre>139</pre>
+        <pre>137</pre>
       </td>
       <td>
         <pre>        Dalli::Client.new(settings.memcached, {:namespace =&gt; 'shorty_'})</pre>
@@ -2434,7 +2408,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>140</pre>
+        <pre>138</pre>
       </td>
       <td>
         <pre>      else</pre>
@@ -2447,7 +2421,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>141</pre>
+        <pre>139</pre>
       </td>
       <td>
         <pre>        CacheProxy.new()</pre>
@@ -2460,7 +2434,7 @@
     
     <tr class="hit" data-hits="19">
       <td class="line_number">
-        <pre>142</pre>
+        <pre>140</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -2473,7 +2447,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>143</pre>
+        <pre>141</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2486,7 +2460,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>144</pre>
+        <pre>142</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -2499,7 +2473,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>145</pre>
+        <pre>143</pre>
       </td>
       <td>
         <pre>    def current_url</pre>
@@ -2512,7 +2486,7 @@
     
     <tr class="hit" data-hits="7">
       <td class="line_number">
-        <pre>146</pre>
+        <pre>144</pre>
       </td>
       <td>
         <pre>      @current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
@@ -2525,7 +2499,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>147</pre>
+        <pre>145</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2538,7 +2512,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>148</pre>
+        <pre>146</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -2551,7 +2525,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>149</pre>
+        <pre>147</pre>
       </td>
       <td>
         <pre>    def api_object(short_url)</pre>
@@ -2564,7 +2538,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>150</pre>
+        <pre>148</pre>
       </td>
       <td>
         <pre>      {:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}</pre>
@@ -2577,7 +2551,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>151</pre>
+        <pre>149</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2590,7 +2564,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>152</pre>
+        <pre>150</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2603,7 +2577,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>153</pre>
+        <pre>151</pre>
       </td>
       <td>
         <pre></pre>
@@ -2616,7 +2590,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>154</pre>
+        <pre>152</pre>
       </td>
       <td>
         <pre>end</pre>

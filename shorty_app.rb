@@ -122,13 +122,11 @@ class ShortyApp < Sinatra::Base
   end
   
   not_found do
-    cache_control :public, :must_revalidate, :max_age => 3600
     @flash = {:error => t('http_not_found')}
     haml :index
   end
 
   error do
-    cache_control :public, :must_revalidate, :max_age => 3600
     @flash = {:error => t('http_error')}
     haml :index
   end
