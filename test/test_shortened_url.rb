@@ -1,8 +1,7 @@
 require 'helper'
 
 class TestShortenedUrl < Test::Unit::TestCase
-  include Rack::Test::Methods
-  
+    
   def test_empty_shortened_url
     short_url = ShortenedUrl.new
     assert_equal false, short_url.save
@@ -32,4 +31,5 @@ class TestShortenedUrl < Test::Unit::TestCase
     assert_equal ShortenedUrl.find_by_shortened(short_url.shorten), short_url
     short_url.delete
   end
+  
 end

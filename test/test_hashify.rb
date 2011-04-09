@@ -1,8 +1,7 @@
 require 'helper'
 
 class TestHashify < Test::Unit::TestCase
-  include Rack::Test::Methods
-  
+
   def test_to_md5
     assert_equal Digest::MD5.hexdigest('hi'), 'hi'.to_md5
   end
@@ -34,4 +33,5 @@ class TestHashify < Test::Unit::TestCase
   def hashify_invalid
     assert_nil 'hi'.to_hashify(:error)
   end
+  
 end

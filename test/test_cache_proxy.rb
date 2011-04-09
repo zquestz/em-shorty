@@ -1,7 +1,6 @@
 require 'helper'
 
 class CacheProxyTest < Test::Unit::TestCase
-  include Rack::Test::Methods
   
   def test_fetch_method
     assert_equal 'hi', CacheProxy.new.fetch {'hi'}
@@ -10,4 +9,5 @@ class CacheProxyTest < Test::Unit::TestCase
   def test_flush_method
     assert_nil CacheProxy.new.flush
   end
+
 end
