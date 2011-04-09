@@ -43,10 +43,12 @@ class ShortyApp < Sinatra::Base
   end
 
   get '/' do
+    cache_control :public, :must_revalidate, :max_age => 3600
     haml :index
   end
   
   get '/main.css' do
+    cache_control :public, :must_revalidate, :max_age => 3600
     content_type 'text/css', :charset => 'utf-8'
     less :main
   end
@@ -80,6 +82,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
+    cache_control :public, :must_revalidate, :max_age => 60
     cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}", 60 do
       format = params[:format]
       if API_FORMATS.include?(format.to_sym)
@@ -97,6 +100,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened' do
+    cache_control :public, :must_revalidate, :max_age => 60
     cache.fetch "redirect_#{request.ip}_#{params[:shortened]}", 60 do
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
@@ -111,11 +115,13 @@ class ShortyApp < Sinatra::Base
   end
   
   not_found do
+    cache_control :public, :must_revalidate, :max_age => 3600
     @flash = {:error => t('http_not_found')}
     haml :index
   end
 
   error do
+    cache_control :public, :must_revalidate, :max_age => 3600
     @flash = {:error => t('http_error')}
     haml :index
   end
