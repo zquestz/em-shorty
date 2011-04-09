@@ -21,20 +21,20 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T04:39:53-07:00">2011-04-09T04:39:53-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T04:47:25-07:00">2011-04-09T04:47:25-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">97.81%</span>)
+    (<span class="green">97.8%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>319</b> relevant lines. 
-    <span class="green"><b>312</b> lines covered</span> and
+    <b>318</b> relevant lines. 
+    <span class="green"><b>311</b> lines covered</span> and
     <span class="red"><b>7</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -62,9 +62,9 @@
       <tr>
         <td><a href="#7f5dc5e0e81dc1e0fe3f383cfe48f38e4661be43" class="src_link" title="./lib/hashify.rb">./lib/hashify.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>24</td>
-        <td>11</td>
-        <td>11</td>
+        <td>22</td>
+        <td>10</td>
+        <td>10</td>
         <td>0</td>
       </tr>
       
@@ -367,7 +367,7 @@
         <pre>4</pre>
       </td>
       <td>
-        <pre>  require 'digest/md5'</pre>
+        <pre>  VALID_FORMATS = [:md5, :sha1, :sha2]</pre>
       </td>
       <td class="hits">
         1
@@ -393,33 +393,7 @@
         <pre>6</pre>
       </td>
       <td>
-        <pre>  VALID_FORMATS = [:md5, :sha1, :sha2]</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>7</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>8</pre>
-      </td>
-      <td>
-        <pre>  def hashify(format = :md5)</pre>
+        <pre>  def hashify(format = :sha1)</pre>
       </td>
       <td class="hits">
         1
@@ -429,7 +403,7 @@
     
     <tr class="hit" data-hits="17">
       <td class="line_number">
-        <pre>9</pre>
+        <pre>7</pre>
       </td>
       <td>
         <pre>    eval(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
@@ -442,7 +416,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>10</pre>
+        <pre>8</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -455,7 +429,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>11</pre>
+        <pre>9</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -468,7 +442,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>12</pre>
+        <pre>10</pre>
       </td>
       <td>
         <pre>  def to_md5</pre>
@@ -479,22 +453,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="18">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>13</pre>
+        <pre>11</pre>
       </td>
       <td>
         <pre>    Digest::MD5.hexdigest(self)</pre>
       </td>
       <td class="hits">
-        18
+        1
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>14</pre>
+        <pre>12</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -507,7 +481,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>15</pre>
+        <pre>13</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -520,7 +494,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>16</pre>
+        <pre>14</pre>
       </td>
       <td>
         <pre>  def to_sha1</pre>
@@ -531,22 +505,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="18">
       <td class="line_number">
-        <pre>17</pre>
+        <pre>15</pre>
       </td>
       <td>
         <pre>    Digest::SHA1.hexdigest(self)</pre>
       </td>
       <td class="hits">
-        1
+        18
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>18</pre>
+        <pre>16</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -559,7 +533,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>19</pre>
+        <pre>17</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -572,7 +546,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>20</pre>
+        <pre>18</pre>
       </td>
       <td>
         <pre>  def to_sha2</pre>
@@ -585,7 +559,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>21</pre>
+        <pre>19</pre>
       </td>
       <td>
         <pre>    Digest::SHA2.hexdigest(self)</pre>
@@ -598,7 +572,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>22</pre>
+        <pre>20</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -611,7 +585,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>23</pre>
+        <pre>21</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -624,7 +598,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>24</pre>
+        <pre>22</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -3290,7 +3264,7 @@
         <pre>17</pre>
       </td>
       <td>
-        <pre>  def hashify_default_md5</pre>
+        <pre>  def hashify_default_sha1</pre>
       </td>
       <td class="hits">
         1
@@ -3303,7 +3277,7 @@
         <pre>18</pre>
       </td>
       <td>
-        <pre>    assert_equal 'hi'.hashify, 'hi'.hashify(:md5)</pre>
+        <pre>    assert_equal 'hi'.hashify, 'hi'.hashify(:sha1)</pre>
       </td>
       <td class="hits">
         0

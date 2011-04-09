@@ -14,8 +14,8 @@ class TestHashify < Test::Unit::TestCase
     assert_equal Digest::SHA2.hexdigest('hi'), 'hi'.to_sha2
   end
   
-  def hashify_default_md5
-    assert_equal 'hi'.hashify, 'hi'.hashify(:md5)
+  def hashify_default_sha1
+    assert_equal 'hi'.hashify, 'hi'.hashify(:sha1)
   end
   
   def hashify_md5
