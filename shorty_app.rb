@@ -23,6 +23,7 @@ require 'cache_proxy'
 require 'resolv'
 require 'mime/types'
 require 'dalli'
+require 'hashify'
 
 # Conditional require's based on environment.
 require 'em-resolv-replace' unless test?
@@ -61,7 +62,7 @@ class ShortyApp < Sinatra::Base
   end
     
   post '/' do
-    cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}", 60 do
+    cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, 60 do
       @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
       format = params[:format]
       if @short_url.valid?
@@ -90,7 +91,7 @@ class ShortyApp < Sinatra::Base
   
   get '/:shortened.:format' do
     cache_control :public, :must_revalidate, :max_age => 60
-    cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}", 60 do
+    cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify, 60 do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
         short_url = ShortenedUrl.find_by_shortened(params[:shortened])
@@ -108,7 +109,7 @@ class ShortyApp < Sinatra::Base
   
   get '/:shortened' do
     cache_control :public, :must_revalidate, :max_age => 60
-    cache.fetch "redirect_#{request.ip}_#{params[:shortened]}", 60 do
+    cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify, 60 do
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url

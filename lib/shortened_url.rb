@@ -22,4 +22,5 @@ class ShortenedUrl < ActiveRecord::Base
     redirect_count + json_count + xml_count + yaml_count
   end
   alias :count :total_count
+  
 end
