@@ -33,9 +33,10 @@ class ShortyApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
   set :api_formats, [:json, :xml, :yaml]
-  set :sockets, [ '/opt/local/var/run/mysql5/mysqld.sock', 
-              '/var/run/mysqld/mysqld.sock', 
-              '/tmp/mysql.sock' ]
+  set :memcached, 'localhost:11211'
+  set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', 
+                  '/var/run/mysqld/mysqld.sock', 
+                  '/tmp/mysql.sock']
 
   register Sinatra::I18n
   
@@ -132,7 +133,7 @@ class ShortyApp < Sinatra::Base
   
   helpers do
     def cache
-      @cache ||= Dalli::Client.new('localhost:11211', {:namespace => 'shorty_'})
+      @cache ||= Dalli::Client.new(settings.memcached, {:namespace => 'shorty_'})
     end
     
     def current_url
