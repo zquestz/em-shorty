@@ -36,9 +36,14 @@ class ShortyApp < Sinatra::Base
   register Sinatra::I18n
   
   API_FORMATS = [:json, :xml, :yaml]
+  SOCKETS = [ '/opt/local/var/run/mysql5/mysqld.sock', 
+              '/var/run/mysqld/mysqld.sock', 
+              '/tmp/mysql.sock' ]
   
   configure do
-    ActiveRecord::Base.establish_connection(YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s])
+    db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]
+    db_config.merge!({'socket' => SOCKETS.find { |f| File.exist? f } }) if db_config['socket']
+    ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end
 

@@ -1,14 +1,11 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
-
-test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: em_mysql2
+  database: em_shorty
+  encoding: utf8
+  pool: 100
+  username: root
+  password: root
+  socket: true
 
 production:
   adapter: em_mysql2
@@ -17,4 +14,10 @@ production:
   pool: 100
   username: root
   password: root
-  socket: /var/run/mysqld/mysqld.sock
+  socket: true
+  
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
