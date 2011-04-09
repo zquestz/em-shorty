@@ -44,7 +44,7 @@ class ShortyApp < Sinatra::Base
   
   configure do
     db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]
-    db_config.merge!({'socket' => setting.sockets.find { |f| File.exist? f } }) if db_config['socket']
+    db_config.merge!({'socket' => settings.sockets.find { |f| File.exist? f } }) if db_config['socket']
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end

@@ -21,21 +21,21 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T00:19:36-07:00">2011-04-09T00:19:36-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T02:43:53-07:00">2011-04-09T02:43:53-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">98.94%</span>)
+    (<span class="green">98.6%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>284</b> relevant lines. 
-    <span class="green"><b>281</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>286</b> relevant lines. 
+    <span class="green"><b>282</b> lines covered</span> and
+    <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -61,11 +61,11 @@
       
       <tr>
         <td><a href="#e694f285bf494d501abc8ac8788d18ec798d6394" class="src_link" title="./lib/shortened_url.rb">./lib/shortened_url.rb</a></td>
-        <td class="green">100.0 %</td>
-        <td>24</td>
-        <td>12</td>
-        <td>12</td>
-        <td>0</td>
+        <td class="green">92.86 %</td>
+        <td>28</td>
+        <td>14</td>
+        <td>13</td>
+        <td>1</td>
       </tr>
       
       <tr>
@@ -228,7 +228,7 @@
     <tr>
       <td colspan="3">
         <h3>./lib/shortened_url.rb</h3>
-        <h4><span class="green">100.0 %</span> covered</h4>
+        <h4><span class="green">92.86 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -492,7 +492,7 @@
         <pre>20</pre>
       </td>
       <td>
-        <pre>  def total_count</pre>
+        <pre>  def sleep</pre>
       </td>
       <td class="hits">
         1
@@ -500,15 +500,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="12">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>21</pre>
       </td>
       <td>
-        <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
+        <pre>    query(&quot;select sleep(1)&quot;)</pre>
       </td>
       <td class="hits">
-        12
+        0
       </td>
     </tr>
   
@@ -526,9 +526,61 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>23</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>24</pre>
+      </td>
+      <td>
+        <pre>  def total_count</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>25</pre>
+      </td>
+      <td>
+        <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>26</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>27</pre>
       </td>
       <td>
         <pre>  alias :count :total_count</pre>
@@ -541,7 +593,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>24</pre>
+        <pre>28</pre>
       </td>
       <td>
         <pre>end</pre>
