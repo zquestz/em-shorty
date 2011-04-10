@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T19:06:03-07:00">2011-04-09T19:06:03-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T19:14:13-07:00">2011-04-09T19:14:13-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -33,8 +33,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>354</b> relevant lines. 
-    <span class="green"><b>352</b> lines covered</span> and
+    <b>356</b> relevant lines. 
+    <span class="green"><b>354</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -89,9 +89,9 @@
       <tr>
         <td><a href="#15403a7388e43ab70f7c3cdb43dfbfe2a0a3d14c" class="src_link" title="./test/test_hashify.rb">./test/test_hashify.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>79</td>
-        <td>42</td>
-        <td>42</td>
+        <td>83</td>
+        <td>44</td>
+        <td>44</td>
         <td>0</td>
       </tr>
       
@@ -427,7 +427,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>9</pre>
       </td>
@@ -435,12 +435,12 @@
         <pre>    included_class.class_eval do</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>10</pre>
       </td>
@@ -448,12 +448,12 @@
         <pre>      def self.default_hash</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="23">
+    <tr class="hit" data-hits="24">
       <td class="line_number">
         <pre>11</pre>
       </td>
@@ -461,7 +461,7 @@
         <pre>        @@default_hash ||= :sha1</pre>
       </td>
       <td class="hits">
-        23
+        24
       </td>
     </tr>
   
@@ -492,7 +492,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>14</pre>
       </td>
@@ -500,7 +500,7 @@
         <pre>      def self.default_hash=(format)</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
@@ -544,7 +544,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>18</pre>
       </td>
@@ -552,12 +552,12 @@
         <pre>      def hashify(format = self.class.default_hash)</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="53">
+    <tr class="hit" data-hits="54">
       <td class="line_number">
         <pre>19</pre>
       </td>
@@ -565,7 +565,7 @@
         <pre>        self.send(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
       </td>
       <td class="hits">
-        53
+        54
       </td>
     </tr>
   
@@ -596,7 +596,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>22</pre>
       </td>
@@ -604,7 +604,7 @@
         <pre>      def to_md5</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
@@ -648,7 +648,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>26</pre>
       </td>
@@ -656,12 +656,12 @@
         <pre>      def to_sha1</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="35">
+    <tr class="hit" data-hits="36">
       <td class="line_number">
         <pre>27</pre>
       </td>
@@ -669,7 +669,7 @@
         <pre>        Digest::SHA1.hexdigest(self.to_s)</pre>
       </td>
       <td class="hits">
-        35
+        36
       </td>
     </tr>
   
@@ -700,7 +700,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="4">
       <td class="line_number">
         <pre>30</pre>
       </td>
@@ -708,7 +708,7 @@
         <pre>      def to_sha2</pre>
       </td>
       <td class="hits">
-        3
+        4
       </td>
     </tr>
   
@@ -4330,7 +4330,7 @@
         <pre>73</pre>
       </td>
       <td>
-        <pre>  def test_hashify_invalid</pre>
+        <pre>  def test_any_class_with_to_s_hashify</pre>
       </td>
       <td class="hits">
         1
@@ -4338,48 +4338,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="3">
       <td class="line_number">
         <pre>74</pre>
       </td>
       <td>
-        <pre>    for matcher in @@matchers</pre>
+        <pre>    assert_equal Class.new{ include Hashify; def to_s; 'val'; end}.new.hashify, Digest::SHA1.hexdigest('val')</pre>
       </td>
       <td class="hits">
-        1
+        3
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="never" >
       <td class="line_number">
         <pre>75</pre>
-      </td>
-      <td>
-        <pre>      assert_nil matcher.hashify(:error)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>76</pre>
-      </td>
-      <td>
-        <pre>    end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>77</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -4392,7 +4366,85 @@
     
     <tr class="never" >
       <td class="line_number">
+        <pre>76</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>77</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_invalid</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
         <pre>78</pre>
+      </td>
+      <td>
+        <pre>    for matcher in @@matchers</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>79</pre>
+      </td>
+      <td>
+        <pre>      assert_nil matcher.hashify(:error)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>80</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>81</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>82</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -4405,7 +4457,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>79</pre>
+        <pre>83</pre>
       </td>
       <td>
         <pre>end</pre>
