@@ -1,6 +1,5 @@
 # Add popular hashing functions to strings.
 # Then wrap in a nice hashify method.
-
 module Hashify
   
   VALID_FORMATS = [:md5, :sha1, :sha2]
