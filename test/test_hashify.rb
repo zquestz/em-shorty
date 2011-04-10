@@ -71,7 +71,7 @@ class TestHashify < Test::Unit::TestCase
   end
   
   def test_any_class_with_to_s_hashify
-    assert_equal Class.new{ include Hashify; def to_s; 'val'; end}.new.hashify, Digest::SHA1.hexdigest('val')
+    assert_equal Class.new { include Hashify; def to_s; 'val'; end }.new.hashify, Digest::SHA1.hexdigest('val')
   end
   
   def test_hashify_invalid
