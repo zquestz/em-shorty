@@ -10,7 +10,7 @@ http://emlink.me
 
 I added quite a few things.
 
-1. Now uses rack-fiber_pool, em_mysql2, and em-resolv-replace for async requests.
+1. Now uses rack-fiber_pool, em_mysql2, em-resolv-replace, em-synchrony, and em-http-request for async requests.
 2. Fully localized with i18n
 3. Templates are flushed out and look good.
 4. Added bundler and rvm support.
@@ -19,7 +19,7 @@ I added quite a few things.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
 8. XML, JSON, YAML support.
 9. Dalli for speedy memcache support.
-10. Supports async http requests via em-http-request.
+10. Caching layer courtesy of rack-cache.
 
 To run the tests:
 
