@@ -13,6 +13,7 @@ $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 # Require needed libs
 require 'fiber'
 require 'rack/fiber_pool'
+require 'rack/cache'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/i18n'
@@ -38,8 +39,17 @@ class ShortyApp < Sinatra::Base
                   '/var/run/mysqld/mysqld.sock', 
                   '/tmp/mysql.sock']
   enable :caching
+  enable :rack_cache
   
   use Rack::FiberPool, :size => 100 unless test?
+  
+  if settings.rack_cache
+    use Rack::Cache do
+       set :verbose, false
+       set :metastore, "memcached://#{settings.memcached}/meta"
+       set :entitystore, 'file:cache'
+    end
+  end
 
   register Sinatra::I18n
   
