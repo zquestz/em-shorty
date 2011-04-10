@@ -21,21 +21,21 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T18:38:13-07:00">2011-04-09T18:38:13-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T19:06:03-07:00">2011-04-09T19:06:03-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">99.1%</span>)
+    (<span class="green">99.44%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>332</b> relevant lines. 
-    <span class="green"><b>329</b> lines covered</span> and
-    <span class="red"><b>3</b> lines missed </span>
+    <b>354</b> relevant lines. 
+    <span class="green"><b>352</b> lines covered</span> and
+    <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -61,11 +61,11 @@
       
       <tr>
         <td><a href="#7f5dc5e0e81dc1e0fe3f383cfe48f38e4661be43" class="src_link" title="./lib/hashify.rb">./lib/hashify.rb</a></td>
-        <td class="green">95.83 %</td>
-        <td>52</td>
-        <td>24</td>
-        <td>23</td>
-        <td>1</td>
+        <td class="green">100.0 %</td>
+        <td>48</td>
+        <td>22</td>
+        <td>22</td>
+        <td>0</td>
       </tr>
       
       <tr>
@@ -89,9 +89,9 @@
       <tr>
         <td><a href="#15403a7388e43ab70f7c3cdb43dfbfe2a0a3d14c" class="src_link" title="./test/test_hashify.rb">./test/test_hashify.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>37</td>
-        <td>18</td>
-        <td>18</td>
+        <td>79</td>
+        <td>42</td>
+        <td>42</td>
         <td>0</td>
       </tr>
       
@@ -311,7 +311,7 @@
     <tr>
       <td colspan="3">
         <h3>./lib/hashify.rb</h3>
-        <h4><span class="green">95.83 %</span> covered</h4>
+        <h4><span class="green">100.0 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -453,7 +453,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="18">
+    <tr class="hit" data-hits="23">
       <td class="line_number">
         <pre>11</pre>
       </td>
@@ -461,7 +461,7 @@
         <pre>        @@default_hash ||= :sha1</pre>
       </td>
       <td class="hits">
-        18
+        23
       </td>
     </tr>
   
@@ -497,7 +497,7 @@
         <pre>14</pre>
       </td>
       <td>
-        <pre>      def self.default_hash=(hash_type)</pre>
+        <pre>      def self.default_hash=(format)</pre>
       </td>
       <td class="hits">
         3
@@ -505,15 +505,15 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="6">
       <td class="line_number">
         <pre>15</pre>
       </td>
       <td>
-        <pre>        @@default_hash = hash_type if VALID_FORMATS.include?(format)</pre>
+        <pre>        @@default_hash = format if VALID_FORMATS.include?(format)</pre>
       </td>
       <td class="hits">
-        0
+        6
       </td>
     </tr>
   
@@ -549,7 +549,7 @@
         <pre>18</pre>
       </td>
       <td>
-        <pre>      def hashify_string</pre>
+        <pre>      def hashify(format = self.class.default_hash)</pre>
       </td>
       <td class="hits">
         3
@@ -557,15 +557,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="25">
+    <tr class="hit" data-hits="53">
       <td class="line_number">
         <pre>19</pre>
       </td>
       <td>
-        <pre>        &quot;#{self.class}_#{self}&quot;</pre>
+        <pre>        self.send(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
       </td>
       <td class="hits">
-        25
+        53
       </td>
     </tr>
   
@@ -601,7 +601,7 @@
         <pre>22</pre>
       </td>
       <td>
-        <pre>      def hashify(format = self.class.default_hash)</pre>
+        <pre>      def to_md5</pre>
       </td>
       <td class="hits">
         3
@@ -609,15 +609,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="23">
+    <tr class="hit" data-hits="18">
       <td class="line_number">
         <pre>23</pre>
       </td>
       <td>
-        <pre>        self.send(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
+        <pre>        Digest::MD5.hexdigest(self.to_s)</pre>
       </td>
       <td class="hits">
-        23
+        18
       </td>
     </tr>
   
@@ -653,7 +653,7 @@
         <pre>26</pre>
       </td>
       <td>
-        <pre>      def to_md5</pre>
+        <pre>      def to_sha1</pre>
       </td>
       <td class="hits">
         3
@@ -661,15 +661,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="2">
+    <tr class="hit" data-hits="35">
       <td class="line_number">
         <pre>27</pre>
       </td>
       <td>
-        <pre>        Digest::MD5.hexdigest(hashify_string)</pre>
+        <pre>        Digest::SHA1.hexdigest(self.to_s)</pre>
       </td>
       <td class="hits">
-        2
+        35
       </td>
     </tr>
   
@@ -705,7 +705,7 @@
         <pre>30</pre>
       </td>
       <td>
-        <pre>      def to_sha1</pre>
+        <pre>      def to_sha2</pre>
       </td>
       <td class="hits">
         3
@@ -713,15 +713,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="21">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>31</pre>
       </td>
       <td>
-        <pre>        Digest::SHA1.hexdigest(hashify_string)</pre>
+        <pre>        Digest::SHA2.hexdigest(self.to_s)</pre>
       </td>
       <td class="hits">
-        21
+        12
       </td>
     </tr>
   
@@ -744,58 +744,6 @@
         <pre>33</pre>
       </td>
       <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="3">
-      <td class="line_number">
-        <pre>34</pre>
-      </td>
-      <td>
-        <pre>      def to_sha2</pre>
-      </td>
-      <td class="hits">
-        3
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="2">
-      <td class="line_number">
-        <pre>35</pre>
-      </td>
-      <td>
-        <pre>        Digest::SHA2.hexdigest(hashify_string)</pre>
-      </td>
-      <td class="hits">
-        2
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>36</pre>
-      </td>
-      <td>
-        <pre>      end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>37</pre>
-      </td>
-      <td>
         <pre>    end</pre>
       </td>
       <td class="hits">
@@ -806,7 +754,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>38</pre>
+        <pre>34</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -819,13 +767,65 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>39</pre>
+        <pre>35</pre>
       </td>
       <td>
         <pre></pre>
       </td>
       <td class="hits">
         
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>class String</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>  include Hashify</pre>
+      </td>
+      <td class="hits">
+        1
       </td>
     </tr>
   
@@ -861,7 +861,7 @@
         <pre>42</pre>
       </td>
       <td>
-        <pre>class String</pre>
+        <pre>class Array</pre>
       </td>
       <td class="hits">
         1
@@ -913,7 +913,7 @@
         <pre>46</pre>
       </td>
       <td>
-        <pre>class Array</pre>
+        <pre>class Hash</pre>
       </td>
       <td class="hits">
         1
@@ -937,58 +937,6 @@
     <tr class="never" >
       <td class="line_number">
         <pre>48</pre>
-      </td>
-      <td>
-        <pre>end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>49</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>50</pre>
-      </td>
-      <td>
-        <pre>class Hash</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>51</pre>
-      </td>
-      <td>
-        <pre>  include Hashify</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>52</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -3485,7 +3433,7 @@
         <pre>4</pre>
       </td>
       <td>
-        <pre></pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
         
@@ -3498,7 +3446,7 @@
         <pre>5</pre>
       </td>
       <td>
-        <pre>  def test_string_to_md5</pre>
+        <pre>  @@matchers = ['hi', ['hi'], [:hi], {'hi' =&gt; 'hi'}, {:hi =&gt; 'hi'}, {'hi' =&gt; :hi}]</pre>
       </td>
       <td class="hits">
         1
@@ -3506,67 +3454,67 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>6</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::MD5.hexdigest('String_hi'), 'hi'.to_md5</pre>
+        <pre></pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>7</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>  def test_to_md5</pre>
       </td>
       <td class="hits">
-        
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre>    for matcher in @@matchers</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre>      assert_equal Digest::MD5.hexdigest(matcher.to_s), matcher.to_md5</pre>
+      </td>
+      <td class="hits">
+        6
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>8</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>9</pre>
-      </td>
-      <td>
-        <pre>  def test_string_to_sha1</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
         <pre>10</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::SHA1.hexdigest('String_hi'), 'hi'.to_sha1</pre>
+        <pre>    end</pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
@@ -3602,7 +3550,7 @@
         <pre>13</pre>
       </td>
       <td>
-        <pre>  def test_string_to_sha2</pre>
+        <pre>  def test_to_sha1</pre>
       </td>
       <td class="hits">
         1
@@ -3615,7 +3563,7 @@
         <pre>14</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::SHA2.hexdigest('String_hi'), 'hi'.to_sha2</pre>
+        <pre>    for matcher in @@matchers</pre>
       </td>
       <td class="hits">
         1
@@ -3623,15 +3571,15 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="6">
       <td class="line_number">
         <pre>15</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>      assert_equal Digest::SHA1.hexdigest(matcher.to_s), matcher.to_sha1</pre>
       </td>
       <td class="hits">
-        
+        6
       </td>
     </tr>
   
@@ -3641,7 +3589,7 @@
         <pre>16</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre>    end</pre>
       </td>
       <td class="hits">
         
@@ -3649,35 +3597,9 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>17</pre>
-      </td>
-      <td>
-        <pre>  def test_hashify_default_sha1</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>18</pre>
-      </td>
-      <td>
-        <pre>    assert_equal 'hi'.hashify, 'hi'.hashify(:sha1)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
     <tr class="never" >
       <td class="line_number">
-        <pre>19</pre>
+        <pre>17</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3690,7 +3612,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>20</pre>
+        <pre>18</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3703,10 +3625,10 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>21</pre>
+        <pre>19</pre>
       </td>
       <td>
-        <pre>  def test_hashify_string_md5</pre>
+        <pre>  def test_to_sha2</pre>
       </td>
       <td class="hits">
         1
@@ -3716,13 +3638,39 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>22</pre>
+        <pre>20</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::MD5.hexdigest('String_hi'), 'hi'.hashify(:md5)</pre>
+        <pre>    for matcher in @@matchers</pre>
       </td>
       <td class="hits">
         1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>21</pre>
+      </td>
+      <td>
+        <pre>      assert_equal Digest::SHA2.hexdigest(matcher.to_s), matcher.to_sha2</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>22</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
       </td>
     </tr>
   
@@ -3758,7 +3706,7 @@
         <pre>25</pre>
       </td>
       <td>
-        <pre>  def test_hashify_string_sha1</pre>
+        <pre>  def test_hashify_string_default_sha1</pre>
       </td>
       <td class="hits">
         1
@@ -3771,7 +3719,7 @@
         <pre>26</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::SHA1.hexdigest('String_hi'), 'hi'.hashify(:sha1)</pre>
+        <pre>    assert_equal 'hi'.hashify, 'hi'.hashify(:sha1)</pre>
       </td>
       <td class="hits">
         1
@@ -3810,7 +3758,7 @@
         <pre>29</pre>
       </td>
       <td>
-        <pre>  def test_hashify_string_sha2</pre>
+        <pre>  def test_hashify_string_default_hash_setter</pre>
       </td>
       <td class="hits">
         1
@@ -3823,7 +3771,33 @@
         <pre>30</pre>
       </td>
       <td>
-        <pre>    assert_equal Digest::SHA2.hexdigest('String_hi'), 'hi'.hashify(:sha2)</pre>
+        <pre>    String.default_hash = :md5</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>31</pre>
+      </td>
+      <td>
+        <pre>    assert_equal 'hi'.hashify, 'hi'.hashify(:md5)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>32</pre>
+      </td>
+      <td>
+        <pre>    String.default_hash = :sha1</pre>
       </td>
       <td class="hits">
         1
@@ -3833,7 +3807,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>31</pre>
+        <pre>33</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3846,7 +3820,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>32</pre>
+        <pre>34</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3859,7 +3833,501 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>33</pre>
+        <pre>35</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_array_default_sha1</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ['hi'].hashify, ['hi'].hashify(:sha1)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_array_default_hash_setter</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>40</pre>
+      </td>
+      <td>
+        <pre>    Array.default_hash = :md5</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>41</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ['hi'].hashify, ['hi'].hashify(:md5)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>42</pre>
+      </td>
+      <td>
+        <pre>    Array.default_hash = :sha1</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>43</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>44</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>45</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_hash_default_sha1</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>46</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ({'hi' =&gt; 'hi'}.hashify), ({'hi' =&gt; 'hi'}.hashify(:sha1))</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>47</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>48</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>49</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_hash_default_hash_setter</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>50</pre>
+      </td>
+      <td>
+        <pre>    Hash.default_hash = :md5</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>51</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ({'hi' =&gt; 'hi'}.hashify), ({'hi' =&gt; 'hi'}.hashify(:md5))</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
+        <pre>    Hash.default_hash = :sha1</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>53</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>54</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>55</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_string_md5</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>56</pre>
+      </td>
+      <td>
+        <pre>    for matcher in @@matchers</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>      assert_equal Digest::MD5.hexdigest(matcher.to_s), matcher.hashify(:md5)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>58</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>59</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>60</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>61</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_string_sha1</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>62</pre>
+      </td>
+      <td>
+        <pre>    for matcher in @@matchers</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
+        <pre>      assert_equal Digest::SHA1.hexdigest(matcher.to_s), matcher.hashify(:sha1)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>64</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>65</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>66</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>67</pre>
+      </td>
+      <td>
+        <pre>  def test_hashify_string_sha2</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>68</pre>
+      </td>
+      <td>
+        <pre>    for matcher in @@matchers</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>69</pre>
+      </td>
+      <td>
+        <pre>      assert_equal Digest::SHA2.hexdigest(matcher.to_s), matcher.hashify(:sha2)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>70</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>71</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>72</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>73</pre>
       </td>
       <td>
         <pre>  def test_hashify_invalid</pre>
@@ -3872,10 +4340,10 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>34</pre>
+        <pre>74</pre>
       </td>
       <td>
-        <pre>    assert_nil 'hi'.hashify(:error)</pre>
+        <pre>    for matcher in @@matchers</pre>
       </td>
       <td class="hits">
         1
@@ -3883,9 +4351,35 @@
     </tr>
   
     
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>75</pre>
+      </td>
+      <td>
+        <pre>      assert_nil matcher.hashify(:error)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
     <tr class="never" >
       <td class="line_number">
-        <pre>35</pre>
+        <pre>76</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>77</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3898,7 +4392,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>36</pre>
+        <pre>78</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3911,7 +4405,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>37</pre>
+        <pre>79</pre>
       </td>
       <td>
         <pre>end</pre>

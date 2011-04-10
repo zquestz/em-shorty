@@ -11,12 +11,8 @@ module Hashify
         @@default_hash ||= :sha1
       end
 
-      def self.default_hash=(hash_type)
-        @@default_hash = hash_type if VALID_FORMATS.include?(format)
-      end
-
-      def hashify_string
-        "#{self.class}_#{self}"
+      def self.default_hash=(format)
+        @@default_hash = format if VALID_FORMATS.include?(format)
       end
 
       def hashify(format = self.class.default_hash)
@@ -24,15 +20,15 @@ module Hashify
       end
 
       def to_md5
-        Digest::MD5.hexdigest(hashify_string)
+        Digest::MD5.hexdigest(self.to_s)
       end
 
       def to_sha1
-        Digest::SHA1.hexdigest(hashify_string)
+        Digest::SHA1.hexdigest(self.to_s)
       end
 
       def to_sha2
-        Digest::SHA2.hexdigest(hashify_string)
+        Digest::SHA2.hexdigest(self.to_s)
       end
     end
   end
