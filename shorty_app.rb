@@ -70,7 +70,7 @@ class ShortyApp < Sinatra::Base
           if settings.api_formats.include?(format.to_sym)
             @short_url.increment!("#{format}_count")
             content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-            return eval("api_object(@short_url).to_#{format}")
+            return api_object(@short_url).send("to_#{format}")
           end
         end
         @flash = {:notice => I18n.translate(:url_shortened, :original_url => params[:url])}
@@ -81,7 +81,7 @@ class ShortyApp < Sinatra::Base
         unless format.blank?
           if settings.api_formats.include?(format.to_sym)
             content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-            return eval("{:error => @flash[:error]}.to_#{format}")
+            return {:error => @flash[:error]}.send("to_#{format}")
           end
         end
         haml :index
@@ -102,7 +102,7 @@ class ShortyApp < Sinatra::Base
           shorty = {:error => t('no_record_found')}
         end
         content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
-        return eval("shorty.to_#{format}")
+        return shorty.send("to_#{format}")
       end
     end
   end

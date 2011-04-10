@@ -4,7 +4,7 @@ class String
   VALID_FORMATS = [:md5, :sha1, :sha2]
   
   def hashify(format = :sha1)
-    eval("to_#{format}") if VALID_FORMATS.include?(format)
+    self.send("to_#{format}") if VALID_FORMATS.include?(format)
   end
   
   def to_md5

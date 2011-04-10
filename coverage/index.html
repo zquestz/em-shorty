@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T04:50:54-07:00">2011-04-09T04:50:54-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-09T17:44:54-07:00">2011-04-09T17:44:54-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -406,7 +406,7 @@
         <pre>7</pre>
       </td>
       <td>
-        <pre>    eval(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
+        <pre>    self.send(&quot;to_#{format}&quot;) if VALID_FORMATS.include?(format)</pre>
       </td>
       <td class="hits">
         23
@@ -1930,7 +1930,7 @@
         <pre>73</pre>
       </td>
       <td>
-        <pre>            return eval(&quot;api_object(@short_url).to_#{format}&quot;)</pre>
+        <pre>            return api_object(@short_url).send(&quot;to_#{format}&quot;)</pre>
       </td>
       <td class="hits">
         3
@@ -2073,7 +2073,7 @@
         <pre>84</pre>
       </td>
       <td>
-        <pre>            return eval(&quot;{:error =&gt; @flash[:error]}.to_#{format}&quot;)</pre>
+        <pre>            return {:error =&gt; @flash[:error]}.send(&quot;to_#{format}&quot;)</pre>
       </td>
       <td class="hits">
         3
@@ -2346,7 +2346,7 @@
         <pre>105</pre>
       </td>
       <td>
-        <pre>        return eval(&quot;shorty.to_#{format}&quot;)</pre>
+        <pre>        return shorty.send(&quot;to_#{format}&quot;)</pre>
       </td>
       <td class="hits">
         6
