@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T05:29:16-07:00">2011-04-10T05:29:16-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T06:01:26-07:00">2011-04-10T06:01:26-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -33,8 +33,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>358</b> relevant lines. 
-    <span class="green"><b>356</b> lines covered</span> and
+    <b>356</b> relevant lines. 
+    <span class="green"><b>354</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -79,10 +79,10 @@
       
       <tr>
         <td><a href="#1409cadf89cec1fb8a0af5a17da83e83a7bb2d73" class="src_link" title="./shorty_app.rb">./shorty_app.rb</a></td>
-        <td class="green">97.94 %</td>
-        <td>164</td>
-        <td>97</td>
+        <td class="green">97.89 %</td>
+        <td>157</td>
         <td>95</td>
+        <td>93</td>
         <td>2</td>
       </tr>
       
@@ -1302,7 +1302,7 @@
     <tr>
       <td colspan="3">
         <h3>./shorty_app.rb</h3>
-        <h4><span class="green">97.94 %</span> covered</h4>
+        <h4><span class="green">97.89 %</span> covered</h4>
       </td>
     </tr>
     <tr>
@@ -1652,22 +1652,9 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>27</pre>
-      </td>
-      <td>
-        <pre>require 'rack/cache'</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
     <tr class="never" >
       <td class="line_number">
-        <pre>28</pre>
+        <pre>27</pre>
       </td>
       <td>
         <pre></pre>
@@ -1680,7 +1667,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>29</pre>
+        <pre>28</pre>
       </td>
       <td>
         <pre># Conditional require's based on environment.</pre>
@@ -1693,7 +1680,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>30</pre>
+        <pre>29</pre>
       </td>
       <td>
         <pre>require 'em-resolv-replace' unless test?</pre>
@@ -1706,98 +1693,20 @@
     
     <tr class="never" >
       <td class="line_number">
+        <pre>30</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
         <pre>31</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>32</pre>
-      </td>
-      <td>
-        <pre># Load up needed middleware.</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>33</pre>
-      </td>
-      <td>
-        <pre>use Rack::Cache,</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>34</pre>
-      </td>
-      <td>
-        <pre>  :verbose     =&gt; true,</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>35</pre>
-      </td>
-      <td>
-        <pre>  :metastore   =&gt; 'file:/tmp/rack/meta',</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>36</pre>
-      </td>
-      <td>
-        <pre>  :entitystore =&gt; 'file:/tmp/rack/body'</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>37</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>38</pre>
       </td>
       <td>
         <pre># Main application class.</pre>
@@ -1810,7 +1719,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>39</pre>
+        <pre>32</pre>
       </td>
       <td>
         <pre>class ShortyApp &lt; Sinatra::Base</pre>
@@ -1823,10 +1732,101 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
+        <pre>33</pre>
+      </td>
+      <td>
+        <pre>  set :root, File.dirname(__FILE__)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>34</pre>
+      </td>
+      <td>
+        <pre>  set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>35</pre>
+      </td>
+      <td>
+        <pre>  set :api_formats, [:json, :xml, :yaml]</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>  set :memcached, 'localhost:11211'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre>  set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', </pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>                  '/var/run/mysqld/mysqld.sock', </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>                  '/tmp/mysql.sock']</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
         <pre>40</pre>
       </td>
       <td>
-        <pre>  use Rack::FiberPool, :size =&gt; 100 unless test?</pre>
+        <pre>  enable :caching</pre>
       </td>
       <td class="hits">
         1
@@ -1852,7 +1852,7 @@
         <pre>42</pre>
       </td>
       <td>
-        <pre>  set :root, File.dirname(__FILE__)</pre>
+        <pre>  use Rack::FiberPool, :size =&gt; 100 unless test?</pre>
       </td>
       <td class="hits">
         1
@@ -1860,100 +1860,9 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>43</pre>
-      </td>
-      <td>
-        <pre>  set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>44</pre>
-      </td>
-      <td>
-        <pre>  set :caching, true</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>45</pre>
-      </td>
-      <td>
-        <pre>  set :api_formats, [:json, :xml, :yaml]</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>46</pre>
-      </td>
-      <td>
-        <pre>  set :memcached, 'localhost:11211'</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>47</pre>
-      </td>
-      <td>
-        <pre>  set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', </pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>48</pre>
-      </td>
-      <td>
-        <pre>                  '/var/run/mysqld/mysqld.sock', </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>49</pre>
-      </td>
-      <td>
-        <pre>                  '/tmp/mysql.sock']</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>50</pre>
       </td>
       <td>
         <pre></pre>
@@ -1966,13 +1875,104 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>51</pre>
+        <pre>44</pre>
       </td>
       <td>
         <pre>  register Sinatra::I18n</pre>
       </td>
       <td class="hits">
         1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>45</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>46</pre>
+      </td>
+      <td>
+        <pre>  configure do</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>47</pre>
+      </td>
+      <td>
+        <pre>    db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>48</pre>
+      </td>
+      <td>
+        <pre>    db_config.merge!({'socket' =&gt; settings.sockets.find { |f| File.exist? f } }) if db_config['socket']</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>49</pre>
+      </td>
+      <td>
+        <pre>    ActiveRecord::Base.establish_connection(db_config)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>50</pre>
+      </td>
+      <td>
+        <pre>    ActiveRecord::Base.logger.level = Logger::INFO</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>51</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
       </td>
     </tr>
   
@@ -1995,97 +1995,6 @@
         <pre>53</pre>
       </td>
       <td>
-        <pre>  configure do</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>54</pre>
-      </td>
-      <td>
-        <pre>    db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>55</pre>
-      </td>
-      <td>
-        <pre>    db_config.merge!({'socket' =&gt; settings.sockets.find { |f| File.exist? f } }) if db_config['socket']</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>56</pre>
-      </td>
-      <td>
-        <pre>    ActiveRecord::Base.establish_connection(db_config)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>57</pre>
-      </td>
-      <td>
-        <pre>    ActiveRecord::Base.logger.level = Logger::INFO</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>58</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>59</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>60</pre>
-      </td>
-      <td>
         <pre>  get '/' do</pre>
       </td>
       <td class="hits">
@@ -2096,7 +2005,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>61</pre>
+        <pre>54</pre>
       </td>
       <td>
         <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 3600</pre>
@@ -2109,7 +2018,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>62</pre>
+        <pre>55</pre>
       </td>
       <td>
         <pre>    haml :index</pre>
@@ -2122,7 +2031,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>63</pre>
+        <pre>56</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2135,7 +2044,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>64</pre>
+        <pre>57</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -2148,7 +2057,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>65</pre>
+        <pre>58</pre>
       </td>
       <td>
         <pre>  get '/main.css' do</pre>
@@ -2161,7 +2070,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>66</pre>
+        <pre>59</pre>
       </td>
       <td>
         <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 3600</pre>
@@ -2174,7 +2083,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>67</pre>
+        <pre>60</pre>
       </td>
       <td>
         <pre>    content_type 'text/css', :charset =&gt; 'utf-8'</pre>
@@ -2187,7 +2096,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>68</pre>
+        <pre>61</pre>
       </td>
       <td>
         <pre>    less :main</pre>
@@ -2200,7 +2109,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>69</pre>
+        <pre>62</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2213,7 +2122,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>70</pre>
+        <pre>63</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -2226,7 +2135,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>71</pre>
+        <pre>64</pre>
       </td>
       <td>
         <pre>  post '/' do</pre>
@@ -2239,7 +2148,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>72</pre>
+        <pre>65</pre>
       </td>
       <td>
         <pre>    cache.fetch &quot;post_#{request.ip}_#{params[:url]}_#{params[:format]}&quot;.hashify, 60 do</pre>
@@ -2252,7 +2161,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>73</pre>
+        <pre>66</pre>
       </td>
       <td>
         <pre>      @short_url = ShortenedUrl.find_or_create_by_url(params[:url])</pre>
@@ -2265,7 +2174,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>74</pre>
+        <pre>67</pre>
       </td>
       <td>
         <pre>      format = params[:format]</pre>
@@ -2278,7 +2187,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>75</pre>
+        <pre>68</pre>
       </td>
       <td>
         <pre>      if @short_url.valid?</pre>
@@ -2291,7 +2200,7 @@
     
     <tr class="hit" data-hits="5">
       <td class="line_number">
-        <pre>76</pre>
+        <pre>69</pre>
       </td>
       <td>
         <pre>        unless format.blank?</pre>
@@ -2304,7 +2213,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>77</pre>
+        <pre>70</pre>
       </td>
       <td>
         <pre>          if settings.api_formats.include?(format.to_sym)</pre>
@@ -2317,7 +2226,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>78</pre>
+        <pre>71</pre>
       </td>
       <td>
         <pre>            @short_url.increment!(&quot;#{format}_count&quot;)</pre>
@@ -2330,7 +2239,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>79</pre>
+        <pre>72</pre>
       </td>
       <td>
         <pre>            content_type MIME::Types.of(&quot;format.#{format}&quot;).first.content_type, :charset =&gt; 'utf-8'</pre>
@@ -2343,7 +2252,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>80</pre>
+        <pre>73</pre>
       </td>
       <td>
         <pre>            return api_object(@short_url).send(&quot;to_#{format}&quot;)</pre>
@@ -2356,7 +2265,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>81</pre>
+        <pre>74</pre>
       </td>
       <td>
         <pre>          end</pre>
@@ -2369,7 +2278,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>82</pre>
+        <pre>75</pre>
       </td>
       <td>
         <pre>        end</pre>
@@ -2382,7 +2291,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>83</pre>
+        <pre>76</pre>
       </td>
       <td>
         <pre>        @flash = {:notice =&gt; I18n.translate(:url_shortened, :original_url =&gt; params[:url])}</pre>
@@ -2395,7 +2304,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>84</pre>
+        <pre>77</pre>
       </td>
       <td>
         <pre>        @viewed_url = &quot;#{current_url}/#{@short_url.shorten}&quot;</pre>
@@ -2408,7 +2317,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>85</pre>
+        <pre>78</pre>
       </td>
       <td>
         <pre>        haml :success</pre>
@@ -2421,7 +2330,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>86</pre>
+        <pre>79</pre>
       </td>
       <td>
         <pre>      else</pre>
@@ -2434,7 +2343,7 @@
     
     <tr class="hit" data-hits="4">
       <td class="line_number">
-        <pre>87</pre>
+        <pre>80</pre>
       </td>
       <td>
         <pre>        @flash = {:error =&gt; t('enter_valid_url')}</pre>
@@ -2447,7 +2356,7 @@
     
     <tr class="hit" data-hits="4">
       <td class="line_number">
-        <pre>88</pre>
+        <pre>81</pre>
       </td>
       <td>
         <pre>        unless format.blank?</pre>
@@ -2460,7 +2369,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>89</pre>
+        <pre>82</pre>
       </td>
       <td>
         <pre>          if settings.api_formats.include?(format.to_sym)</pre>
@@ -2473,7 +2382,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>90</pre>
+        <pre>83</pre>
       </td>
       <td>
         <pre>            content_type MIME::Types.of(&quot;format.#{format}&quot;).first.content_type, :charset =&gt; 'utf-8'</pre>
@@ -2486,7 +2395,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>91</pre>
+        <pre>84</pre>
       </td>
       <td>
         <pre>            return {:error =&gt; @flash[:error]}.send(&quot;to_#{format}&quot;)</pre>
@@ -2499,7 +2408,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>92</pre>
+        <pre>85</pre>
       </td>
       <td>
         <pre>          end</pre>
@@ -2512,7 +2421,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>93</pre>
+        <pre>86</pre>
       </td>
       <td>
         <pre>        end</pre>
@@ -2525,7 +2434,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>94</pre>
+        <pre>87</pre>
       </td>
       <td>
         <pre>        haml :index</pre>
@@ -2538,7 +2447,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>95</pre>
+        <pre>88</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -2551,7 +2460,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>96</pre>
+        <pre>89</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2564,7 +2473,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>97</pre>
+        <pre>90</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2577,7 +2486,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>98</pre>
+        <pre>91</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -2590,7 +2499,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>99</pre>
+        <pre>92</pre>
       </td>
       <td>
         <pre>  get '/:shortened.:format' do</pre>
@@ -2603,7 +2512,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>100</pre>
+        <pre>93</pre>
       </td>
       <td>
         <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 60</pre>
@@ -2616,7 +2525,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>101</pre>
+        <pre>94</pre>
       </td>
       <td>
         <pre>    cache.fetch &quot;view_#{request.ip}_#{params[:shorten]}_#{params[:format]}&quot;.hashify, 60 do</pre>
@@ -2629,7 +2538,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>102</pre>
+        <pre>95</pre>
       </td>
       <td>
         <pre>      format = params[:format]</pre>
@@ -2642,7 +2551,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>103</pre>
+        <pre>96</pre>
       </td>
       <td>
         <pre>      if settings.api_formats.include?(format.to_sym)</pre>
@@ -2655,7 +2564,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>104</pre>
+        <pre>97</pre>
       </td>
       <td>
         <pre>        short_url = ShortenedUrl.find_by_shortened(params[:shortened])</pre>
@@ -2668,7 +2577,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>105</pre>
+        <pre>98</pre>
       </td>
       <td>
         <pre>        if short_url</pre>
@@ -2681,7 +2590,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>106</pre>
+        <pre>99</pre>
       </td>
       <td>
         <pre>          short_url.increment!(&quot;#{format}_count&quot;)</pre>
@@ -2694,7 +2603,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>107</pre>
+        <pre>100</pre>
       </td>
       <td>
         <pre>          shorty = api_object(short_url)</pre>
@@ -2707,7 +2616,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>108</pre>
+        <pre>101</pre>
       </td>
       <td>
         <pre>        else</pre>
@@ -2720,7 +2629,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>109</pre>
+        <pre>102</pre>
       </td>
       <td>
         <pre>          shorty = {:error =&gt; t('no_record_found')}</pre>
@@ -2733,7 +2642,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>110</pre>
+        <pre>103</pre>
       </td>
       <td>
         <pre>        end</pre>
@@ -2746,7 +2655,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>111</pre>
+        <pre>104</pre>
       </td>
       <td>
         <pre>        content_type MIME::Types.of(&quot;format.#{format}&quot;).last.content_type, :charset =&gt; 'utf-8'</pre>
@@ -2759,7 +2668,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>112</pre>
+        <pre>105</pre>
       </td>
       <td>
         <pre>        return shorty.send(&quot;to_#{format}&quot;)</pre>
@@ -2772,7 +2681,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>113</pre>
+        <pre>106</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -2785,7 +2694,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>114</pre>
+        <pre>107</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2798,7 +2707,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>115</pre>
+        <pre>108</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -2811,7 +2720,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>116</pre>
+        <pre>109</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -2824,7 +2733,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>117</pre>
+        <pre>110</pre>
       </td>
       <td>
         <pre>  get '/:shortened' do</pre>
@@ -2837,7 +2746,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>118</pre>
+        <pre>111</pre>
       </td>
       <td>
         <pre>    cache_control :public, :must_revalidate, :max_age =&gt; 60</pre>
@@ -2850,7 +2759,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>119</pre>
+        <pre>112</pre>
       </td>
       <td>
         <pre>    cache.fetch &quot;redirect_#{request.ip}_#{params[:shortened]}&quot;.hashify, 60 do</pre>
@@ -2863,7 +2772,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>120</pre>
+        <pre>113</pre>
       </td>
       <td>
         <pre>      return if params[:shortened].index('.')</pre>
@@ -2876,7 +2785,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>121</pre>
+        <pre>114</pre>
       </td>
       <td>
         <pre>      short_url = ShortenedUrl.find_by_shortened(params[:shortened])</pre>
@@ -2889,7 +2798,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>122</pre>
+        <pre>115</pre>
       </td>
       <td>
         <pre>      if short_url</pre>
@@ -2902,7 +2811,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>123</pre>
+        <pre>116</pre>
       </td>
       <td>
         <pre>        short_url.increment!('redirect_count')</pre>
@@ -2915,7 +2824,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>124</pre>
+        <pre>117</pre>
       </td>
       <td>
         <pre>        redirect short_url.url</pre>
@@ -2928,7 +2837,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>125</pre>
+        <pre>118</pre>
       </td>
       <td>
         <pre>      else</pre>
@@ -2941,7 +2850,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>126</pre>
+        <pre>119</pre>
       </td>
       <td>
         <pre>        @flash = {:error =&gt; t('no_url')}</pre>
@@ -2954,7 +2863,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>127</pre>
+        <pre>120</pre>
       </td>
       <td>
         <pre>        haml :index</pre>
@@ -2967,7 +2876,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>128</pre>
+        <pre>121</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -2980,7 +2889,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>129</pre>
+        <pre>122</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -2993,7 +2902,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>130</pre>
+        <pre>123</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3006,7 +2915,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>131</pre>
+        <pre>124</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3019,7 +2928,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>132</pre>
+        <pre>125</pre>
       </td>
       <td>
         <pre>  not_found do</pre>
@@ -3032,7 +2941,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>133</pre>
+        <pre>126</pre>
       </td>
       <td>
         <pre>    @flash = {:error =&gt; t('http_not_found')}</pre>
@@ -3045,7 +2954,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>134</pre>
+        <pre>127</pre>
       </td>
       <td>
         <pre>    haml :index</pre>
@@ -3058,7 +2967,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>135</pre>
+        <pre>128</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3071,7 +2980,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>136</pre>
+        <pre>129</pre>
       </td>
       <td>
         <pre></pre>
@@ -3084,7 +2993,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>137</pre>
+        <pre>130</pre>
       </td>
       <td>
         <pre>  error do</pre>
@@ -3097,7 +3006,7 @@
     
     <tr class="miss" data-hits="0">
       <td class="line_number">
-        <pre>138</pre>
+        <pre>131</pre>
       </td>
       <td>
         <pre>    @flash = {:error =&gt; t('http_error')}</pre>
@@ -3110,7 +3019,7 @@
     
     <tr class="miss" data-hits="0">
       <td class="line_number">
-        <pre>139</pre>
+        <pre>132</pre>
       </td>
       <td>
         <pre>    haml :index</pre>
@@ -3123,7 +3032,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>140</pre>
+        <pre>133</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3136,7 +3045,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>141</pre>
+        <pre>134</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3149,7 +3058,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>142</pre>
+        <pre>135</pre>
       </td>
       <td>
         <pre>  helpers do</pre>
@@ -3162,7 +3071,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>143</pre>
+        <pre>136</pre>
       </td>
       <td>
         <pre>    def cache</pre>
@@ -3175,7 +3084,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>144</pre>
+        <pre>137</pre>
       </td>
       <td>
         <pre>      @cache ||= if settings.caching</pre>
@@ -3188,7 +3097,7 @@
     
     <tr class="hit" data-hits="17">
       <td class="line_number">
-        <pre>145</pre>
+        <pre>138</pre>
       </td>
       <td>
         <pre>        Dalli::Client.new(settings.memcached, {:namespace =&gt; 'shorty_'})</pre>
@@ -3201,7 +3110,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>146</pre>
+        <pre>139</pre>
       </td>
       <td>
         <pre>      else</pre>
@@ -3214,7 +3123,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>147</pre>
+        <pre>140</pre>
       </td>
       <td>
         <pre>        CacheProxy.new()</pre>
@@ -3227,7 +3136,7 @@
     
     <tr class="hit" data-hits="20">
       <td class="line_number">
-        <pre>148</pre>
+        <pre>141</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -3240,7 +3149,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>149</pre>
+        <pre>142</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3253,7 +3162,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>150</pre>
+        <pre>143</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -3266,7 +3175,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>151</pre>
+        <pre>144</pre>
       </td>
       <td>
         <pre>    def flush_cache</pre>
@@ -3279,7 +3188,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>152</pre>
+        <pre>145</pre>
       </td>
       <td>
         <pre>      cache.flush</pre>
@@ -3292,7 +3201,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>153</pre>
+        <pre>146</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3305,7 +3214,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>154</pre>
+        <pre>147</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -3318,7 +3227,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>155</pre>
+        <pre>148</pre>
       </td>
       <td>
         <pre>    def current_url</pre>
@@ -3331,7 +3240,7 @@
     
     <tr class="hit" data-hits="8">
       <td class="line_number">
-        <pre>156</pre>
+        <pre>149</pre>
       </td>
       <td>
         <pre>      @current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
@@ -3344,7 +3253,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>157</pre>
+        <pre>150</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3357,7 +3266,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>158</pre>
+        <pre>151</pre>
       </td>
       <td>
         <pre>    </pre>
@@ -3370,7 +3279,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>159</pre>
+        <pre>152</pre>
       </td>
       <td>
         <pre>    def api_object(short_url)</pre>
@@ -3383,7 +3292,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>160</pre>
+        <pre>153</pre>
       </td>
       <td>
         <pre>      {:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}</pre>
@@ -3396,7 +3305,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>161</pre>
+        <pre>154</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3409,7 +3318,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>162</pre>
+        <pre>155</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3422,7 +3331,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>163</pre>
+        <pre>156</pre>
       </td>
       <td>
         <pre></pre>
@@ -3435,7 +3344,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>164</pre>
+        <pre>157</pre>
       </td>
       <td>
         <pre>end</pre>

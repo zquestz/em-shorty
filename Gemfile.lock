@@ -28,8 +28,6 @@ GEM
     mysql2 (0.2.7)
     polyglot (0.3.1)
     rack (1.2.2)
-    rack-cache (1.0)
-      rack (>= 0.4)
     rack-fiber_pool (0.9.1)
     rack-test (0.5.7)
       rack (>= 1.0)
@@ -64,7 +62,6 @@ DEPENDENCIES
   less
   mime-types
   mysql2
-  rack-cache
   rack-fiber_pool
   rack-test
   simplecov (>= 0.4.0)

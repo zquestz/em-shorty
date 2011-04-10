@@ -14,6 +14,5 @@ gem 'alphadecimal'
 gem 'mime-types'
 gem 'haml'
 gem 'less'
-gem 'rack-cache'
 gem 'rack-test'
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
