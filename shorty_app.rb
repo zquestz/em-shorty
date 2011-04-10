@@ -44,11 +44,10 @@ class ShortyApp < Sinatra::Base
   use Rack::FiberPool, :size => 100 unless test?
   
   if settings.rack_cache
-    use Rack::Cache do
-       set :verbose, false
-       set :metastore, "memcached://#{settings.memcached}/meta"
-       set :entitystore, 'file:cache'
-    end
+    use Rack::Cache,
+      :verbose => false,
+      :metastore => "memcached://#{settings.memcached}/meta",
+      :entitystore => "file:cache"
   end
 
   register Sinatra::I18n
