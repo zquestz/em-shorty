@@ -17,3 +17,5 @@ gem 'less'
 gem 'rack-cache'
 gem 'rack-test'
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
+gem 'em-synchrony'
+gem 'em-http-request'

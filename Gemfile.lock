@@ -11,12 +11,20 @@ GEM
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
     activesupport (3.0.5)
+    addressable (2.2.5)
     alphadecimal (1.1.0)
     arel (2.0.9)
     builder (2.1.2)
     daemons (1.1.2)
     dalli (1.0.3)
+    em-http-request (0.3.0)
+      addressable (>= 2.0.0)
+      escape_utils
+      eventmachine (>= 0.12.9)
     em-resolv-replace (1.1.1)
+    em-synchrony (0.2.0)
+      eventmachine (>= 0.12.9)
+    escape_utils (0.2.3)
     eventmachine (0.12.10)
     haml (3.0.25)
     i18n (0.5.0)
@@ -59,7 +67,9 @@ DEPENDENCIES
   activerecord
   alphadecimal
   dalli
+  em-http-request
   em-resolv-replace
+  em-synchrony
   haml
   less
   mime-types

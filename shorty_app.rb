@@ -25,6 +25,7 @@ require 'resolv'
 require 'mime/types'
 require 'dalli'
 require 'hashify'
+require 'em-synchrony/em-http'
 
 # Conditional require's based on environment.
 require 'em-resolv-replace' unless test?
