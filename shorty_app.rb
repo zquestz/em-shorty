@@ -24,22 +24,30 @@ require 'resolv'
 require 'mime/types'
 require 'dalli'
 require 'hashify'
+require 'rack/cache'
 
 # Conditional require's based on environment.
 require 'em-resolv-replace' unless test?
 
 # Main application class.
 class ShortyApp < Sinatra::Base
-  use Rack::FiberPool, :size => 100 unless test?
-
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
   set :caching, true
+  set :rack_cache, true
   set :api_formats, [:json, :xml, :yaml]
   set :memcached, 'localhost:11211'
   set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', 
                   '/var/run/mysqld/mysqld.sock', 
                   '/tmp/mysql.sock']
+  
+  use Rack::FiberPool, :size => 100 unless test?
+  
+  if settings.rack_cache
+    use Rack::Cache,
+      :metastore   => "memcached://#{settings.memcached}/meta",
+      :entitystore => "file:#{settings.root}/cache"
+  end
 
   register Sinatra::I18n
   
