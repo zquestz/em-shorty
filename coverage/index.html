@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T00:56:09-07:00">2011-04-11T00:56:09-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T14:01:11-07:00">2011-04-11T14:01:11-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2501,7 +2501,7 @@
         <pre>52</pre>
       </td>
       <td>
-        <pre>  set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace =&gt; 'shorty_'}) : CacheProxy.new()</pre>
+        <pre>  set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace =&gt; 'shorty_', :expires_in =&gt; settings.cache_timeout}) : CacheProxy.new()</pre>
       </td>
       <td class="hits">
         1
@@ -2787,7 +2787,7 @@
         <pre>74</pre>
       </td>
       <td>
-        <pre>      settings.cache.fetch &quot;shorten_#{request.ip}_#{params[:url]}_#{params[:format]}&quot;.hashify, settings.cache_timeout do</pre>
+        <pre>      settings.cache.fetch &quot;shorten_#{request.ip}_#{params[:url]}_#{params[:format]}&quot;.hashify do</pre>
       </td>
       <td class="hits">
         22
@@ -3281,7 +3281,7 @@
         <pre>112</pre>
       </td>
       <td>
-        <pre>    settings.cache.fetch &quot;view_#{request.ip}_#{params[:shorten]}_#{params[:format]}&quot;.hashify, settings.cache_timeout do</pre>
+        <pre>    settings.cache.fetch &quot;view_#{request.ip}_#{params[:shorten]}_#{params[:format]}&quot;.hashify do</pre>
       </td>
       <td class="hits">
         6
@@ -3502,7 +3502,7 @@
         <pre>129</pre>
       </td>
       <td>
-        <pre>    settings.cache.fetch &quot;redirect_#{request.ip}_#{params[:shortened]}&quot;.hashify, settings.cache_timeout do</pre>
+        <pre>    settings.cache.fetch &quot;redirect_#{request.ip}_#{params[:shortened]}&quot;.hashify do</pre>
       </td>
       <td class="hits">
         2

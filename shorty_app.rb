@@ -49,7 +49,7 @@ class ShortyApp < Sinatra::Base
   set :caching, true
   set :rack_cache, true
   set :cache_timeout, 120
-  set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_'}) : CacheProxy.new()
+  set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_', :expires_in => settings.cache_timeout}) : CacheProxy.new()
   
   use Rack::FiberPool, :size => 100 unless test?
   
@@ -71,7 +71,7 @@ class ShortyApp < Sinatra::Base
     
   home '/' do
     if params[:url]
-      settings.cache.fetch "shorten_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, settings.cache_timeout do
+      settings.cache.fetch "shorten_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify do
         @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
         format = params[:format]
         if @short_url.valid?
@@ -109,7 +109,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
-    settings.cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify, settings.cache_timeout do
+    settings.cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
         short_url = ShortenedUrl.find_by_shortened(params[:shortened])
@@ -126,7 +126,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened' do
-    settings.cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify, settings.cache_timeout do
+    settings.cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify do
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
