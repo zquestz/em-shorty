@@ -40,7 +40,7 @@ class ShortenedUrl < ActiveRecord::Base
   
   # Use addressable to parse the url
   def self.parse_url(url)
-    Addressable::URI.heuristic_parse(url) rescue nil
+    Addressable::URI.heuristic_parse(url).normalize rescue nil
   end
   
 end
