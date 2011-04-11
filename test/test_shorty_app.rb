@@ -91,7 +91,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
+    assert_equal (short_url.to_api(current_url).to_json), last_response.body
     short_url.delete
   end
   
@@ -103,7 +103,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
+    assert_equal (short_url.to_api(current_url).to_json), last_response.body
     short_url.delete
   end
   
@@ -115,7 +115,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_xml), last_response.body
     short_url.delete
   end
   
@@ -127,7 +127,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_xml), last_response.body
     short_url.delete
   end
   
@@ -139,7 +139,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_yaml), last_response.body
     short_url.delete
   end
   
@@ -151,7 +151,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_yaml), last_response.body
     short_url.delete
   end
   
@@ -259,7 +259,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.xml_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_xml), last_response.body
     short_url.delete
   end
   
@@ -270,7 +270,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.json_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
+    assert_equal (short_url.to_api(current_url).to_json), last_response.body
     short_url.delete
   end
   
@@ -281,7 +281,7 @@ class TestShortyApp < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal short_url.reload.count, (old_count + 1)
     assert_equal short_url.reload.yaml_count, (old_count + 1)
-    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
+    assert_equal (short_url.to_api(current_url).to_yaml), last_response.body
     short_url.delete
   end
   

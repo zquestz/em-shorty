@@ -46,6 +46,7 @@ class ShortyApp < Sinatra::Base
   set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', 
                   '/var/run/mysqld/mysqld.sock', 
                   '/tmp/mysql.sock']
+  set :cache_timeout, 120
   enable :caching
   enable :rack_cache
   
@@ -69,7 +70,8 @@ class ShortyApp < Sinatra::Base
     
   home '/' do
     if params[:url]
-      cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, 60 do
+      cache_control :public, :must_revalidate, :max_age => settings.cache_timeout if env['REQUEST_METHOD'] == 'GET'
+      cache.fetch "shorten_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, settings.cache_timeout do
         @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
         format = params[:format]
         if @short_url.valid?
@@ -95,20 +97,20 @@ class ShortyApp < Sinatra::Base
         end
       end
     else
-      cache_control :public, :must_revalidate, :max_age => 3600
+      cache_control :public, :must_revalidate, :max_age => (settings.cache_timeout * 10)
       haml :index
     end
   end
   
   get '/main.css' do
-    cache_control :public, :must_revalidate, :max_age => 3600
+    cache_control :public, :must_revalidate, :max_age => (settings.cache_timeout * 10)
     content_type 'text/css', :charset => 'utf-8'
     less :main
   end
   
   get '/:shortened.:format' do
-    cache_control :public, :must_revalidate, :max_age => 60
-    cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify, 60 do
+    cache_control :public, :must_revalidate, :max_age => settings.cache_timeout
+    cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify, settings.cache_timeout do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
         short_url = ShortenedUrl.find_by_shortened(params[:shortened])
@@ -125,8 +127,8 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened' do
-    cache_control :public, :must_revalidate, :max_age => 60
-    cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify, 60 do
+    cache_control :public, :must_revalidate, :max_age => settings.cache_timeout
+    cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify, settings.cache_timeout do
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
       if short_url
@@ -167,7 +169,7 @@ class ShortyApp < Sinatra::Base
     end
     
     def api_object(short_url)
-      {:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}
+      short_url.to_api(current_url)
     end
   end
 
