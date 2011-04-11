@@ -12,4 +12,9 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
+task :console do
+  ENV['RACK_ENV'] = 'test'
+  exec "tux"
+end
+
 task :default => :test

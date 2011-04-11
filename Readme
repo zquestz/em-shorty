@@ -35,4 +35,4 @@ rake test
 
 To launch a console:
 
-RACK_ENV=test tux
+rake console
