@@ -1,4 +1,4 @@
-# em-shorty 0.3.0
+# em-shorty 0.5.0
 # By: Josh Ellithorpe April 2011
 # URL shortner that uses rack fiber pool for optimal performance.
 # thin -R config.ru start
