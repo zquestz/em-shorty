@@ -19,3 +19,4 @@ gem 'rack-test'
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
 gem 'em-synchrony'
 gem 'em-http-request'
+gem 'tux'
