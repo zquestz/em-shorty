@@ -21,20 +21,20 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T19:24:19-07:00">2011-04-10T19:24:19-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T20:22:15-07:00">2011-04-10T20:22:15-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">99.49%</span>)
+    (<span class="green">99.51%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>394</b> relevant lines. 
-    <span class="green"><b>392</b> lines covered</span> and
+    <b>408</b> relevant lines. 
+    <span class="green"><b>406</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -71,9 +71,9 @@
       <tr>
         <td><a href="#e694f285bf494d501abc8ac8788d18ec798d6394" class="src_link" title="./lib/shortened_url.rb">./lib/shortened_url.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>51</td>
-        <td>24</td>
-        <td>24</td>
+        <td>62</td>
+        <td>30</td>
+        <td>30</td>
         <td>0</td>
       </tr>
       
@@ -98,18 +98,18 @@
       <tr>
         <td><a href="#43d0a5daf68cebebe47d263c74153fb94e4dbf20" class="src_link" title="./test/test_shortened_url.rb">./test/test_shortened_url.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>55</td>
-        <td>36</td>
-        <td>36</td>
+        <td>71</td>
+        <td>46</td>
+        <td>46</td>
         <td>0</td>
       </tr>
       
       <tr>
         <td><a href="#0d8a61662dcd0fb3d6936afed0bad39825f8cacf" class="src_link" title="./test/test_shorty_app.rb">./test/test_shorty_app.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>226</td>
-        <td>164</td>
-        <td>164</td>
+        <td>224</td>
+        <td>162</td>
+        <td>162</td>
         <td>0</td>
       </tr>
       
@@ -1124,7 +1124,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="38">
+    <tr class="hit" data-hits="39">
       <td class="line_number">
         <pre>14</pre>
       </td>
@@ -1132,12 +1132,12 @@
         <pre>    uri = self.class.parse_url(self.url)</pre>
       </td>
       <td class="hits">
-        38
+        39
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="38">
+    <tr class="hit" data-hits="39">
       <td class="line_number">
         <pre>15</pre>
       </td>
@@ -1145,12 +1145,12 @@
         <pre>    if uri &amp;&amp; uri.normalized_scheme &amp;&amp; uri.normalized_host</pre>
       </td>
       <td class="hits">
-        38
+        39
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="28">
+    <tr class="hit" data-hits="29">
       <td class="line_number">
         <pre>16</pre>
       </td>
@@ -1158,12 +1158,12 @@
         <pre>      if uri.normalized_host.match(/\.[a-zA-Z][a-zA-Z]/)</pre>
       </td>
       <td class="hits">
-        28
+        29
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="26">
+    <tr class="hit" data-hits="27">
       <td class="line_number">
         <pre>17</pre>
       </td>
@@ -1171,12 +1171,12 @@
         <pre>        self.url = uri.to_s</pre>
       </td>
       <td class="hits">
-        26
+        27
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="26">
+    <tr class="hit" data-hits="27">
       <td class="line_number">
         <pre>18</pre>
       </td>
@@ -1184,7 +1184,7 @@
         <pre>        self.valid_url = true</pre>
       </td>
       <td class="hits">
-        26
+        27
       </td>
     </tr>
   
@@ -1311,7 +1311,7 @@
         <pre>28</pre>
       </td>
       <td>
-        <pre>  # Find url by its alphadecimal value</pre>
+        <pre>  # Total access count of all api requests and redirects</pre>
       </td>
       <td class="hits">
         
@@ -1324,97 +1324,6 @@
         <pre>29</pre>
       </td>
       <td>
-        <pre>  def self.find_by_shortened(shortened)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="9">
-      <td class="line_number">
-        <pre>30</pre>
-      </td>
-      <td>
-        <pre>    find(shortened.alphadecimal)</pre>
-      </td>
-      <td class="hits">
-        9
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>31</pre>
-      </td>
-      <td>
-        <pre>  rescue ActiveRecord::RecordNotFound</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="4">
-      <td class="line_number">
-        <pre>32</pre>
-      </td>
-      <td>
-        <pre>    nil</pre>
-      </td>
-      <td class="hits">
-        4
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>33</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>34</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>35</pre>
-      </td>
-      <td>
-        <pre>  # Total access count of all api requests and redirects</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>36</pre>
-      </td>
-      <td>
         <pre>  def total_count</pre>
       </td>
       <td class="hits">
@@ -1425,7 +1334,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>37</pre>
+        <pre>30</pre>
       </td>
       <td>
         <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
@@ -1438,7 +1347,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>38</pre>
+        <pre>31</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -1451,13 +1360,104 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>39</pre>
+        <pre>32</pre>
       </td>
       <td>
         <pre>  alias :count :total_count</pre>
       </td>
       <td class="hits">
         1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>33</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>34</pre>
+      </td>
+      <td>
+        <pre>  # Find url by its alphadecimal value</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>35</pre>
+      </td>
+      <td>
+        <pre>  def self.find_by_shortened(shortened)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="9">
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>    find(shortened.alphadecimal)</pre>
+      </td>
+      <td class="hits">
+        9
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre>  rescue ActiveRecord::RecordNotFound</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>    nil</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
       </td>
     </tr>
   
@@ -1475,25 +1475,12 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>41</pre>
       </td>
       <td>
-        <pre>  # Use addressable to parse the url</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>42</pre>
-      </td>
-      <td>
-        <pre>  def self.parse_url(url)</pre>
+        <pre>  def self.find_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -1501,22 +1488,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="57">
+    <tr class="hit" data-hits="19">
       <td class="line_number">
-        <pre>43</pre>
+        <pre>42</pre>
       </td>
       <td>
-        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
+        <pre>    find(:first, :conditions =&gt; {:url =&gt; normalize_url(url)})</pre>
       </td>
       <td class="hits">
-        57
+        19
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>44</pre>
+        <pre>43</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -1529,7 +1516,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>45</pre>
+        <pre>44</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -1540,25 +1527,12 @@
     </tr>
   
     
-    <tr class="never" >
-      <td class="line_number">
-        <pre>46</pre>
-      </td>
-      <td>
-        <pre>  # Real url for our system. Everything is filtered.</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>47</pre>
+        <pre>45</pre>
       </td>
       <td>
-        <pre>  def self.normalized_url(url)</pre>
+        <pre>  def self.find_or_create_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -1568,10 +1542,23 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>48</pre>
+        <pre>46</pre>
       </td>
       <td>
-        <pre>    parse_url(url).to_s</pre>
+        <pre>    ret_url = find_by_url(url)</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>47</pre>
+      </td>
+      <td>
+        <pre>    ret_url ||= self.create(:url =&gt; url)</pre>
       </td>
       <td class="hits">
         12
@@ -1581,10 +1568,23 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>49</pre>
+        <pre>48</pre>
       </td>
       <td>
         <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>49</pre>
+      </td>
+      <td>
+        <pre>  </pre>
       </td>
       <td class="hits">
         
@@ -1597,6 +1597,84 @@
         <pre>50</pre>
       </td>
       <td>
+        <pre>  # Real url for our system. Everything is filtered.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>51</pre>
+      </td>
+      <td>
+        <pre>  def self.normalize_url(url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="21">
+      <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
+        <pre>    parse_url(url).to_s</pre>
+      </td>
+      <td class="hits">
+        21
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>53</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>54</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>55</pre>
+      </td>
+      <td>
+        <pre>  protected</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>56</pre>
+      </td>
+      <td>
         <pre>  </pre>
       </td>
       <td class="hits">
@@ -1607,7 +1685,72 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>51</pre>
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>  # Use addressable to parse the url</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>58</pre>
+      </td>
+      <td>
+        <pre>  def self.parse_url(url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="62">
+      <td class="line_number">
+        <pre>59</pre>
+      </td>
+      <td>
+        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
+      </td>
+      <td class="hits">
+        62
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>60</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>61</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>62</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -2619,7 +2762,7 @@
         <pre>76</pre>
       </td>
       <td>
-        <pre>      @short_url = ShortenedUrl.find_or_create_by_url(ShortenedUrl.normalized_url(params[:url]))</pre>
+        <pre>      @short_url = ShortenedUrl.find_or_create_by_url(params[:url])</pre>
       </td>
       <td class="hits">
         11
@@ -5274,7 +5417,7 @@
         <pre>27</pre>
       </td>
       <td>
-        <pre>  def test_normalized_url</pre>
+        <pre>  def test_normalize_url</pre>
       </td>
       <td class="hits">
         1
@@ -5300,7 +5443,7 @@
         <pre>29</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.new(:url =&gt; url)</pre>
+        <pre>    assert_not_equal url, ShortenedUrl.normalize_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -5308,28 +5451,28 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>30</pre>
       </td>
       <td>
-        <pre>    assert_equal true, short_url.save</pre>
+        <pre>  end</pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>31</pre>
       </td>
       <td>
-        <pre>    assert_not_equal short_url.url, url</pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
@@ -5339,7 +5482,7 @@
         <pre>32</pre>
       </td>
       <td>
-        <pre>    assert_equal short_url.url, ShortenedUrl.normalized_url(url)</pre>
+        <pre>  def test_normalize_on_save</pre>
       </td>
       <td class="hits">
         1
@@ -5352,7 +5495,7 @@
         <pre>33</pre>
       </td>
       <td>
-        <pre>    short_url.delete</pre>
+        <pre>    url = &quot;http:intrarts.com&quot;</pre>
       </td>
       <td class="hits">
         1
@@ -5360,28 +5503,28 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>34</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>    short_url = ShortenedUrl.create(:url =&gt; url)</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>35</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre>    assert_not_equal url, short_url.url</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
@@ -5391,7 +5534,7 @@
         <pre>36</pre>
       </td>
       <td>
-        <pre>  def test_parse_url</pre>
+        <pre>    assert_equal ShortenedUrl.normalize_url(url), short_url.url</pre>
       </td>
       <td class="hits">
         1
@@ -5404,20 +5547,7 @@
         <pre>37</pre>
       </td>
       <td>
-        <pre>    url = &quot;http://intrarts.com&quot;</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>38</pre>
-      </td>
-      <td>
-        <pre>    assert_equal ShortenedUrl.parse_url(url).class, Addressable::URI</pre>
+        <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
         1
@@ -5427,7 +5557,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>39</pre>
+        <pre>38</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -5440,7 +5570,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>40</pre>
+        <pre>39</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -5453,10 +5583,23 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
+        <pre>40</pre>
+      </td>
+      <td>
+        <pre>  def test_parse_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
         <pre>41</pre>
       </td>
       <td>
-        <pre>  def test_shorten</pre>
+        <pre>    url = &quot;http://intrarts.com&quot;</pre>
       </td>
       <td class="hits">
         1
@@ -5469,7 +5612,7 @@
         <pre>42</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://thelag.dyndns.org')</pre>
+        <pre>    assert_equal ShortenedUrl.parse_url(url).class, Addressable::URI</pre>
       </td>
       <td class="hits">
         1
@@ -5477,28 +5620,28 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>43</pre>
       </td>
       <td>
-        <pre>    assert_equal short_url.shorten, short_url.id.alphadecimal</pre>
+        <pre>  end</pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>44</pre>
       </td>
       <td>
-        <pre>    assert_equal 1.alphadecimal, '1'</pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
@@ -5508,7 +5651,7 @@
         <pre>45</pre>
       </td>
       <td>
-        <pre>    assert_equal 10.alphadecimal, 'A'</pre>
+        <pre>  def test_shorten</pre>
       </td>
       <td class="hits">
         1
@@ -5521,7 +5664,7 @@
         <pre>46</pre>
       </td>
       <td>
-        <pre>    short_url.delete</pre>
+        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://thelag.dyndns.org')</pre>
       </td>
       <td class="hits">
         1
@@ -5529,28 +5672,28 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>47</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>    assert_equal short_url.shorten, short_url.id.alphadecimal</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>48</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre>    assert_equal 1.alphadecimal, '1'</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
@@ -5560,7 +5703,7 @@
         <pre>49</pre>
       </td>
       <td>
-        <pre>  def test_find_by_shorten</pre>
+        <pre>    assert_equal 10.alphadecimal, 'A'</pre>
       </td>
       <td class="hits">
         1
@@ -5573,32 +5716,6 @@
         <pre>50</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://phandroid.com')</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>51</pre>
-      </td>
-      <td>
-        <pre>    assert_equal ShortenedUrl.find_by_shortened(short_url.shorten), short_url</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>52</pre>
-      </td>
-      <td>
         <pre>    short_url.delete</pre>
       </td>
       <td class="hits">
@@ -5609,7 +5726,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>53</pre>
+        <pre>51</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -5622,7 +5739,241 @@
     
     <tr class="never" >
       <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>53</pre>
+      </td>
+      <td>
+        <pre>  def test_find_by_shorten</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
         <pre>54</pre>
+      </td>
+      <td>
+        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://phandroid.com')</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>55</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ShortenedUrl.find_by_shortened(short_url.shorten), short_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>56</pre>
+      </td>
+      <td>
+        <pre>    short_url.delete</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>58</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>59</pre>
+      </td>
+      <td>
+        <pre>  def test_find_by_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>60</pre>
+      </td>
+      <td>
+        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://phandroid.com')</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>61</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ShortenedUrl.find_by_url(short_url.url), short_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>62</pre>
+      </td>
+      <td>
+        <pre>    short_url.delete</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>64</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>65</pre>
+      </td>
+      <td>
+        <pre>  def test_find_or_create_by_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>66</pre>
+      </td>
+      <td>
+        <pre>    short_url = ShortenedUrl.find_or_create_by_url('http://newegg.com')</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>67</pre>
+      </td>
+      <td>
+        <pre>    assert_equal ShortenedUrl.find_by_url(short_url.url), short_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>68</pre>
+      </td>
+      <td>
+        <pre>    short_url.delete</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>69</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>70</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -5635,7 +5986,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>55</pre>
+        <pre>71</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -6205,7 +6556,7 @@
         <pre>42</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)</pre>
+        <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -6426,7 +6777,7 @@
         <pre>59</pre>
       </td>
       <td>
-        <pre>    ShortenedUrl.find_by_url(ShortenedUrl.parse_url(urls.first).to_s).delete</pre>
+        <pre>    ShortenedUrl.find_by_url(urls.first).delete</pre>
       </td>
       <td class="hits">
         1
@@ -6517,7 +6868,7 @@
         <pre>66</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)</pre>
+        <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -6673,7 +7024,7 @@
         <pre>78</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)</pre>
+        <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -6829,7 +7180,7 @@
         <pre>90</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)</pre>
+        <pre>    short_url = ShortenedUrl.find_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -7414,7 +7765,7 @@
         <pre>135</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.create!(:url =&gt; 'http://google.com/')</pre>
+        <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://google.com/')</pre>
       </td>
       <td class="hits">
         1
@@ -7570,7 +7921,7 @@
         <pre>147</pre>
       </td>
       <td>
-        <pre>    short_url = ShortenedUrl.create!(:url =&gt; 'http://engadget.com/')</pre>
+        <pre>    get '/____'</pre>
       </td>
       <td class="hits">
         1
@@ -7583,7 +7934,7 @@
         <pre>148</pre>
       </td>
       <td>
-        <pre>    get '/____'</pre>
+        <pre>    assert last_response.ok?</pre>
       </td>
       <td class="hits">
         1
@@ -7596,7 +7947,7 @@
         <pre>149</pre>
       </td>
       <td>
-        <pre>    assert last_response.ok?</pre>
+        <pre>    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('no_url'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', 'error', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
         1
@@ -7609,19 +7960,6 @@
         <pre>150</pre>
       </td>
       <td>
-        <pre>    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('no_url'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', 'error', Time.now.year.to_s]</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>151</pre>
-      </td>
-      <td>
         <pre>    matchers.each do |match|</pre>
       </td>
       <td class="hits">
@@ -7632,7 +7970,7 @@
     
     <tr class="hit" data-hits="10">
       <td class="line_number">
-        <pre>152</pre>
+        <pre>151</pre>
       </td>
       <td>
         <pre>      assert last_response.body.include?(match)</pre>
@@ -7645,7 +7983,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>153</pre>
+        <pre>152</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -7656,22 +7994,9 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>154</pre>
-      </td>
-      <td>
-        <pre>    short_url.delete</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
     <tr class="never" >
       <td class="line_number">
-        <pre>155</pre>
+        <pre>153</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -7684,7 +8009,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>156</pre>
+        <pre>154</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -7697,7 +8022,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>157</pre>
+        <pre>155</pre>
       </td>
       <td>
         <pre>  def test_xml</pre>
@@ -7710,7 +8035,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>158</pre>
+        <pre>156</pre>
       </td>
       <td>
         <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://reddit.com/r/xml')</pre>
@@ -7723,7 +8048,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>159</pre>
+        <pre>157</pre>
       </td>
       <td>
         <pre>    old_count = short_url.count</pre>
@@ -7736,7 +8061,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>160</pre>
+        <pre>158</pre>
       </td>
       <td>
         <pre>    get &quot;/#{short_url.shorten}.xml&quot;</pre>
@@ -7749,7 +8074,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>161</pre>
+        <pre>159</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -7762,7 +8087,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>162</pre>
+        <pre>160</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
@@ -7775,7 +8100,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>163</pre>
+        <pre>161</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.xml_count, (old_count + 1)</pre>
@@ -7788,7 +8113,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>164</pre>
+        <pre>162</pre>
       </td>
       <td>
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_xml), last_response.body</pre>
@@ -7801,7 +8126,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>165</pre>
+        <pre>163</pre>
       </td>
       <td>
         <pre>    short_url.delete</pre>
@@ -7814,7 +8139,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>166</pre>
+        <pre>164</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -7827,7 +8152,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>167</pre>
+        <pre>165</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -7840,7 +8165,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>168</pre>
+        <pre>166</pre>
       </td>
       <td>
         <pre>  def test_json</pre>
@@ -7853,7 +8178,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>169</pre>
+        <pre>167</pre>
       </td>
       <td>
         <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://reddit.com/r/json')</pre>
@@ -7866,7 +8191,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>170</pre>
+        <pre>168</pre>
       </td>
       <td>
         <pre>    old_count = short_url.count</pre>
@@ -7879,7 +8204,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>171</pre>
+        <pre>169</pre>
       </td>
       <td>
         <pre>    get &quot;/#{short_url.shorten}.json&quot;</pre>
@@ -7892,7 +8217,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>172</pre>
+        <pre>170</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -7905,7 +8230,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>173</pre>
+        <pre>171</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
@@ -7918,7 +8243,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>174</pre>
+        <pre>172</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.json_count, (old_count + 1)</pre>
@@ -7931,7 +8256,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>175</pre>
+        <pre>173</pre>
       </td>
       <td>
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_json), last_response.body</pre>
@@ -7944,7 +8269,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>176</pre>
+        <pre>174</pre>
       </td>
       <td>
         <pre>    short_url.delete</pre>
@@ -7957,7 +8282,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>177</pre>
+        <pre>175</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -7970,7 +8295,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>178</pre>
+        <pre>176</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -7983,7 +8308,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>179</pre>
+        <pre>177</pre>
       </td>
       <td>
         <pre>  def test_yaml</pre>
@@ -7996,7 +8321,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>180</pre>
+        <pre>178</pre>
       </td>
       <td>
         <pre>    short_url = ShortenedUrl.create(:url =&gt; 'http://reddit.com/r/yaml')</pre>
@@ -8009,7 +8334,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>181</pre>
+        <pre>179</pre>
       </td>
       <td>
         <pre>    old_count = short_url.count</pre>
@@ -8022,7 +8347,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>182</pre>
+        <pre>180</pre>
       </td>
       <td>
         <pre>    get &quot;/#{short_url.shorten}.yaml&quot;</pre>
@@ -8035,7 +8360,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>183</pre>
+        <pre>181</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -8048,7 +8373,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>184</pre>
+        <pre>182</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.count, (old_count + 1)</pre>
@@ -8061,7 +8386,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>185</pre>
+        <pre>183</pre>
       </td>
       <td>
         <pre>    assert_equal short_url.reload.yaml_count, (old_count + 1)</pre>
@@ -8074,7 +8399,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>186</pre>
+        <pre>184</pre>
       </td>
       <td>
         <pre>    assert_equal ({:url =&gt; short_url.url, :short_url =&gt; &quot;#{current_url}/#{short_url.shorten}&quot;}.to_yaml), last_response.body</pre>
@@ -8087,7 +8412,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>187</pre>
+        <pre>185</pre>
       </td>
       <td>
         <pre>    short_url.delete</pre>
@@ -8100,7 +8425,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>188</pre>
+        <pre>186</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8113,7 +8438,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>189</pre>
+        <pre>187</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8126,7 +8451,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>190</pre>
+        <pre>188</pre>
       </td>
       <td>
         <pre>  def test_bad_xml</pre>
@@ -8139,7 +8464,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>191</pre>
+        <pre>189</pre>
       </td>
       <td>
         <pre>    get '/___.xml'</pre>
@@ -8152,7 +8477,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>192</pre>
+        <pre>190</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -8165,7 +8490,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>193</pre>
+        <pre>191</pre>
       </td>
       <td>
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_xml), last_response.body</pre>
@@ -8178,7 +8503,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>194</pre>
+        <pre>192</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8191,7 +8516,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>195</pre>
+        <pre>193</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8204,7 +8529,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>196</pre>
+        <pre>194</pre>
       </td>
       <td>
         <pre>  def test_bad_json</pre>
@@ -8217,7 +8542,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>197</pre>
+        <pre>195</pre>
       </td>
       <td>
         <pre>    get '/___.json'</pre>
@@ -8230,7 +8555,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>198</pre>
+        <pre>196</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -8243,7 +8568,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>199</pre>
+        <pre>197</pre>
       </td>
       <td>
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_json), last_response.body</pre>
@@ -8256,7 +8581,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>200</pre>
+        <pre>198</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8269,7 +8594,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>201</pre>
+        <pre>199</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8282,7 +8607,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>202</pre>
+        <pre>200</pre>
       </td>
       <td>
         <pre>  def test_bad_yaml</pre>
@@ -8295,7 +8620,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>203</pre>
+        <pre>201</pre>
       </td>
       <td>
         <pre>    get '/___.yaml'</pre>
@@ -8308,7 +8633,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>204</pre>
+        <pre>202</pre>
       </td>
       <td>
         <pre>    assert last_response.ok?</pre>
@@ -8321,7 +8646,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>205</pre>
+        <pre>203</pre>
       </td>
       <td>
         <pre>    assert_equal ({:error =&gt; I18n.translate('no_record_found')}.to_yaml), last_response.body</pre>
@@ -8334,7 +8659,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>206</pre>
+        <pre>204</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8347,7 +8672,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>207</pre>
+        <pre>205</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8360,7 +8685,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>208</pre>
+        <pre>206</pre>
       </td>
       <td>
         <pre>  def test_404</pre>
@@ -8373,7 +8698,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>209</pre>
+        <pre>207</pre>
       </td>
       <td>
         <pre>    get '/fake/path'</pre>
@@ -8386,7 +8711,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>210</pre>
+        <pre>208</pre>
       </td>
       <td>
         <pre>    assert_equal 404, last_response.status</pre>
@@ -8399,7 +8724,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>211</pre>
+        <pre>209</pre>
       </td>
       <td>
         <pre>    assert last_response.body.include?(I18n.translate('http_not_found'))</pre>
@@ -8412,7 +8737,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>212</pre>
+        <pre>210</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8425,7 +8750,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>213</pre>
+        <pre>211</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8438,7 +8763,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>214</pre>
+        <pre>212</pre>
       </td>
       <td>
         <pre>  def test_memcached</pre>
@@ -8451,7 +8776,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>215</pre>
+        <pre>213</pre>
       </td>
       <td>
         <pre>    shorty = ShortyApp.new</pre>
@@ -8464,7 +8789,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>216</pre>
+        <pre>214</pre>
       </td>
       <td>
         <pre>    shorty.backend.settings.caching = true</pre>
@@ -8477,7 +8802,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>217</pre>
+        <pre>215</pre>
       </td>
       <td>
         <pre>    assert_equal shorty.backend.cache.class, Dalli::Client</pre>
@@ -8490,7 +8815,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>218</pre>
+        <pre>216</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8503,7 +8828,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>219</pre>
+        <pre>217</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8516,7 +8841,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>220</pre>
+        <pre>218</pre>
       </td>
       <td>
         <pre>  def test_cache_proxy</pre>
@@ -8529,7 +8854,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>221</pre>
+        <pre>219</pre>
       </td>
       <td>
         <pre>    shorty = ShortyApp.new</pre>
@@ -8542,7 +8867,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>222</pre>
+        <pre>220</pre>
       </td>
       <td>
         <pre>    shorty.backend.settings.caching = false</pre>
@@ -8555,7 +8880,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>223</pre>
+        <pre>221</pre>
       </td>
       <td>
         <pre>    assert_equal shorty.backend.cache.class, CacheProxy</pre>
@@ -8568,7 +8893,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>224</pre>
+        <pre>222</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -8581,7 +8906,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>225</pre>
+        <pre>223</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -8594,7 +8919,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>226</pre>
+        <pre>224</pre>
       </td>
       <td>
         <pre>end</pre>

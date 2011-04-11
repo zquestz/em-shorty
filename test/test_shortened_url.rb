@@ -24,12 +24,16 @@ class TestShortenedUrl < Test::Unit::TestCase
     end
   end
   
-  def test_normalized_url
+  def test_normalize_url
     url = "http:/needs.normalizing.com"
-    short_url = ShortenedUrl.new(:url => url)
-    assert_equal true, short_url.save
-    assert_not_equal short_url.url, url
-    assert_equal short_url.url, ShortenedUrl.normalized_url(url)
+    assert_not_equal url, ShortenedUrl.normalize_url(url)
+  end
+  
+  def test_normalize_on_save
+    url = "http:intrarts.com"
+    short_url = ShortenedUrl.create(:url => url)
+    assert_not_equal url, short_url.url
+    assert_equal ShortenedUrl.normalize_url(url), short_url.url
     short_url.delete
   end
   
@@ -49,6 +53,18 @@ class TestShortenedUrl < Test::Unit::TestCase
   def test_find_by_shorten
     short_url = ShortenedUrl.create(:url => 'http://phandroid.com')
     assert_equal ShortenedUrl.find_by_shortened(short_url.shorten), short_url
+    short_url.delete
+  end
+  
+  def test_find_by_url
+    short_url = ShortenedUrl.create(:url => 'http://phandroid.com')
+    assert_equal ShortenedUrl.find_by_url(short_url.url), short_url
+    short_url.delete
+  end
+  
+  def test_find_or_create_by_url
+    short_url = ShortenedUrl.find_or_create_by_url('http://newegg.com')
+    assert_equal ShortenedUrl.find_by_url(short_url.url), short_url
     short_url.delete
   end
   

@@ -39,7 +39,7 @@ class TestShortyApp < Test::Unit::TestCase
     url = 'http://arstechnica.com'
     post '/', :url => url
     assert last_response.ok?
-    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)
+    short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 0
     matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
@@ -56,14 +56,14 @@ class TestShortyApp < Test::Unit::TestCase
       assert last_response.ok?
     end
     assert_equal ShortenedUrl.count, 1
-    ShortenedUrl.find_by_url(ShortenedUrl.parse_url(urls.first).to_s).delete
+    ShortenedUrl.find_by_url(urls.first).delete
   end
   
   def test_post_valid_new_url_json
     url = 'http://involver.com'
     post '/', {:url => url, :format => 'json'}
     assert last_response.ok?
-    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)
+    short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
@@ -75,7 +75,7 @@ class TestShortyApp < Test::Unit::TestCase
     url = 'http://bash.org'
     post '/', {:url => url, :format => 'xml'}
     assert last_response.ok?
-    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)
+    short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
@@ -87,7 +87,7 @@ class TestShortyApp < Test::Unit::TestCase
     url = 'http://thedailyshow.com'
     post '/', {:url => url, :format => 'yaml'}
     assert last_response.ok?
-    short_url = ShortenedUrl.find_by_url(ShortenedUrl.parse_url(url).to_s)
+    short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
@@ -132,7 +132,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_url_redirect
-    short_url = ShortenedUrl.create!(:url => 'http://google.com/')
+    short_url = ShortenedUrl.create(:url => 'http://google.com/')
     old_count = short_url.count
     get "/#{short_url.shorten}"
     follow_redirect!
@@ -144,14 +144,12 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_invalid_url_redirect
-    short_url = ShortenedUrl.create!(:url => 'http://engadget.com/')
     get '/____'
     assert last_response.ok?
     matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('no_url'), 'main.css', 'favicon.png', 'logo.png', 'input', 'submit', 'error', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
-    short_url.delete
   end
   
   def test_xml

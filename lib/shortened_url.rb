@@ -25,6 +25,12 @@ class ShortenedUrl < ActiveRecord::Base
     self.id.alphadecimal
   end
   
+  # Total access count of all api requests and redirects
+  def total_count
+    redirect_count + json_count + xml_count + yaml_count
+  end
+  alias :count :total_count
+  
   # Find url by its alphadecimal value
   def self.find_by_shortened(shortened)
     find(shortened.alphadecimal)
@@ -32,20 +38,25 @@ class ShortenedUrl < ActiveRecord::Base
     nil
   end
   
-  # Total access count of all api requests and redirects
-  def total_count
-    redirect_count + json_count + xml_count + yaml_count
+  def self.find_by_url(url)
+    find(:first, :conditions => {:url => normalize_url(url)})
   end
-  alias :count :total_count
+  
+  def self.find_or_create_by_url(url)
+    ret_url = find_by_url(url)
+    ret_url ||= self.create(:url => url)
+  end
+  
+  # Real url for our system. Everything is filtered.
+  def self.normalize_url(url)
+    parse_url(url).to_s
+  end
+  
+  protected
   
   # Use addressable to parse the url
   def self.parse_url(url)
     Addressable::URI.heuristic_parse(url).normalize rescue nil
-  end
-  
-  # Real url for our system. Everything is filtered.
-  def self.normalized_url(url)
-    parse_url(url).to_s
   end
   
 end

@@ -73,7 +73,7 @@ class ShortyApp < Sinatra::Base
     
   post '/' do
     cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, 60 do
-      @short_url = ShortenedUrl.find_or_create_by_url(ShortenedUrl.normalized_url(params[:url]))
+      @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
       format = params[:format]
       if @short_url.valid?
         unless format.blank?
