@@ -24,6 +24,20 @@ class TestShortenedUrl < Test::Unit::TestCase
     end
   end
   
+  def test_normalized_url
+    url = "http:/needs.normalizing.com"
+    short_url = ShortenedUrl.new(:url => url)
+    assert_equal true, short_url.save
+    assert_not_equal short_url.url, url
+    assert_equal short_url.url, ShortenedUrl.normalized_url(url)
+    short_url.delete
+  end
+  
+  def test_parse_url
+    url = "http://intrarts.com"
+    assert_equal ShortenedUrl.parse_url(url).class, Addressable::URI
+  end
+  
   def test_shorten
     short_url = ShortenedUrl.create(:url => 'http://thelag.dyndns.org')
     assert_equal short_url.shorten, short_url.id.alphadecimal

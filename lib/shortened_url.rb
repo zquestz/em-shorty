@@ -43,4 +43,9 @@ class ShortenedUrl < ActiveRecord::Base
     Addressable::URI.heuristic_parse(url).normalize rescue nil
   end
   
+  # Real url for our system. Everything is filtered.
+  def self.normalized_url(url)
+    parse_url(url).to_s
+  end
+  
 end
