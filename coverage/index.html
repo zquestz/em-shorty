@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T18:17:22-07:00">2011-04-10T18:17:22-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-10T18:22:57-07:00">2011-04-10T18:22:57-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -2684,7 +2684,7 @@
         <pre>86</pre>
       </td>
       <td>
-        <pre>        @flash = {:notice =&gt; I18n.translate(:url_shortened, :original_url =&gt; params[:url])}</pre>
+        <pre>        @flash = {:notice =&gt; I18n.translate(:url_shortened, :original_url =&gt; @short_url.url)}</pre>
       </td>
       <td class="hits">
         4
@@ -5997,7 +5997,7 @@
         <pre>45</pre>
       </td>
       <td>
-        <pre>    matchers = [&quot;/#{short_url.shorten}&quot;, I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url =&gt; url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]</pre>
+        <pre>    matchers = [&quot;/#{short_url.shorten}&quot;, I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url =&gt; short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]</pre>
       </td>
       <td class="hits">
         1

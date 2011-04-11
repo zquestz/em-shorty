@@ -83,7 +83,7 @@ class ShortyApp < Sinatra::Base
             return api_object(@short_url).send("to_#{format}")
           end
         end
-        @flash = {:notice => I18n.translate(:url_shortened, :original_url => params[:url])}
+        @flash = {:notice => I18n.translate(:url_shortened, :original_url => @short_url.url)}
         @viewed_url = "#{current_url}/#{@short_url.shorten}"
         haml :success
       else

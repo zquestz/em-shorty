@@ -42,7 +42,7 @@ class TestShortyApp < Test::Unit::TestCase
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
     assert_equal short_url.count, 0
-    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
