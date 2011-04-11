@@ -5,7 +5,9 @@ $LOAD_PATH << File.join(File.dirname(__FILE__), '..')
 ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/test/"
+end
 
 # require items needed for testing
 require 'shorty_app'
