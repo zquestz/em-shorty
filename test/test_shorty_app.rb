@@ -36,7 +36,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
     
   def test_post_valid_new_url
-    url = 'http://arstechnica.com'
+    url = 'http://gizmodo.com'
     post '/', :url => url
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
@@ -167,7 +167,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_get_zeroclipboard
-    url = 'http://involver.com'
+    url = 'http://servercentral.net'
     get '/', :url => url
     assert last_response.ok?
     matchers = ['ZeroClipboard.min.js', "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", 'function setupZeroClipboard()', 'clip = new ZeroClipboard.Client();', 'clip.setText', 'clip.setHandCursor(true);', "clip.glue('clip_button', 'clip_container');"]
@@ -312,13 +312,7 @@ class TestShortyApp < Test::Unit::TestCase
   def test_memcached
     shorty = ShortyApp.new
     shorty.backend.settings.caching = true
-    assert_equal shorty.backend.cache.class, Dalli::Client
-  end
-  
-  def test_cache_proxy
-    shorty = ShortyApp.new
-    shorty.backend.settings.caching = false
-    assert_equal shorty.backend.cache.class, CacheProxy
+    assert_equal shorty.backend.settings.cache.class, Dalli::Client
   end
   
 end
