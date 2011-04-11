@@ -34,12 +34,7 @@ class ShortenedUrl < ActiveRecord::Base
   # Hash supplied for api hits
   def to_api(base_url = nil)
     { :url => self.url, 
-      :short_url => "#{base_url}/#{self.shorten}", 
-      :json_count => self.json_count,
-      :xml_count => self.xml_count,
-      :yaml_count => self.yaml_count,
-      :redirect_count => self.redirect_count,
-      :total_count => self.total_count }
+      :short_url => "#{base_url}/#{self.shorten}" }
   end
   
   # Find url by its alphadecimal value

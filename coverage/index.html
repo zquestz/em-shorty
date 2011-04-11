@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T00:29:24-07:00">2011-04-11T00:29:24-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T00:56:09-07:00">2011-04-11T00:56:09-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -71,7 +71,7 @@
       <tr>
         <td><a href="#e694f285bf494d501abc8ac8788d18ec798d6394" class="src_link" title="./lib/shortened_url.rb">./lib/shortened_url.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>73</td>
+        <td>68</td>
         <td>32</td>
         <td>32</td>
         <td>0</td>
@@ -1305,7 +1305,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="34">
+    <tr class="hit" data-hits="16">
       <td class="line_number">
         <pre>30</pre>
       </td>
@@ -1313,7 +1313,7 @@
         <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
       </td>
       <td class="hits">
-        34
+        16
       </td>
     </tr>
   
@@ -1396,15 +1396,15 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="18">
       <td class="line_number">
         <pre>37</pre>
       </td>
       <td>
-        <pre>      :short_url =&gt; &quot;#{base_url}/#{self.shorten}&quot;, </pre>
+        <pre>      :short_url =&gt; &quot;#{base_url}/#{self.shorten}&quot; }</pre>
       </td>
       <td class="hits">
-        
+        18
       </td>
     </tr>
   
@@ -1414,7 +1414,7 @@
         <pre>38</pre>
       </td>
       <td>
-        <pre>      :json_count =&gt; self.json_count,</pre>
+        <pre>  end</pre>
       </td>
       <td class="hits">
         
@@ -1427,7 +1427,7 @@
         <pre>39</pre>
       </td>
       <td>
-        <pre>      :xml_count =&gt; self.xml_count,</pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
         
@@ -1440,71 +1440,6 @@
         <pre>40</pre>
       </td>
       <td>
-        <pre>      :yaml_count =&gt; self.yaml_count,</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>41</pre>
-      </td>
-      <td>
-        <pre>      :redirect_count =&gt; self.redirect_count,</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="18">
-      <td class="line_number">
-        <pre>42</pre>
-      </td>
-      <td>
-        <pre>      :total_count =&gt; self.total_count }</pre>
-      </td>
-      <td class="hits">
-        18
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>43</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>44</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>45</pre>
-      </td>
-      <td>
         <pre>  # Find url by its alphadecimal value</pre>
       </td>
       <td class="hits">
@@ -1515,7 +1450,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>46</pre>
+        <pre>41</pre>
       </td>
       <td>
         <pre>  def self.find_by_shortened(shortened)</pre>
@@ -1528,7 +1463,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>47</pre>
+        <pre>42</pre>
       </td>
       <td>
         <pre>    find(shortened.alphadecimal)</pre>
@@ -1541,7 +1476,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>48</pre>
+        <pre>43</pre>
       </td>
       <td>
         <pre>  rescue ActiveRecord::RecordNotFound</pre>
@@ -1554,7 +1489,7 @@
     
     <tr class="hit" data-hits="4">
       <td class="line_number">
-        <pre>49</pre>
+        <pre>44</pre>
       </td>
       <td>
         <pre>    nil</pre>
@@ -1567,7 +1502,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>50</pre>
+        <pre>45</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -1580,7 +1515,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>51</pre>
+        <pre>46</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -1593,7 +1528,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>52</pre>
+        <pre>47</pre>
       </td>
       <td>
         <pre>  def self.find_by_url(url)</pre>
@@ -1606,13 +1541,78 @@
     
     <tr class="hit" data-hits="36">
       <td class="line_number">
-        <pre>53</pre>
+        <pre>48</pre>
       </td>
       <td>
         <pre>    find(:first, :conditions =&gt; {:url =&gt; normalize_url(url)})</pre>
       </td>
       <td class="hits">
         36
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>49</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>50</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>51</pre>
+      </td>
+      <td>
+        <pre>  def self.find_or_create_by_url(url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="22">
+      <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
+        <pre>    ret_url = find_by_url(url)</pre>
+      </td>
+      <td class="hits">
+        22
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="22">
+      <td class="line_number">
+        <pre>53</pre>
+      </td>
+      <td>
+        <pre>    ret_url ||= self.create(:url =&gt; url)</pre>
+      </td>
+      <td class="hits">
+        22
       </td>
     </tr>
   
@@ -1643,12 +1643,25 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>56</pre>
       </td>
       <td>
-        <pre>  def self.find_or_create_by_url(url)</pre>
+        <pre>  # Real url for our system. Everything is filtered.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>  def self.normalize_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -1656,28 +1669,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="22">
-      <td class="line_number">
-        <pre>57</pre>
-      </td>
-      <td>
-        <pre>    ret_url = find_by_url(url)</pre>
-      </td>
-      <td class="hits">
-        22
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="22">
+    <tr class="hit" data-hits="38">
       <td class="line_number">
         <pre>58</pre>
       </td>
       <td>
-        <pre>    ret_url ||= self.create(:url =&gt; url)</pre>
+        <pre>    parse_url(url).to_s</pre>
       </td>
       <td class="hits">
-        22
+        38
       </td>
     </tr>
   
@@ -1708,25 +1708,12 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>61</pre>
       </td>
       <td>
-        <pre>  # Real url for our system. Everything is filtered.</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>62</pre>
-      </td>
-      <td>
-        <pre>  def self.normalize_url(url)</pre>
+        <pre>  protected</pre>
       </td>
       <td class="hits">
         1
@@ -1734,35 +1721,9 @@
     </tr>
   
     
-    <tr class="hit" data-hits="38">
-      <td class="line_number">
-        <pre>63</pre>
-      </td>
-      <td>
-        <pre>    parse_url(url).to_s</pre>
-      </td>
-      <td class="hits">
-        38
-      </td>
-    </tr>
-  
-    
     <tr class="never" >
       <td class="line_number">
-        <pre>64</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>65</pre>
+        <pre>62</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -1773,15 +1734,54 @@
     </tr>
   
     
+    <tr class="never" >
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
+        <pre>  # Use addressable to parse the url</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
     <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>64</pre>
+      </td>
+      <td>
+        <pre>  def self.parse_url(url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="98">
+      <td class="line_number">
+        <pre>65</pre>
+      </td>
+      <td>
+        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
+      </td>
+      <td class="hits">
+        98
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
       <td class="line_number">
         <pre>66</pre>
       </td>
       <td>
-        <pre>  protected</pre>
+        <pre>  end</pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
@@ -1802,71 +1802,6 @@
     <tr class="never" >
       <td class="line_number">
         <pre>68</pre>
-      </td>
-      <td>
-        <pre>  # Use addressable to parse the url</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>69</pre>
-      </td>
-      <td>
-        <pre>  def self.parse_url(url)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="98">
-      <td class="line_number">
-        <pre>70</pre>
-      </td>
-      <td>
-        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
-      </td>
-      <td class="hits">
-        98
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>71</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>72</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>73</pre>
       </td>
       <td>
         <pre>end</pre>
