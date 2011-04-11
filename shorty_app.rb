@@ -70,9 +70,7 @@ class ShortyApp < Sinatra::Base
   end
   
   before do
-    if params[:format] && settings.api_formats.include?(params[:format].to_sym)
-      content_type MIME::Types.of("format.#{params[:format]}").first.content_type, :charset => 'utf-8'
-    end
+    set_content_type(params[:format])
   end
     
   home '/' do
@@ -115,6 +113,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
+    set_content_type(params[:format])
     settings.cache.fetch "view_#{request.ip}_#{params[:shortened]}_#{params[:format]}".hashify do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
@@ -155,6 +154,12 @@ class ShortyApp < Sinatra::Base
   end
   
   helpers do
+    def set_content_type(format)
+      if format && settings.api_formats.include?(format.to_sym)
+        content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+      end
+    end
+    
     def flush_cache
       settings.cache.flush
     end
