@@ -49,19 +49,55 @@ class TestShortyApp < Test::Unit::TestCase
     short_url.delete
   end
   
+  def test_get_valid_new_url
+    url = 'http://arstechnica.com'
+    get '/', :url => url
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    assert_equal short_url.count, 0
+    matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+    short_url.delete
+  end
+  
   def test_post_addressable_heuristic_parse_url
     urls = ['http://macnn.com', 'http:/macnn.com']
     for url in urls
       post '/', :url => url
       assert last_response.ok?
     end
-    assert_equal ShortenedUrl.count, 1
+    assert_equal ShortenedUrl.all.length, 1
+    ShortenedUrl.find_by_url(urls.first).delete
+  end
+  
+  def test_get_addressable_heuristic_parse_url
+    urls = ['http://padk-rad.com', 'http:/padk-rad.com']
+    for url in urls
+      get '/', :url => url
+      assert last_response.ok?
+    end
+    assert_equal ShortenedUrl.all.length, 1
     ShortenedUrl.find_by_url(urls.first).delete
   end
   
   def test_post_valid_new_url_json
     url = 'http://involver.com'
     post '/', {:url => url, :format => 'json'}
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    assert_equal short_url.count, 1
+    assert_equal short_url.json_count, 1
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_json), last_response.body
+    short_url.delete
+  end
+  
+  def test_get_valid_new_url_json
+    url = 'http://involver.com'
+    get '/', {:url => url, :format => 'json'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
     assert_not_nil short_url
@@ -83,6 +119,18 @@ class TestShortyApp < Test::Unit::TestCase
     short_url.delete
   end
   
+  def test_get_valid_new_url_xml
+    url = 'http://bash.org'
+    get '/', {:url => url, :format => 'xml'}
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    assert_equal short_url.count, 1
+    assert_equal short_url.xml_count, 1
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_xml), last_response.body
+    short_url.delete
+  end
+  
   def test_post_valid_new_url_yaml
     url = 'http://thedailyshow.com'
     post '/', {:url => url, :format => 'yaml'}
@@ -95,17 +143,51 @@ class TestShortyApp < Test::Unit::TestCase
     short_url.delete
   end
   
-  def test_zeroclipboard
-    post '/', :url => 'http://involver.com'
+  def test_get_valid_new_url_yaml
+    url = 'http://thedailyshow.com'
+    get '/', {:url => url, :format => 'yaml'}
+    assert last_response.ok?
+    short_url = ShortenedUrl.find_by_url(url)
+    assert_not_nil short_url
+    assert_equal short_url.count, 1
+    assert_equal short_url.yaml_count, 1
+    assert_equal ({:url => short_url.url, :short_url => "#{current_url}/#{short_url.shorten}"}.to_yaml), last_response.body
+    short_url.delete
+  end
+  
+  def test_post_zeroclipboard
+    url = 'http://involver.com'
+    post '/', :url => url
     assert last_response.ok?
     matchers = ['ZeroClipboard.min.js', "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", 'function setupZeroClipboard()', 'clip = new ZeroClipboard.Client();', 'clip.setText', 'clip.setHandCursor(true);', "clip.glue('clip_button', 'clip_container');"]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
+    ShortenedUrl.find_by_url(url).delete
+  end
+  
+  def test_get_zeroclipboard
+    url = 'http://involver.com'
+    get '/', :url => url
+    assert last_response.ok?
+    matchers = ['ZeroClipboard.min.js', "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", 'function setupZeroClipboard()', 'clip = new ZeroClipboard.Client();', 'clip.setText', 'clip.setHandCursor(true);', "clip.glue('clip_button', 'clip_container');"]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+    ShortenedUrl.find_by_url(url).delete
   end
   
   def test_post_invalid_new_url
     post '/', :url => 'blah'
+    assert last_response.ok?
+    matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('enter_valid_url'), 'main.css', 'favicon.png', 'logo.png', 'error', Time.now.year.to_s]
+    matchers.each do |match|
+      assert last_response.body.include?(match)
+    end
+  end
+  
+  def test_get_invalid_new_url
+    get '/', :url => 'blah'
     assert last_response.ok?
     matchers = [I18n.translate('app_name'), I18n.translate('source_url'), I18n.translate('enter_valid_url'), 'main.css', 'favicon.png', 'logo.png', 'error', Time.now.year.to_s]
     matchers.each do |match|
@@ -119,14 +201,32 @@ class TestShortyApp < Test::Unit::TestCase
     assert_equal ({:error => I18n.translate('enter_valid_url')}.to_json), last_response.body
   end
   
+  def test_get_invalid_new_url_json
+    get '/', {:url => 'blah', :format => 'json'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_json), last_response.body
+  end
+  
   def test_post_invalid_new_url_xml
     post '/', {:url => 'blah', :format => 'xml'}
     assert last_response.ok?
     assert_equal ({:error => I18n.translate('enter_valid_url')}.to_xml), last_response.body
   end
   
+  def test_get_invalid_new_url_xml
+    get '/', {:url => 'blah', :format => 'xml'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_xml), last_response.body
+  end
+  
   def test_post_invalid_new_url_yaml
     post '/', {:url => 'blah', :format => 'yaml'}
+    assert last_response.ok?
+    assert_equal ({:error => I18n.translate('enter_valid_url')}.to_yaml), last_response.body
+  end
+  
+  def test_get_invalid_new_url_yaml
+    get '/', {:url => 'blah', :format => 'yaml'}
     assert last_response.ok?
     assert_equal ({:error => I18n.translate('enter_valid_url')}.to_yaml), last_response.body
   end

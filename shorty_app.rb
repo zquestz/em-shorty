@@ -30,6 +30,13 @@ require 'em-synchrony/em-http'
 # Conditional require's based on environment.
 require 'em-resolv-replace' unless test?
 
+# Make home page respond to both get and post.
+def home(url, verbs = %w(get post), &block)
+  verbs.each do |verb|
+    send(verb, url, &block)
+  end
+end
+
 # Main application class.
 class ShortyApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
@@ -59,44 +66,44 @@ class ShortyApp < Sinatra::Base
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end
-  
-  get '/' do
-    cache_control :public, :must_revalidate, :max_age => 3600
-    haml :index
+    
+  home '/' do
+    if params[:url]
+      cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, 60 do
+        @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
+        format = params[:format]
+        if @short_url.valid?
+          unless format.blank?
+            if settings.api_formats.include?(format.to_sym)
+              @short_url.increment!("#{format}_count")
+              content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+              return api_object(@short_url).send("to_#{format}")
+            end
+          end
+          @flash = {:notice => I18n.translate(:url_shortened, :original_url => @short_url.url)}
+          @viewed_url = "#{current_url}/#{@short_url.shorten}"
+          haml :success
+        else
+          @flash = {:error => t('enter_valid_url')}
+          unless format.blank?
+            if settings.api_formats.include?(format.to_sym)
+              content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
+              return {:error => @flash[:error]}.send("to_#{format}")
+            end
+          end
+          haml :index
+        end
+      end
+    else
+      cache_control :public, :must_revalidate, :max_age => 3600
+      haml :index
+    end
   end
   
   get '/main.css' do
     cache_control :public, :must_revalidate, :max_age => 3600
     content_type 'text/css', :charset => 'utf-8'
     less :main
-  end
-    
-  post '/' do
-    cache.fetch "post_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, 60 do
-      @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
-      format = params[:format]
-      if @short_url.valid?
-        unless format.blank?
-          if settings.api_formats.include?(format.to_sym)
-            @short_url.increment!("#{format}_count")
-            content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-            return api_object(@short_url).send("to_#{format}")
-          end
-        end
-        @flash = {:notice => I18n.translate(:url_shortened, :original_url => @short_url.url)}
-        @viewed_url = "#{current_url}/#{@short_url.shorten}"
-        haml :success
-      else
-        @flash = {:error => t('enter_valid_url')}
-        unless format.blank?
-          if settings.api_formats.include?(format.to_sym)
-            content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-            return {:error => @flash[:error]}.send("to_#{format}")
-          end
-        end
-        haml :index
-      end
-    end
   end
   
   get '/:shortened.:format' do
