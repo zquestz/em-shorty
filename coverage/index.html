@@ -21,7 +21,7 @@
       <img src="./assets/0.4.4/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T14:01:11-07:00">2011-04-11T14:01:11-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-11T14:43:47-07:00">2011-04-11T14:43:47-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -71,7 +71,7 @@
       <tr>
         <td><a href="#e694f285bf494d501abc8ac8788d18ec798d6394" class="src_link" title="./lib/shortened_url.rb">./lib/shortened_url.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>68</td>
+        <td>73</td>
         <td>32</td>
         <td>32</td>
         <td>0</td>
@@ -80,7 +80,7 @@
       <tr>
         <td><a href="#1409cadf89cec1fb8a0af5a17da83e83a7bb2d73" class="src_link" title="./shorty_app.rb">./shorty_app.rb</a></td>
         <td class="green">97.98 %</td>
-        <td>166</td>
+        <td>171</td>
         <td>99</td>
         <td>97</td>
         <td>2</td>
@@ -1097,7 +1097,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="58">
+    <tr class="hit" data-hits="52">
       <td class="line_number">
         <pre>14</pre>
       </td>
@@ -1105,12 +1105,12 @@
         <pre>    uri = self.class.parse_url(self.url)</pre>
       </td>
       <td class="hits">
-        58
+        52
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="58">
+    <tr class="hit" data-hits="52">
       <td class="line_number">
         <pre>15</pre>
       </td>
@@ -1118,7 +1118,7 @@
         <pre>    if uri &amp;&amp; uri.normalized_scheme &amp;&amp; uri.normalized_host</pre>
       </td>
       <td class="hits">
-        58
+        52
       </td>
     </tr>
   
@@ -1305,7 +1305,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="16">
+    <tr class="hit" data-hits="34">
       <td class="line_number">
         <pre>30</pre>
       </td>
@@ -1313,7 +1313,7 @@
         <pre>    redirect_count + json_count + xml_count + yaml_count</pre>
       </td>
       <td class="hits">
-        16
+        34
       </td>
     </tr>
   
@@ -1388,7 +1388,7 @@
         <pre>36</pre>
       </td>
       <td>
-        <pre>    { :url =&gt; self.url, </pre>
+        <pre>    { :url =&gt; url, </pre>
       </td>
       <td class="hits">
         
@@ -1396,15 +1396,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="18">
+    <tr class="never" >
       <td class="line_number">
         <pre>37</pre>
       </td>
       <td>
-        <pre>      :short_url =&gt; &quot;#{base_url}/#{self.shorten}&quot; }</pre>
+        <pre>      :short_url =&gt; &quot;#{base_url}/#{shorten}&quot;,</pre>
       </td>
       <td class="hits">
-        18
+        
       </td>
     </tr>
   
@@ -1414,7 +1414,7 @@
         <pre>38</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>      :json_count =&gt; json_count,</pre>
       </td>
       <td class="hits">
         
@@ -1427,7 +1427,7 @@
         <pre>39</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre>      :xml_count =&gt; xml_count,</pre>
       </td>
       <td class="hits">
         
@@ -1440,6 +1440,71 @@
         <pre>40</pre>
       </td>
       <td>
+        <pre>      :yaml_count =&gt; yaml_count,</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>41</pre>
+      </td>
+      <td>
+        <pre>      :redirect_count =&gt; redirect_count,</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="18">
+      <td class="line_number">
+        <pre>42</pre>
+      </td>
+      <td>
+        <pre>      :total_count =&gt; total_count }</pre>
+      </td>
+      <td class="hits">
+        18
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>43</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>44</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>45</pre>
+      </td>
+      <td>
         <pre>  # Find url by its alphadecimal value</pre>
       </td>
       <td class="hits">
@@ -1450,7 +1515,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>41</pre>
+        <pre>46</pre>
       </td>
       <td>
         <pre>  def self.find_by_shortened(shortened)</pre>
@@ -1463,7 +1528,7 @@
     
     <tr class="hit" data-hits="9">
       <td class="line_number">
-        <pre>42</pre>
+        <pre>47</pre>
       </td>
       <td>
         <pre>    find(shortened.alphadecimal)</pre>
@@ -1476,7 +1541,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>43</pre>
+        <pre>48</pre>
       </td>
       <td>
         <pre>  rescue ActiveRecord::RecordNotFound</pre>
@@ -1489,7 +1554,7 @@
     
     <tr class="hit" data-hits="4">
       <td class="line_number">
-        <pre>44</pre>
+        <pre>49</pre>
       </td>
       <td>
         <pre>    nil</pre>
@@ -1502,7 +1567,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>45</pre>
+        <pre>50</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -1515,7 +1580,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>46</pre>
+        <pre>51</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -1528,7 +1593,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>47</pre>
+        <pre>52</pre>
       </td>
       <td>
         <pre>  def self.find_by_url(url)</pre>
@@ -1539,80 +1604,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="36">
+    <tr class="hit" data-hits="33">
       <td class="line_number">
-        <pre>48</pre>
+        <pre>53</pre>
       </td>
       <td>
         <pre>    find(:first, :conditions =&gt; {:url =&gt; normalize_url(url)})</pre>
       </td>
       <td class="hits">
-        36
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>49</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>50</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>51</pre>
-      </td>
-      <td>
-        <pre>  def self.find_or_create_by_url(url)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="22">
-      <td class="line_number">
-        <pre>52</pre>
-      </td>
-      <td>
-        <pre>    ret_url = find_by_url(url)</pre>
-      </td>
-      <td class="hits">
-        22
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="22">
-      <td class="line_number">
-        <pre>53</pre>
-      </td>
-      <td>
-        <pre>    ret_url ||= self.create(:url =&gt; url)</pre>
-      </td>
-      <td class="hits">
-        22
+        33
       </td>
     </tr>
   
@@ -1643,25 +1643,12 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>56</pre>
       </td>
       <td>
-        <pre>  # Real url for our system. Everything is filtered.</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>57</pre>
-      </td>
-      <td>
-        <pre>  def self.normalize_url(url)</pre>
+        <pre>  def self.find_or_create_by_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -1669,15 +1656,28 @@
     </tr>
   
     
-    <tr class="hit" data-hits="38">
+    <tr class="hit" data-hits="19">
+      <td class="line_number">
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>    ret_url = find_by_url(url)</pre>
+      </td>
+      <td class="hits">
+        19
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="19">
       <td class="line_number">
         <pre>58</pre>
       </td>
       <td>
-        <pre>    parse_url(url).to_s</pre>
+        <pre>    ret_url ||= self.create(:url =&gt; url)</pre>
       </td>
       <td class="hits">
-        38
+        19
       </td>
     </tr>
   
@@ -1708,12 +1708,25 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>61</pre>
       </td>
       <td>
-        <pre>  protected</pre>
+        <pre>  # Real url for our system. Everything is filtered.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>62</pre>
+      </td>
+      <td>
+        <pre>  def self.normalize_url(url)</pre>
       </td>
       <td class="hits">
         1
@@ -1721,9 +1734,35 @@
     </tr>
   
     
+    <tr class="hit" data-hits="35">
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
+        <pre>    parse_url(url).to_s</pre>
+      </td>
+      <td class="hits">
+        35
+      </td>
+    </tr>
+  
+    
     <tr class="never" >
       <td class="line_number">
-        <pre>62</pre>
+        <pre>64</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>65</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -1734,54 +1773,15 @@
     </tr>
   
     
-    <tr class="never" >
-      <td class="line_number">
-        <pre>63</pre>
-      </td>
-      <td>
-        <pre>  # Use addressable to parse the url</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
     <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>64</pre>
-      </td>
-      <td>
-        <pre>  def self.parse_url(url)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="98">
-      <td class="line_number">
-        <pre>65</pre>
-      </td>
-      <td>
-        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
-      </td>
-      <td class="hits">
-        98
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
       <td class="line_number">
         <pre>66</pre>
       </td>
       <td>
-        <pre>  end</pre>
+        <pre>  protected</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
@@ -1802,6 +1802,71 @@
     <tr class="never" >
       <td class="line_number">
         <pre>68</pre>
+      </td>
+      <td>
+        <pre>  # Use addressable to parse the url</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>69</pre>
+      </td>
+      <td>
+        <pre>  def self.parse_url(url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="89">
+      <td class="line_number">
+        <pre>70</pre>
+      </td>
+      <td>
+        <pre>    Addressable::URI.heuristic_parse(url).normalize rescue nil</pre>
+      </td>
+      <td class="hits">
+        89
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>71</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>72</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>73</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -2748,7 +2813,7 @@
         <pre>71</pre>
       </td>
       <td>
-        <pre>    </pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
         
@@ -2761,7 +2826,7 @@
         <pre>72</pre>
       </td>
       <td>
-        <pre>  home '/' do</pre>
+        <pre>  before do</pre>
       </td>
       <td class="hits">
         1
@@ -2769,386 +2834,35 @@
     </tr>
   
     
-    <tr class="hit" data-hits="24">
+    <tr class="hit" data-hits="34">
       <td class="line_number">
         <pre>73</pre>
       </td>
       <td>
-        <pre>    if params[:url]</pre>
+        <pre>    if params[:format] &amp;&amp; settings.api_formats.include?(params[:format].to_sym)</pre>
       </td>
       <td class="hits">
-        24
+        34
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="22">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>74</pre>
       </td>
       <td>
-        <pre>      settings.cache.fetch &quot;shorten_#{request.ip}_#{params[:url]}_#{params[:format]}&quot;.hashify do</pre>
+        <pre>      content_type MIME::Types.of(&quot;format.#{params[:format]}&quot;).first.content_type, :charset =&gt; 'utf-8'</pre>
       </td>
       <td class="hits">
-        22
+        12
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="21">
+    <tr class="never" >
       <td class="line_number">
         <pre>75</pre>
-      </td>
-      <td>
-        <pre>        @short_url = ShortenedUrl.find_or_create_by_url(params[:url])</pre>
-      </td>
-      <td class="hits">
-        21
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="21">
-      <td class="line_number">
-        <pre>76</pre>
-      </td>
-      <td>
-        <pre>        format = params[:format]</pre>
-      </td>
-      <td class="hits">
-        21
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="21">
-      <td class="line_number">
-        <pre>77</pre>
-      </td>
-      <td>
-        <pre>        if @short_url.valid?</pre>
-      </td>
-      <td class="hits">
-        21
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="14">
-      <td class="line_number">
-        <pre>78</pre>
-      </td>
-      <td>
-        <pre>          unless format.blank?</pre>
-      </td>
-      <td class="hits">
-        14
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>79</pre>
-      </td>
-      <td>
-        <pre>            if settings.api_formats.include?(format.to_sym)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>80</pre>
-      </td>
-      <td>
-        <pre>              @short_url.increment!(&quot;#{format}_count&quot;)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>81</pre>
-      </td>
-      <td>
-        <pre>              content_type MIME::Types.of(&quot;format.#{format}&quot;).first.content_type, :charset =&gt; 'utf-8'</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>82</pre>
-      </td>
-      <td>
-        <pre>              return api_object(@short_url).send(&quot;to_#{format}&quot;)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>83</pre>
-      </td>
-      <td>
-        <pre>            end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>84</pre>
-      </td>
-      <td>
-        <pre>          end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="8">
-      <td class="line_number">
-        <pre>85</pre>
-      </td>
-      <td>
-        <pre>          @flash = {:notice =&gt; I18n.translate(:url_shortened, :original_url =&gt; @short_url.url)}</pre>
-      </td>
-      <td class="hits">
-        8
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="8">
-      <td class="line_number">
-        <pre>86</pre>
-      </td>
-      <td>
-        <pre>          @viewed_url = &quot;#{current_url}/#{@short_url.shorten}&quot;</pre>
-      </td>
-      <td class="hits">
-        8
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="8">
-      <td class="line_number">
-        <pre>87</pre>
-      </td>
-      <td>
-        <pre>          haml :success</pre>
-      </td>
-      <td class="hits">
-        8
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>88</pre>
-      </td>
-      <td>
-        <pre>        else</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="7">
-      <td class="line_number">
-        <pre>89</pre>
-      </td>
-      <td>
-        <pre>          @flash = {:error =&gt; t('enter_valid_url')}</pre>
-      </td>
-      <td class="hits">
-        7
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="7">
-      <td class="line_number">
-        <pre>90</pre>
-      </td>
-      <td>
-        <pre>          unless format.blank?</pre>
-      </td>
-      <td class="hits">
-        7
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>91</pre>
-      </td>
-      <td>
-        <pre>            if settings.api_formats.include?(format.to_sym)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>92</pre>
-      </td>
-      <td>
-        <pre>              content_type MIME::Types.of(&quot;format.#{format}&quot;).first.content_type, :charset =&gt; 'utf-8'</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>93</pre>
-      </td>
-      <td>
-        <pre>              return {:error =&gt; @flash[:error]}.send(&quot;to_#{format}&quot;)</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>94</pre>
-      </td>
-      <td>
-        <pre>            end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>95</pre>
-      </td>
-      <td>
-        <pre>          end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>96</pre>
-      </td>
-      <td>
-        <pre>          haml :index</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>97</pre>
-      </td>
-      <td>
-        <pre>        end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>98</pre>
-      </td>
-      <td>
-        <pre>      end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>99</pre>
-      </td>
-      <td>
-        <pre>    else</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="2">
-      <td class="line_number">
-        <pre>100</pre>
-      </td>
-      <td>
-        <pre>      cache_control :public, :must_revalidate, :max_age =&gt; (settings.cache_timeout * 10)</pre>
-      </td>
-      <td class="hits">
-        2
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="2">
-      <td class="line_number">
-        <pre>101</pre>
-      </td>
-      <td>
-        <pre>      haml :index</pre>
-      </td>
-      <td class="hits">
-        2
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>102</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3161,7 +2875,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>103</pre>
+        <pre>76</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3174,10 +2888,10 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>104</pre>
+        <pre>77</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre>    </pre>
       </td>
       <td class="hits">
         
@@ -3187,10 +2901,10 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>105</pre>
+        <pre>78</pre>
       </td>
       <td>
-        <pre>  get '/main.css' do</pre>
+        <pre>  home '/' do</pre>
       </td>
       <td class="hits">
         1
@@ -3198,41 +2912,392 @@
     </tr>
   
     
+    <tr class="hit" data-hits="24">
+      <td class="line_number">
+        <pre>79</pre>
+      </td>
+      <td>
+        <pre>    if params[:url]</pre>
+      </td>
+      <td class="hits">
+        24
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="22">
+      <td class="line_number">
+        <pre>80</pre>
+      </td>
+      <td>
+        <pre>      settings.cache.fetch &quot;shorten_#{request.ip}_#{params[:url]}_#{params[:format]}&quot;.hashify do</pre>
+      </td>
+      <td class="hits">
+        22
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="18">
+      <td class="line_number">
+        <pre>81</pre>
+      </td>
+      <td>
+        <pre>        @short_url = ShortenedUrl.find_or_create_by_url(params[:url])</pre>
+      </td>
+      <td class="hits">
+        18
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="18">
+      <td class="line_number">
+        <pre>82</pre>
+      </td>
+      <td>
+        <pre>        format = params[:format]</pre>
+      </td>
+      <td class="hits">
+        18
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="18">
+      <td class="line_number">
+        <pre>83</pre>
+      </td>
+      <td>
+        <pre>        if @short_url.valid?</pre>
+      </td>
+      <td class="hits">
+        18
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="14">
+      <td class="line_number">
+        <pre>84</pre>
+      </td>
+      <td>
+        <pre>          if format.blank?</pre>
+      </td>
+      <td class="hits">
+        14
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="8">
+      <td class="line_number">
+        <pre>85</pre>
+      </td>
+      <td>
+        <pre>            @flash = {:notice =&gt; I18n.translate(:url_shortened, :original_url =&gt; @short_url.url)}</pre>
+      </td>
+      <td class="hits">
+        8
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="8">
+      <td class="line_number">
+        <pre>86</pre>
+      </td>
+      <td>
+        <pre>            @viewed_url = &quot;#{current_url}/#{@short_url.shorten}&quot;</pre>
+      </td>
+      <td class="hits">
+        8
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="8">
+      <td class="line_number">
+        <pre>87</pre>
+      </td>
+      <td>
+        <pre>            haml :success</pre>
+      </td>
+      <td class="hits">
+        8
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>88</pre>
+      </td>
+      <td>
+        <pre>          else</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>89</pre>
+      </td>
+      <td>
+        <pre>            if settings.api_formats.include?(format.to_sym)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>90</pre>
+      </td>
+      <td>
+        <pre>              @short_url.increment!(&quot;#{format}_count&quot;)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>91</pre>
+      </td>
+      <td>
+        <pre>              erb :api_output, :layout =&gt; false, :locals =&gt; {:api_output =&gt; api_object(@short_url).send(&quot;to_#{format}&quot;)}</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>92</pre>
+      </td>
+      <td>
+        <pre>            end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>93</pre>
+      </td>
+      <td>
+        <pre>          end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>94</pre>
+      </td>
+      <td>
+        <pre>        else</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>95</pre>
+      </td>
+      <td>
+        <pre>          @flash = {:error =&gt; t('enter_valid_url')}</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>96</pre>
+      </td>
+      <td>
+        <pre>          if format.blank?</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
     <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>97</pre>
+      </td>
+      <td>
+        <pre>            haml :index</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>98</pre>
+      </td>
+      <td>
+        <pre>          else</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="3">
+      <td class="line_number">
+        <pre>99</pre>
+      </td>
+      <td>
+        <pre>            if settings.api_formats.include?(format.to_sym)</pre>
+      </td>
+      <td class="hits">
+        3
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="3">
+      <td class="line_number">
+        <pre>100</pre>
+      </td>
+      <td>
+        <pre>              erb :api_output, :layout =&gt; false, :locals =&gt; {:api_output =&gt; {:error =&gt; @flash[:error]}.send(&quot;to_#{format}&quot;)}</pre>
+      </td>
+      <td class="hits">
+        3
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>101</pre>
+      </td>
+      <td>
+        <pre>            end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>102</pre>
+      </td>
+      <td>
+        <pre>          end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>103</pre>
+      </td>
+      <td>
+        <pre>        end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>104</pre>
+      </td>
+      <td>
+        <pre>      end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>105</pre>
+      </td>
+      <td>
+        <pre>    else</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="2">
       <td class="line_number">
         <pre>106</pre>
       </td>
       <td>
-        <pre>    cache_control :public, :must_revalidate, :max_age =&gt; (settings.cache_timeout * 10)</pre>
+        <pre>      cache_control :public, :must_revalidate, :max_age =&gt; (settings.cache_timeout * 10)</pre>
       </td>
       <td class="hits">
-        1
+        2
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="2">
       <td class="line_number">
         <pre>107</pre>
       </td>
       <td>
-        <pre>    content_type 'text/css', :charset =&gt; 'utf-8'</pre>
+        <pre>      haml :index</pre>
       </td>
       <td class="hits">
-        1
+        2
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="never" >
       <td class="line_number">
         <pre>108</pre>
       </td>
       <td>
-        <pre>    less :main</pre>
+        <pre>    end</pre>
       </td>
       <td class="hits">
-        1
+        
       </td>
     </tr>
   
@@ -3268,6 +3333,84 @@
         <pre>111</pre>
       </td>
       <td>
+        <pre>  get '/main.css' do</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>112</pre>
+      </td>
+      <td>
+        <pre>    cache_control :public, :must_revalidate, :max_age =&gt; (settings.cache_timeout * 10)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>113</pre>
+      </td>
+      <td>
+        <pre>    content_type 'text/css', :charset =&gt; 'utf-8'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>114</pre>
+      </td>
+      <td>
+        <pre>    less :main</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>115</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>116</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>117</pre>
+      </td>
+      <td>
         <pre>  get '/:shortened.:format' do</pre>
       </td>
       <td class="hits">
@@ -3278,10 +3421,10 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>112</pre>
+        <pre>118</pre>
       </td>
       <td>
-        <pre>    settings.cache.fetch &quot;view_#{request.ip}_#{params[:shorten]}_#{params[:format]}&quot;.hashify do</pre>
+        <pre>    settings.cache.fetch &quot;view_#{request.ip}_#{params[:shortened]}_#{params[:format]}&quot;.hashify do</pre>
       </td>
       <td class="hits">
         6
@@ -3291,7 +3434,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>113</pre>
+        <pre>119</pre>
       </td>
       <td>
         <pre>      format = params[:format]</pre>
@@ -3304,7 +3447,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>114</pre>
+        <pre>120</pre>
       </td>
       <td>
         <pre>      if settings.api_formats.include?(format.to_sym)</pre>
@@ -3317,7 +3460,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>115</pre>
+        <pre>121</pre>
       </td>
       <td>
         <pre>        short_url = ShortenedUrl.find_by_shortened(params[:shortened])</pre>
@@ -3330,7 +3473,7 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>116</pre>
+        <pre>122</pre>
       </td>
       <td>
         <pre>        if short_url</pre>
@@ -3343,7 +3486,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>117</pre>
+        <pre>123</pre>
       </td>
       <td>
         <pre>          short_url.increment!(&quot;#{format}_count&quot;)</pre>
@@ -3356,7 +3499,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>118</pre>
+        <pre>124</pre>
       </td>
       <td>
         <pre>          shorty = api_object(short_url)</pre>
@@ -3369,7 +3512,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>119</pre>
+        <pre>125</pre>
       </td>
       <td>
         <pre>        else</pre>
@@ -3382,7 +3525,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>120</pre>
+        <pre>126</pre>
       </td>
       <td>
         <pre>          shorty = {:error =&gt; t('no_record_found')}</pre>
@@ -3395,7 +3538,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>121</pre>
+        <pre>127</pre>
       </td>
       <td>
         <pre>        end</pre>
@@ -3408,23 +3551,10 @@
     
     <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>122</pre>
+        <pre>128</pre>
       </td>
       <td>
-        <pre>        content_type MIME::Types.of(&quot;format.#{format}&quot;).last.content_type, :charset =&gt; 'utf-8'</pre>
-      </td>
-      <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="6">
-      <td class="line_number">
-        <pre>123</pre>
-      </td>
-      <td>
-        <pre>        return shorty.send(&quot;to_#{format}&quot;)</pre>
+        <pre>        erb :api_output, :layout =&gt; false, :locals =&gt; {:api_output =&gt; shorty.send(&quot;to_#{format}&quot;)}</pre>
       </td>
       <td class="hits">
         6
@@ -3434,7 +3564,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>124</pre>
+        <pre>129</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -3447,7 +3577,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>125</pre>
+        <pre>130</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3460,7 +3590,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>126</pre>
+        <pre>131</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3473,7 +3603,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>127</pre>
+        <pre>132</pre>
       </td>
       <td>
         <pre>  </pre>
@@ -3486,7 +3616,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>128</pre>
+        <pre>133</pre>
       </td>
       <td>
         <pre>  get '/:shortened' do</pre>
@@ -3499,7 +3629,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>129</pre>
+        <pre>134</pre>
       </td>
       <td>
         <pre>    settings.cache.fetch &quot;redirect_#{request.ip}_#{params[:shortened]}&quot;.hashify do</pre>
@@ -3512,7 +3642,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>130</pre>
+        <pre>135</pre>
       </td>
       <td>
         <pre>      return if params[:shortened].index('.')</pre>
@@ -3525,7 +3655,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>131</pre>
+        <pre>136</pre>
       </td>
       <td>
         <pre>      short_url = ShortenedUrl.find_by_shortened(params[:shortened])</pre>
@@ -3538,7 +3668,7 @@
     
     <tr class="hit" data-hits="2">
       <td class="line_number">
-        <pre>132</pre>
+        <pre>137</pre>
       </td>
       <td>
         <pre>      if short_url</pre>
@@ -3551,7 +3681,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>133</pre>
+        <pre>138</pre>
       </td>
       <td>
         <pre>        short_url.increment!('redirect_count')</pre>
@@ -3564,7 +3694,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>134</pre>
+        <pre>139</pre>
       </td>
       <td>
         <pre>        redirect short_url.url</pre>
@@ -3577,7 +3707,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>135</pre>
+        <pre>140</pre>
       </td>
       <td>
         <pre>      else</pre>
@@ -3590,7 +3720,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>136</pre>
+        <pre>141</pre>
       </td>
       <td>
         <pre>        @flash = {:error =&gt; t('no_url')}</pre>
@@ -3603,7 +3733,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>137</pre>
+        <pre>142</pre>
       </td>
       <td>
         <pre>        haml :index</pre>
@@ -3616,7 +3746,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>138</pre>
+        <pre>143</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -3629,78 +3759,13 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>139</pre>
+        <pre>144</pre>
       </td>
       <td>
         <pre>    end</pre>
       </td>
       <td class="hits">
         
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>140</pre>
-      </td>
-      <td>
-        <pre>  end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>141</pre>
-      </td>
-      <td>
-        <pre>  </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>142</pre>
-      </td>
-      <td>
-        <pre>  not_found do</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>143</pre>
-      </td>
-      <td>
-        <pre>    @flash = {:error =&gt; t('http_not_found')}</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>144</pre>
-      </td>
-      <td>
-        <pre>    haml :index</pre>
-      </td>
-      <td class="hits">
-        1
       </td>
     </tr>
   
@@ -3723,7 +3788,7 @@
         <pre>146</pre>
       </td>
       <td>
-        <pre></pre>
+        <pre>  </pre>
       </td>
       <td class="hits">
         
@@ -3736,7 +3801,7 @@
         <pre>147</pre>
       </td>
       <td>
-        <pre>  error do</pre>
+        <pre>  not_found do</pre>
       </td>
       <td class="hits">
         1
@@ -3744,20 +3809,20 @@
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>148</pre>
       </td>
       <td>
-        <pre>    @flash = {:error =&gt; t('http_error')}</pre>
+        <pre>    @flash = {:error =&gt; t('http_not_found')}</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
     
-    <tr class="miss" data-hits="0">
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>149</pre>
       </td>
@@ -3765,7 +3830,7 @@
         <pre>    haml :index</pre>
       </td>
       <td class="hits">
-        0
+        1
       </td>
     </tr>
   
@@ -3788,7 +3853,7 @@
         <pre>151</pre>
       </td>
       <td>
-        <pre>  </pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3801,7 +3866,7 @@
         <pre>152</pre>
       </td>
       <td>
-        <pre>  helpers do</pre>
+        <pre>  error do</pre>
       </td>
       <td class="hits">
         1
@@ -3809,28 +3874,28 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>153</pre>
       </td>
       <td>
-        <pre>    def flush_cache</pre>
+        <pre>    @flash = {:error =&gt; t('http_error')}</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="miss" data-hits="0">
       <td class="line_number">
         <pre>154</pre>
       </td>
       <td>
-        <pre>      settings.cache.flush</pre>
+        <pre>    haml :index</pre>
       </td>
       <td class="hits">
-        1
+        0
       </td>
     </tr>
   
@@ -3838,123 +3903,6 @@
     <tr class="never" >
       <td class="line_number">
         <pre>155</pre>
-      </td>
-      <td>
-        <pre>    end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>156</pre>
-      </td>
-      <td>
-        <pre>    </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>157</pre>
-      </td>
-      <td>
-        <pre>    def current_url</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="17">
-      <td class="line_number">
-        <pre>158</pre>
-      </td>
-      <td>
-        <pre>      @current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
-      </td>
-      <td class="hits">
-        17
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>159</pre>
-      </td>
-      <td>
-        <pre>    end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>160</pre>
-      </td>
-      <td>
-        <pre>    </pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>161</pre>
-      </td>
-      <td>
-        <pre>    def api_object(short_url)</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="9">
-      <td class="line_number">
-        <pre>162</pre>
-      </td>
-      <td>
-        <pre>      short_url.to_api(current_url)</pre>
-      </td>
-      <td class="hits">
-        9
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>163</pre>
-      </td>
-      <td>
-        <pre>    end</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>164</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -3967,7 +3915,189 @@
     
     <tr class="never" >
       <td class="line_number">
+        <pre>156</pre>
+      </td>
+      <td>
+        <pre>  </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>157</pre>
+      </td>
+      <td>
+        <pre>  helpers do</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>158</pre>
+      </td>
+      <td>
+        <pre>    def flush_cache</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>159</pre>
+      </td>
+      <td>
+        <pre>      settings.cache.flush</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>160</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>161</pre>
+      </td>
+      <td>
+        <pre>    </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>162</pre>
+      </td>
+      <td>
+        <pre>    def current_url</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="17">
+      <td class="line_number">
+        <pre>163</pre>
+      </td>
+      <td>
+        <pre>      @current_url ||= &quot;#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}&quot;</pre>
+      </td>
+      <td class="hits">
+        17
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>164</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
         <pre>165</pre>
+      </td>
+      <td>
+        <pre>    </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>166</pre>
+      </td>
+      <td>
+        <pre>    def api_object(short_url)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="9">
+      <td class="line_number">
+        <pre>167</pre>
+      </td>
+      <td>
+        <pre>      short_url.to_api(current_url)</pre>
+      </td>
+      <td class="hits">
+        9
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>168</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>169</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>170</pre>
       </td>
       <td>
         <pre></pre>
@@ -3980,7 +4110,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>166</pre>
+        <pre>171</pre>
       </td>
       <td>
         <pre>end</pre>

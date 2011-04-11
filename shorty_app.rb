@@ -68,6 +68,12 @@ class ShortyApp < Sinatra::Base
     ActiveRecord::Base.establish_connection(db_config)
     ActiveRecord::Base.logger.level = Logger::INFO
   end
+  
+  before do
+    if params[:format] && settings.api_formats.include?(params[:format].to_sym)
+      content_type MIME::Types.of("format.#{params[:format]}").first.content_type, :charset => 'utf-8'
+    end
+  end
     
   home '/' do
     if params[:url]
@@ -75,25 +81,25 @@ class ShortyApp < Sinatra::Base
         @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
         format = params[:format]
         if @short_url.valid?
-          unless format.blank?
+          if format.blank?
+            @flash = {:notice => I18n.translate(:url_shortened, :original_url => @short_url.url)}
+            @viewed_url = "#{current_url}/#{@short_url.shorten}"
+            haml :success
+          else
             if settings.api_formats.include?(format.to_sym)
               @short_url.increment!("#{format}_count")
-              content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-              return api_object(@short_url).send("to_#{format}")
+              erb :api_output, :layout => false, :locals => {:api_output => api_object(@short_url).send("to_#{format}")}
             end
           end
-          @flash = {:notice => I18n.translate(:url_shortened, :original_url => @short_url.url)}
-          @viewed_url = "#{current_url}/#{@short_url.shorten}"
-          haml :success
         else
           @flash = {:error => t('enter_valid_url')}
-          unless format.blank?
+          if format.blank?
+            haml :index
+          else
             if settings.api_formats.include?(format.to_sym)
-              content_type MIME::Types.of("format.#{format}").first.content_type, :charset => 'utf-8'
-              return {:error => @flash[:error]}.send("to_#{format}")
+              erb :api_output, :layout => false, :locals => {:api_output => {:error => @flash[:error]}.send("to_#{format}")}
             end
           end
-          haml :index
         end
       end
     else
@@ -109,7 +115,7 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
-    settings.cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify do
+    settings.cache.fetch "view_#{request.ip}_#{params[:shortened]}_#{params[:format]}".hashify do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
         short_url = ShortenedUrl.find_by_shortened(params[:shortened])
@@ -119,8 +125,7 @@ class ShortyApp < Sinatra::Base
         else
           shorty = {:error => t('no_record_found')}
         end
-        content_type MIME::Types.of("format.#{format}").last.content_type, :charset => 'utf-8'
-        return shorty.send("to_#{format}")
+        erb :api_output, :layout => false, :locals => {:api_output => shorty.send("to_#{format}")}
       end
     end
   end

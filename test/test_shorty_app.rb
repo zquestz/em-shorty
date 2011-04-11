@@ -96,7 +96,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_get_valid_new_url_json
-    url = 'http://involver.com'
+    url = 'http://youtube.com'
     get '/', {:url => url, :format => 'json'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
@@ -120,7 +120,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_get_valid_new_url_xml
-    url = 'http://bash.org'
+    url = 'http://insecure.org'
     get '/', {:url => url, :format => 'xml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
@@ -144,7 +144,7 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_get_valid_new_url_yaml
-    url = 'http://thedailyshow.com'
+    url = 'http://metacafe.com'
     get '/', {:url => url, :format => 'yaml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
