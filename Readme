@@ -30,4 +30,4 @@ To start the server:
 
 thin -R config.ru start
 
-This will fire it up on port 3000. You can set your hostname in en.yml
+This will fire it up on port 3000.
