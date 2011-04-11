@@ -49,6 +49,16 @@ class TestShortyApp < Test::Unit::TestCase
     short_url.delete
   end
   
+  def test_post_addressable_heuristic_parse_url
+    urls = ['http://macnn.com', 'http:/macnn.com']
+    for url in urls
+      post '/', :url => url
+      assert last_response.ok?
+    end
+    assert_equal ShortenedUrl.count, 1
+    ShortenedUrl.find_by_url(urls.first).delete
+  end
+  
   def test_post_valid_new_url_json
     url = 'http://involver.com'
     post '/', {:url => url, :format => 'json'}

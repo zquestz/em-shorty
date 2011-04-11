@@ -11,7 +11,7 @@ class ShortenedUrl < ActiveRecord::Base
   
   # Make sure we have a sane url
   def validate_url
-    uri = Addressable::URI.heuristic_parse(self.url) rescue nil
+    uri = self.class.parse_url(self.url)
     if uri && uri.normalized_scheme && uri.normalized_host
       if uri.normalized_host.match(/\.[a-zA-Z][a-zA-Z]/)
         self.url = uri.to_s
@@ -37,5 +37,10 @@ class ShortenedUrl < ActiveRecord::Base
     redirect_count + json_count + xml_count + yaml_count
   end
   alias :count :total_count
+  
+  # Use addressable to parse the url
+  def self.parse_url(url)
+    Addressable::URI.heuristic_parse(url) rescue nil
+  end
   
 end
