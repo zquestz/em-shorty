@@ -1,9 +1,24 @@
 # Class to store necessary info for shortening. 
 # Just a url to shorten, and an id. so simple.
 class ShortenedUrl < ActiveRecord::Base
+  attr_accessor :valid_url
+  
   validates_presence_of :url
   validates_uniqueness_of :url
-  validates_format_of :url, :with => /^\b((?:https?:\/\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?]))$/
+  validates_presence_of :valid_url
+    
+  before_validation :validate_url
+  
+  # Make sure we have a sane url
+  def validate_url
+    uri = Addressable::URI.heuristic_parse(self.url) rescue nil
+    if uri && uri.normalized_scheme && uri.normalized_host
+      if uri.normalized_host.match(/\.[a-zA-Z][a-zA-Z]/)
+        self.url = uri.to_s
+        self.valid_url = true
+      end
+    end
+  end
   
   # Shortens an ID by using alphadecimal format (base62)
   def shorten
