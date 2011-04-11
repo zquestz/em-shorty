@@ -70,7 +70,6 @@ class ShortyApp < Sinatra::Base
     
   home '/' do
     if params[:url]
-      cache_control :public, :must_revalidate, :max_age => settings.cache_timeout if env['REQUEST_METHOD'] == 'GET'
       cache.fetch "shorten_#{request.ip}_#{params[:url]}_#{params[:format]}".hashify, settings.cache_timeout do
         @short_url = ShortenedUrl.find_or_create_by_url(params[:url])
         format = params[:format]
@@ -109,7 +108,6 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened.:format' do
-    cache_control :public, :must_revalidate, :max_age => settings.cache_timeout
     cache.fetch "view_#{request.ip}_#{params[:shorten]}_#{params[:format]}".hashify, settings.cache_timeout do
       format = params[:format]
       if settings.api_formats.include?(format.to_sym)
@@ -127,7 +125,6 @@ class ShortyApp < Sinatra::Base
   end
   
   get '/:shortened' do
-    cache_control :public, :must_revalidate, :max_age => settings.cache_timeout
     cache.fetch "redirect_#{request.ip}_#{params[:shortened]}".hashify, settings.cache_timeout do
       return if params[:shortened].index('.')
       short_url = ShortenedUrl.find_by_shortened(params[:shortened])
