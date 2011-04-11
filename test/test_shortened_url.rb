@@ -16,7 +16,7 @@ class TestShortenedUrl < Test::Unit::TestCase
   end
   
   def test_valid_shortened_url
-    matchers = ['http://reddit.com/r/ruby', 'https://facebook.com', 'http:/intrarts.com', 'http://bit.ly', 'ftp://host.com']
+    matchers = ['reddit.com/r/ruby', 'https://facebook.com', 'http:/intrarts.com', 'http://bit.ly', 'ftp://host.com']
     for matcher in matchers
       short_url = ShortenedUrl.new(:url => matcher)
       assert_equal true, short_url.save
