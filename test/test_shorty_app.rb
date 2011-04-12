@@ -311,8 +311,10 @@ class TestShortyApp < Test::Unit::TestCase
   
   def test_memcached
     shorty = ShortyApp.new
-    shorty.backend.settings.caching = true
-    assert_equal shorty.backend.settings.cache.class, Dalli::Client
+    default_caching = shorty.settings.caching
+    shorty.settings.caching = true
+    assert_equal shorty.settings.cache.class, Dalli::Client
+    shorty.settings.caching = default_caching
   end
   
 end

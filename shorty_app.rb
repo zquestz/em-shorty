@@ -13,7 +13,6 @@ $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 # Require needed libs
 require 'fiber'
 require 'rack/fiber_pool'
-require 'rack/cache'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/i18n'
@@ -47,18 +46,10 @@ class ShortyApp < Sinatra::Base
                   '/var/run/mysqld/mysqld.sock', 
                   '/tmp/mysql.sock']
   set :caching, true
-  set :rack_cache, true
   set :cache_timeout, 120
   set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_', :expires_in => settings.cache_timeout}) : CacheProxy.new()
   
   use Rack::FiberPool, :size => 100 unless test?
-  
-  if settings.rack_cache
-    use Rack::Cache,
-      :verbose => false,
-      :metastore => "memcached://#{settings.memcached}/meta",
-      :entitystore => "file:cache"
-  end
 
   register Sinatra::I18n
   

@@ -19,8 +19,7 @@ I added quite a few things.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
 8. XML, JSON, YAML support.
 9. Dalli for speedy memcache support.
-10. Caching layer courtesy of rack-cache.
-11. Tux is included for console debugging.
+10. Tux is included for console debugging.
 
 To start the server:
 
