@@ -16,4 +16,4 @@ require 'rack/test'
 
 # Cleanup data sources
 ShortenedUrl.all.map(&:delete)
-ShortyApp.new.flush_cache
+ShortyApp.cache.flush

@@ -310,11 +310,11 @@ class TestShortyApp < Test::Unit::TestCase
   end
   
   def test_memcached
-    shorty = ShortyApp.new
-    default_caching = shorty.settings.caching
-    shorty.settings.caching = true
-    assert_equal shorty.settings.cache.class, Dalli::Client
-    shorty.settings.caching = default_caching
+    assert_equal app.settings.cache.class, Dalli::Client if app.settings.caching == true
+  end
+  
+  def test_passthru
+    assert_equal app.settings.cache.class, CacheProxy if app.settings.caching == false
   end
   
 end
