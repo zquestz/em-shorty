@@ -24,23 +24,21 @@ body {
       text-align: center;
     }
     
-    a {
-      :link {
+    a:link {
         text-decoration: none;
         color: @link-color;
       }
       
-      :visited {
-        color: @link-color;
-      }
-      
-      :hover { 
-        color: @highlight-color;
-      }
-      
-      :active {
-        color: @highlight-color;
-      }
+    a:visited {
+      color: @link-color;
+    }
+    
+    a:hover { 
+      color: @highlight-color;
+    }
+    
+    a:active {
+      color: @highlight-color;
     }
     
     #footer {
