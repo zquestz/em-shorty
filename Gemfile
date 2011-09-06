@@ -6,7 +6,7 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sinatra-i18n'
 gem 'sqlite3'
-gem 'mysql2', "~> 0.2.0"
+gem 'mysql2'
 gem 'dalli'
 gem 'rack-fiber_pool'
 gem 'em-resolv-replace'
