@@ -13,7 +13,7 @@ Rake::TestTask.new(:test) do |test|
 end
 
 task :console do
-  ENV['RACK_ENV'] = 'test'
+  ENV['RACK_ENV'] ||= 'test'
   exec "tux"
 end
 
