@@ -17,6 +17,6 @@ gem 'haml'
 gem 'less'
 gem 'rack-test'
 gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
-gem 'em-synchrony', :git => 'https://github.com/igrigorik/em-synchrony.git'
+gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git'
 gem 'em-http-request'
 gem 'tux'
