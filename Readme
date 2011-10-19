@@ -23,15 +23,15 @@ I added quite a few things.
 
 To start the server:
 
-thin -R config.ru start
+bundle exec thin -R config.ru start
 
 This will fire it up on port 3000.
 
 To run the tests:
 
 RACK_ENV=test rake db:migrate
-rake test
+bundle exec rake test
 
 To launch a console:
 
-rake console
+bundle exec rake console
