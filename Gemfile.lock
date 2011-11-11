@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/igrigorik/em-synchrony.git
-  revision: 39954edecdca6078cb18cea890558339122bd2e1
+  remote: git://github.com/igrigorik/em-synchrony.git
+  revision: f07b2a139ba05a1eaf3559541f3584c73afe05b2
   specs:
     em-synchrony (1.0.0)
       eventmachine (>= 1.0.0.beta.1)
