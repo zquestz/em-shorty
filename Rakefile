@@ -4,6 +4,7 @@ $LOAD_PATH << File.dirname(__FILE__)
 # Require items we need for rake tasks
 require 'sinatra/activerecord/rake'
 require 'rake/testtask'
+require 'shorty_app'
 
 # Setup test rake task, and make it default
 Rake::TestTask.new(:test) do |test|

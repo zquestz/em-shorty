@@ -2,6 +2,6 @@
 cache/*
 coverage/.*
 coverage/*
-db/*.sqlite
+db/*.sqlite3
 log/*
 tmp/*
