@@ -1,6 +1,7 @@
 .DS_Store
 cache/**/*
 coverage/**/*
+db/*.sqlite
 
 # vim swap files
 *.swp
