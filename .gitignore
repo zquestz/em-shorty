@@ -2,6 +2,8 @@
 cache/**/*
 coverage/**/*
 db/*.sqlite
+log/**/*
+tmp/**/*
 
 # vim swap files
 *.swp
