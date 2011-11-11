@@ -1,5 +1,6 @@
 .DS_Store
 cache/**/*
+coverage/**/*
 
 # vim swap files
 *.swp
