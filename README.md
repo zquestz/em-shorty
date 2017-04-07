@@ -1,4 +1,4 @@
-## em-shorty 0.5.0
+## em-shorty 0.6.0
 
 One of many url shortening apps out there. Was inspired by an article I read at:
 
