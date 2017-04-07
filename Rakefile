@@ -30,4 +30,13 @@ namespace :db do
   end
 end
 
+namespace :docker  do
+  desc "build docker image"
+  task :build do
+    # TODO: Stream output
+    puts "Building em-shorty docker image"
+    puts `docker build -f Dockerfile -t em-shorty .`
+  end
+end
+
 task :default => :test
