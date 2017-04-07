@@ -20,6 +20,7 @@ I added quite a few things.
 8. XML, JSON, YAML support.
 9. Dalli for speedy memcache support.
 10. Tux is included for console debugging.
+11. Support for docker-compose.
 
 To start the server:
 
