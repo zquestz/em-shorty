@@ -14,7 +14,7 @@ I added quite a few things.
 2. Fully localized with i18n
 3. Templates are flushed out and look good.
 4. Added bundler and rvm support.
-5. Added less support.
+5. Added sass support.
 6. Battery of Unit Tests.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
 8. XML, JSON, YAML support.
