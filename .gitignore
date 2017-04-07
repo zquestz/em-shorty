@@ -5,3 +5,4 @@ coverage/*
 db/*.sqlite3
 log/*
 tmp/*
+.sass-cache/*
