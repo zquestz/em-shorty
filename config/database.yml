@@ -1,20 +1,24 @@
 development:
-  adapter: mysql2
+  adapter: em_mysql2
   database: em_shorty
   encoding: utf8
-  pool: 100
+  pool: 25
   username: root
   password: root
-  socket: true
+  socket: /run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
-  database: em_shorty
+  adapter: em_mysql2
+  host: <%= URI.parse(ENV['MYSQL_URI']).host %>
+  port: <%= URI.parse(ENV['MYSQL_URI']).port %>
+  database: <%= URI.parse(ENV['MYSQL_URI']).path.split("/").last %>
   encoding: utf8
-  pool: 100
-  username: root
-  password: root
-  socket: true
+  pool: 25
+  username: <%= URI.parse(ENV['MYSQL_URI']).user %>
+  password: <%= URI.parse(ENV['MYSQL_URI']).password %>
+  sslca: <%= ENV['MYSQL_SSLCA'] %>
+  sslkey: <%= ENV['MYSQL_SSLKEY'] %>
+  sslcert: <%= ENV['MYSQL_SSLCERT'] %>
 
 test:
   adapter: sqlite3

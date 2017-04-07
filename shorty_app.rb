@@ -10,6 +10,13 @@ raise LoadError, 'Ruby 1.9.2 required' if RUBY_VERSION < '1.9.2'
 # Add lib directory to load path
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 
+# Required so database.yml will load for prod.
+ENV['MYSQL_URI'] ||= ""
+
+# Set encoding to UTF-8
+Encoding.default_internal = Encoding::UTF_8
+Encoding.default_external = Encoding::UTF_8
+
 # Require needed libs
 require 'fiber'
 require 'rack/fiber_pool'
@@ -18,7 +25,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/i18n'
 require 'alphadecimal'
-require 'less'
+require 'sass'
 require 'shortened_url'
 require 'cache_proxy'
 require 'resolv'
@@ -26,6 +33,7 @@ require 'mime/types'
 require 'dalli'
 require 'hashify'
 require 'em-synchrony/em-http'
+require 'rack/ssl-enforcer'
 
 # Conditional require's based on environment.
 require 'em-resolv-replace' unless test?
@@ -42,24 +50,16 @@ class ShortyApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
   set :api_formats, [:json, :xml, :yaml]
-  set :memcached, '127.0.0.1:11211'
-  set :sockets, ['/opt/local/var/run/mysql5/mysqld.sock', 
-                  '/var/run/mysqld/mysqld.sock', 
-                  '/tmp/mysql.sock']
+  set :memcached, ENV['MEMCACHE_URI'] || '127.0.0.1:11211'
   set :caching, true
   set :cache_timeout, 120
   set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_', :expires_in => settings.cache_timeout}) : CacheProxy.new()
-  
-  use Rack::FiberPool, :size => 100 unless test?
+  set :database_file,  File.join('config', 'database.yml')
+
+  use Rack::FiberPool, :size => 25 unless test?
+  use Rack::SslEnforcer, ignore: lambda { |request| request.env["HTTP_X_FORWARDED_PROTO"].blank? }, strict: true
 
   register Sinatra::I18n
-  
-  configure do
-    db_config = YAML.load_file(File.join('config', 'database.yml'))[settings.environment.to_s]
-    db_config.merge!({'socket' => settings.sockets.find { |f| File.exist? f } }) if db_config['socket']
-    ActiveRecord::Base.establish_connection(db_config)
-    ActiveRecord::Base.logger.level = Logger::INFO
-  end
   
   before do
     set_content_type(params[:format])
@@ -101,7 +101,7 @@ class ShortyApp < Sinatra::Base
   get '/main.css' do
     cache_control :public, :must_revalidate, :max_age => (settings.cache_timeout * 10)
     content_type 'text/css', :charset => 'utf-8'
-    less :main
+    scss :main
   end
   
   get '/:shortened.:format' do
@@ -164,5 +164,4 @@ class ShortyApp < Sinatra::Base
       short_url.to_api(current_url)
     end
   end
-
 end

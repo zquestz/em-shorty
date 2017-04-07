@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestShortenedUrl < Test::Unit::TestCase
+class TestShortenedUrl < Minitest::Test
     
   def test_empty_shortened_url
     short_url = ShortenedUrl.new
@@ -26,13 +26,13 @@ class TestShortenedUrl < Test::Unit::TestCase
   
   def test_normalize_url
     url = "http:/needs.normalizing.com"
-    assert_not_equal url, ShortenedUrl.normalize_url(url)
+    assert url != ShortenedUrl.normalize_url(url)
   end
   
   def test_normalize_on_save
     url = "http:intrarts.com"
     short_url = ShortenedUrl.create(:url => url)
-    assert_not_equal url, short_url.url
+    assert url != short_url.url
     assert_equal ShortenedUrl.normalize_url(url), short_url.url
     short_url.delete
   end

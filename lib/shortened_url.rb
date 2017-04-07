@@ -50,7 +50,7 @@ class ShortenedUrl < ActiveRecord::Base
   end
   
   def self.find_by_url(url)
-    find(:first, :conditions => {:url => normalize_url(url)})
+    where(:url => normalize_url(url)).first
   end
   
   def self.find_or_create_by_url(url)
@@ -69,5 +69,4 @@ class ShortenedUrl < ActiveRecord::Base
   def self.parse_url(url)
     Addressable::URI.heuristic_parse(url).normalize rescue nil
   end
-  
 end

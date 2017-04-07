@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestHashify < Test::Unit::TestCase
+class TestHashify < Minitest::Test
   
   @@matchers = ['hi', ['hi'], [:hi], {'hi' => 'hi'}, {:hi => 'hi'}, {'hi' => :hi}]
 

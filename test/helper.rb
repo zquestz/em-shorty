@@ -11,8 +11,9 @@ end
 
 # require items needed for testing
 require 'shorty_app'
-require 'test/unit'
 require 'rack/test'
+require 'minitest'
+require 'minitest/autorun'
 
 # Cleanup data sources
 ShortenedUrl.all.map(&:delete)

@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestShortyApp < Test::Unit::TestCase
+class TestShortyApp < Minitest::Test
   include Rack::Test::Methods
 
   def app
@@ -40,7 +40,7 @@ class TestShortyApp < Test::Unit::TestCase
     post '/', :url => url
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 0
     matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
@@ -54,7 +54,7 @@ class TestShortyApp < Test::Unit::TestCase
     get '/', :url => url
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 0
     matchers = ["/#{short_url.shorten}", I18n.translate('app_name'), I18n.translate('source_url'), current_url, I18n.translate('url_shortened', :original_url => short_url.url), 'main.css', 'favicon.png', 'logo.png', 'urljumper', 'keyPressed', 'notice', Time.now.year.to_s]
     matchers.each do |match|
@@ -88,7 +88,7 @@ class TestShortyApp < Test::Unit::TestCase
     post '/', {:url => url, :format => 'json'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
     assert_equal (short_url.to_api(current_url).to_json), last_response.body
@@ -100,7 +100,7 @@ class TestShortyApp < Test::Unit::TestCase
     get '/', {:url => url, :format => 'json'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.json_count, 1
     assert_equal (short_url.to_api(current_url).to_json), last_response.body
@@ -112,7 +112,7 @@ class TestShortyApp < Test::Unit::TestCase
     post '/', {:url => url, :format => 'xml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
     assert_equal (short_url.to_api(current_url).to_xml), last_response.body
@@ -124,7 +124,7 @@ class TestShortyApp < Test::Unit::TestCase
     get '/', {:url => url, :format => 'xml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.xml_count, 1
     assert_equal (short_url.to_api(current_url).to_xml), last_response.body
@@ -136,7 +136,7 @@ class TestShortyApp < Test::Unit::TestCase
     post '/', {:url => url, :format => 'yaml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
     assert_equal (short_url.to_api(current_url).to_yaml), last_response.body
@@ -148,7 +148,7 @@ class TestShortyApp < Test::Unit::TestCase
     get '/', {:url => url, :format => 'yaml'}
     assert last_response.ok?
     short_url = ShortenedUrl.find_by_url(url)
-    assert_not_nil short_url
+    assert short_url != nil
     assert_equal short_url.count, 1
     assert_equal short_url.yaml_count, 1
     assert_equal (short_url.to_api(current_url).to_yaml), last_response.body
