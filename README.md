@@ -1,4 +1,4 @@
-em-shorty 0.5.0
+## em-shorty 0.5.0
 
 One of many url shortening apps out there. Was inspired by an article I read at:
 
@@ -23,15 +23,21 @@ I added quite a few things.
 
 To start the server:
 
+```
 bundle exec thin -R config.ru start
+```
 
 This will fire it up on port 3000.
 
 To run the tests:
 
+```
 RACK_ENV=test rake db:migrate
 bundle exec rake test
+```
 
 To launch a console:
 
+```
 bundle exec rake console
+```
