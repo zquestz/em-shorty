@@ -18,7 +18,7 @@ I added quite a few things.
 6. Battery of Unit Tests.
 7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
 8. XML, JSON, YAML support.
-9. Dalli for speedy memcache support.
+9. Dalli for speedy memcached support.
 10. Tux is included for console debugging.
 11. Support for docker-compose.
 

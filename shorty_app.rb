@@ -50,7 +50,7 @@ class ShortyApp < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :locales, File.join(File.dirname(__FILE__), 'config', 'en.yml')
   set :api_formats, [:json, :xml, :yaml]
-  set :memcached, ENV['MEMCACHE_URI'] || '127.0.0.1:11211'
+  set :memcached, ENV['MEMCACHED_URI'] || '127.0.0.1:11211'
   set :caching, true
   set :cache_timeout, 120
   set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_', :expires_in => settings.cache_timeout}) : CacheProxy.new()

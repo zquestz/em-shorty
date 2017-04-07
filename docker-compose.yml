@@ -23,7 +23,7 @@ services:
       - "8080:8080"
     restart: always
     environment:
-      MEMCACHE_URI: memcached:11211
+      MEMCACHED_URI: memcached:11211
       MYSQL_URI: mysql://root:root@db:3306/em-shorty
 
 volumes:
