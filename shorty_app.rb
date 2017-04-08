@@ -101,10 +101,6 @@ class ShortyApp < Sinatra::Base
     content_type 'text/css', :charset => 'utf-8'
     scss :main
   end
-
-  get '/debug' do
-    return ENV.inspect + settings.cache.inspect + settings.cache.stats.inspect
-  end
   
   get '/:shortened.:format' do
     set_content_type(params[:format])
