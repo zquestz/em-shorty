@@ -56,8 +56,8 @@ class ShortyApp < Sinatra::Base
   set :cache, settings.caching ? Dalli::Client.new(settings.memcached, {:namespace => 'shorty_', :expires_in => settings.cache_timeout}) : CacheProxy.new()
   set :database_file,  File.join('config', 'database.yml')
 
-  use Rack::SslEnforcer, ignore: lambda { |request| request.env["HTTP_X_FORWARDED_PROTO"].blank? }, strict: true
   use Rack::FiberPool, :size => 25 unless test?
+  use Rack::SslEnforcer, ignore: lambda { |request| request.env["HTTP_X_FORWARDED_PROTO"].blank? }, strict: true
 
   register Sinatra::I18n
   
