@@ -29,14 +29,12 @@ require 'sass'
 require 'shortened_url'
 require 'cache_proxy'
 require 'resolv'
+require 'em-resolv-replace' unless test?
 require 'mime/types'
-require 'dalli'
 require 'hashify'
 require 'em-synchrony/em-http'
 require 'rack/ssl-enforcer'
-
-# Conditional require's based on environment.
-require 'em-resolv-replace' unless test?
+require 'dalli'
 
 # Make home page respond to both get and post.
 def home(url, verbs = %w(get post), &block)
@@ -102,6 +100,10 @@ class ShortyApp < Sinatra::Base
     cache_control :public, :must_revalidate, :max_age => (settings.cache_timeout * 10)
     content_type 'text/css', :charset => 'utf-8'
     scss :main
+  end
+
+  get '/debug' do
+    return ENV.inspect + settings.cache.inspect + settings.cache.stats.inspect
   end
   
   get '/:shortened.:format' do
