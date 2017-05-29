@@ -6,7 +6,7 @@ development:
   username: root
   password: root
   socket: /run/mysqld/mysqld.sock
-
+  reconnect: true
 production:
   adapter: em_mysql2
   host: <%= URI.parse(ENV['MYSQL_URI']).host %>
@@ -19,7 +19,7 @@ production:
   sslca: <%= ENV['MYSQL_SSLCA'] %>
   sslkey: <%= ENV['MYSQL_SSLKEY'] %>
   sslcert: <%= ENV['MYSQL_SSLCERT'] %>
-
+  reconnect: true
 test:
   adapter: sqlite3
   database: db/test.sqlite3
