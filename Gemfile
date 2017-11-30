@@ -3,7 +3,7 @@ source :rubygems
 gem 'rake'
 gem 'thin'
 gem 'sinatra'
-gem 'activerecord', '4.1.10'
+gem 'activerecord', '~> 4.1.10'
 gem 'sinatra-activerecord'
 gem 'sinatra-i18n'
 gem 'sqlite3'

@@ -8,14 +8,14 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (4.1.10)
-      activesupport (= 4.1.10)
+    activemodel (4.1.16)
+      activesupport (= 4.1.16)
       builder (~> 3.1)
-    activerecord (4.1.10)
-      activemodel (= 4.1.10)
-      activesupport (= 4.1.10)
+    activerecord (4.1.16)
+      activemodel (= 4.1.16)
+      activesupport (= 4.1.16)
       arel (~> 5.0.0)
-    activesupport (4.1.10)
+    activesupport (4.1.16)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -27,6 +27,7 @@ GEM
     arel (5.0.1.20140414130214)
     bond (0.5.1)
     builder (3.2.3)
+    concurrent-ruby (1.0.5)
     cookiejar (0.3.3)
     daemons (1.2.4)
     dalli (2.7.6)
@@ -44,12 +45,13 @@ GEM
     haml (4.0.7)
       tilt
     http_parser.rb (0.6.0)
-    i18n (0.8.1)
+    i18n (0.9.1)
+      concurrent-ruby (~> 1.0)
     json (1.8.6)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    minitest (5.10.1)
+    minitest (5.10.3)
     mysql2 (0.3.21)
     public_suffix (2.0.5)
     rack (1.6.5)
@@ -94,14 +96,14 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 4.1.10)
+  activerecord (~> 4.1.10)
   alphadecimal
   dalli
   em-http-request
