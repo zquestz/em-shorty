@@ -6,7 +6,7 @@ GIT
       eventmachine (>= 1.0.0.beta.1)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activemodel (4.1.16)
       activesupport (= 4.1.16)
