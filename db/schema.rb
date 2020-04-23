@@ -23,6 +23,6 @@ ActiveRecord::Schema.define(version: 20110404050831) do
     t.datetime "created_at"
   end
 
-  add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url", using: :btree
+  add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url"
 
 end

@@ -18,6 +18,7 @@ Encoding.default_internal = Encoding::UTF_8
 Encoding.default_external = Encoding::UTF_8
 
 # Require needed libs
+require 'dotenv/load'
 require 'fiber'
 require 'rack/fiber_pool'
 require 'mysql2'
