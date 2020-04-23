@@ -4,3 +4,5 @@ rvm:
 script:
   - RACK_ENV=test bundle exec rake db:create db:migrate
   - bundle exec rake
+services:
+  - memcached
