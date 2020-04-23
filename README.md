@@ -1,4 +1,7 @@
-## em-shorty 0.6.0
+# em-shorty
+
+[![Build Status](https://img.shields.io/travis/zquestz/em-shorty.svg)](https://travis-ci.org/zquestz/em-shorty)
+[![License](https://img.shields.io/github/license/zquestz/em-shorty.svg)](https://github.com/zquestz/em-shorty/blob/master/LICENSE)
 
 One of many url shortening apps out there. Was inspired by an article I read at:
 
@@ -42,3 +45,7 @@ To launch a console:
 ```
 bundle exec rake console
 ```
+
+### License
+
+Code in this repository is distributed under the [MIT license](/LICENSE).
