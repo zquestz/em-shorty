@@ -20,7 +20,7 @@ services:
       - memcached
     image: em-shorty
     ports:
-      - "8081:8080"
+      - "8082:8080"
     restart: always
     environment:
       MEMCACHED_URI: memcached:11211

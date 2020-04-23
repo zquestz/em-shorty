@@ -15,6 +15,10 @@ body {
   background-color: $background-color;
   color: $text-color;
 
+  img#logo {
+    border: 0;
+  }
+
   div#content {
     margin: auto;
     width: 400px;

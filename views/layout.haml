@@ -1,5 +1,5 @@
 !!!
-%html
+%html(lang="en")
   %head
     %meta(name="viewport" content="width=device-width, initial-scale=1")
     %title= t('app_name')
@@ -8,7 +8,7 @@
   %body
     %div(id="content")
       %a(href="/")
-        %img(src="/images/logo.png" alt="#{t('app_name')}" border="0")
+        %img(src="/images/logo.png" alt="#{t('app_name')}" id="logo")
       %div(id="header")= haml :header
       %div(id="partial")= yield
       %div(id="footer")= haml :footer
