@@ -23,16 +23,16 @@ body {
   div#content {
     margin: auto;
     max-width: 400px;
-    text-align:center;
+    text-align: center;
     
     div#form_inputs {
       text-align: center;
     }
     
     a:link {
-        text-decoration: none;
-        color: $link-color;
-      }
+      text-decoration: none;
+      color: $link-color;
+    }
       
     a:visited {
       color: $link-color;
@@ -61,8 +61,9 @@ body {
     }
     
     div.flash {
-      margin: 0 10px 5px;
+      margin: 0 auto 5px;
       padding: 5px 10px;
+      width: 90%;
     }
     
     div#clip_container {
