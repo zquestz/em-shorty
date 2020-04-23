@@ -1,4 +1,4 @@
-FROM ruby:2.3.4
+FROM ruby:2.3.8
 MAINTAINER Josh Ellithorpe <josh@quest@mac.com>
 
 # Setup app environment
@@ -11,6 +11,7 @@ WORKDIR $APP_HOME
 COPY . $APP_HOME
 
 # Install all gem dependencies.
+RUN gem install bundler
 RUN bundle install
 
 # Setup ENV to be production
