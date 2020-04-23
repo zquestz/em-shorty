@@ -17,11 +17,12 @@ body {
 
   img#logo {
     border: 0;
+    max-width: 100%;
   }
 
   div#content {
     margin: auto;
-    width: 400px;
+    max-width: 400px;
     text-align:center;
     
     div#form_inputs {
