@@ -14,12 +14,11 @@ class ShortenedUrl < ActiveRecord::Base
   # Make sure we have a sane url
   def validate_url
     uri = self.class.parse_url(url)
-    if uri&.normalized_scheme && uri&.normalized_host
-      if uri.normalized_host.match(/\.[a-zA-Z][a-zA-Z]/)
-        self.url = uri.to_s
-        self.valid_url = true
-      end
-    end
+    return unless uri&.normalized_scheme && uri&.normalized_host
+    return unless uri.normalized_host.match(/\.[a-zA-Z][a-zA-Z]/)
+
+    self.url = uri.to_s
+    self.valid_url = true
   end
 
   # Shortens an ID by using alphadecimal format (base62)
@@ -56,16 +55,13 @@ class ShortenedUrl < ActiveRecord::Base
   end
 
   def self.find_or_create_by_url(url)
-    ret_url = find_by_url(url)
-    ret_url ||= create(url: url)
+    find_by_url(url) || create(url: url)
   end
 
   # Real url for our system. Everything is filtered.
   def self.normalize_url(url)
     parse_url(url).to_s
   end
-
-  protected
 
   # Use addressable to parse the url
   def self.parse_url(url)

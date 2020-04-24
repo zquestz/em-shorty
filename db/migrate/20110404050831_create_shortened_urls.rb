@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# CreateShortenedUrls creates the shortened_urls table.
 class CreateShortenedUrls < ActiveRecord::Migration
   def self.up
     create_table :shortened_urls do |t|

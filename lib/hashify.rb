@@ -8,11 +8,11 @@ module Hashify
   def self.included(included_class)
     included_class.class_eval do
       def self.default_hash
-        @@default_hash ||= :sha1
+        @default_hash ||= :sha1
       end
 
       def self.default_hash=(format)
-        @@default_hash = format if VALID_FORMATS.include?(format)
+        @default_hash = format if VALID_FORMATS.include?(format)
       end
 
       def hashify(format = self.class.default_hash)
@@ -34,14 +34,17 @@ module Hashify
   end
 end
 
+# Monkeypatch String to include Hashify
 class String
   include Hashify
 end
 
+# Monkeypatch Array to include Hashify
 class Array
   include Hashify
 end
 
+# Monkeypatch Hash to include Hashify
 class Hash
   include Hashify
 end

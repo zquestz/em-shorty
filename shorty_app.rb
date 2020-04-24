@@ -75,20 +75,18 @@ class ShortyApp < Sinatra::Base
           if format.blank?
             @flash = { notice: I18n.translate(:url_shortened, original_url: @short_url.url) }
             @viewed_url = "#{current_url}/#{@short_url.shorten}"
-            haml :success
-          else
-            if settings.api_formats.include?(format.to_sym)
-              @short_url.increment!("#{format}_count")
-              erb :api_output, layout: false, locals: { api_output: api_object(@short_url).send("to_#{format}") }
-            end
+            return haml :success
+          end
+
+          if settings.api_formats.include?(format.to_sym)
+            @short_url.increment!("#{format}_count")
+            return erb :api_output, layout: false, locals: { api_output: api_object(@short_url).send("to_#{format}") }
           end
         else
           @flash = { error: t('enter_valid_url') }
-          if format.blank?
-            haml :index
-          else
-            erb :api_output, layout: false, locals: { api_output: { error: @flash[:error] }.send("to_#{format}") } if settings.api_formats.include?(format.to_sym)
-          end
+          return haml :index if format.blank?
+
+          return erb :api_output, layout: false, locals: { api_output: { error: @flash[:error] }.send("to_#{format}") } if settings.api_formats.include?(format.to_sym)
         end
       end
     else

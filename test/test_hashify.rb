@@ -3,22 +3,24 @@
 require 'helper'
 
 class TestHashify < Minitest::Test
-  @@matchers = ['hi', ['hi'], [:hi], { 'hi' => 'hi' }, { hi: 'hi' }, { 'hi' => :hi }]
+  def matchers
+    @matchers ||= ['hi', ['hi'], [:hi], { 'hi' => 'hi' }, { hi: 'hi' }, { 'hi' => :hi }]
+  end
 
   def test_to_md5
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::MD5.hexdigest(matcher.to_s), matcher.to_md5
     end
   end
 
   def test_to_sha1
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::SHA1.hexdigest(matcher.to_s), matcher.to_sha1
     end
   end
 
   def test_to_sha2
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::SHA2.hexdigest(matcher.to_s), matcher.to_sha2
     end
   end
@@ -54,33 +56,34 @@ class TestHashify < Minitest::Test
   end
 
   def test_hashify_string_md5
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::MD5.hexdigest(matcher.to_s), matcher.hashify(:md5)
     end
   end
 
   def test_hashify_string_sha1
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::SHA1.hexdigest(matcher.to_s), matcher.hashify(:sha1)
     end
   end
 
   def test_hashify_string_sha2
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_equal Digest::SHA2.hexdigest(matcher.to_s), matcher.hashify(:sha2)
     end
   end
 
   def test_any_class_with_to_s_hashify
     assert_equal Class.new {
-                   include Hashify; def to_s;
-                                      'val';
-                                    end
+                   include Hashify
+                   def to_s
+                     'val'
+                   end
                  } .new.hashify, Digest::SHA1.hexdigest('val')
   end
 
   def test_hashify_invalid
-    @@matchers.each do |matcher|
+    matchers.each do |matcher|
       assert_nil matcher.hashify(:error)
     end
   end
