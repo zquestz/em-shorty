@@ -3,8 +3,8 @@
     %span(class="short_url")= @viewed_url
 %div(id="copy_to_clipboard")
   %div(id="clip_container" style="position:relative")
-    %div(id="clip_button")= "Copy to Clipboard"
-%script(type="text/javascript" src="ZeroClipboard.min.js")
+    %div(id="clip_button" data-clipboard-text="#{@viewed_url}")= "Copy to Clipboard"
+%script(type="text/javascript" src="clipboard.min.js")
 :javascript
   document.addEventListener('keydown', urljumper, true);
   
@@ -20,14 +20,5 @@
     }
     return false;
   }
-  
-  ZeroClipboard.setMoviePath('ZeroClipboard10.swf');
-  
-  function setupZeroClipboard() {
-    clip = new ZeroClipboard.Client();
-    clip.setText('#{@viewed_url}');
-    clip.setHandCursor(true);
-    clip.glue('clip_button', 'clip_container');
-  }
-  
-  setupZeroClipboard();
+
+  new ClipboardJS('#clip_button');

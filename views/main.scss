@@ -69,9 +69,14 @@ body {
     div#clip_container {
       margin-top: 8px;
     }
+
+    div#clip_button {
+      cursor: pointer;
+    }
     
     div#clip_button.hover, div#clip_button.active {
         color: $highlight-color;
+        cursor: pointer;
     }
     
     div.overflow {

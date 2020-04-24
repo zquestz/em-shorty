@@ -155,22 +155,22 @@ class TestShortyApp < Minitest::Test
     short_url.delete
   end
   
-  def test_post_zeroclipboard
+  def test_post_clipboard
     url = 'http://involver.com'
     post '/', :url => url
     assert last_response.ok?
-    matchers = ['ZeroClipboard.min.js', "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", 'function setupZeroClipboard()', 'clip = new ZeroClipboard.Client();', 'clip.setText', 'clip.setHandCursor(true);', "clip.glue('clip_button', 'clip_container');"]
+    matchers = ['clipboard.min.js','new ClipboardJS(\'#clip_button\');', "data-clipboard-text"]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end
     ShortenedUrl.find_by_url(url).delete
   end
   
-  def test_get_zeroclipboard
+  def test_get_clipboard
     url = 'http://servercentral.net'
     get '/', :url => url
     assert last_response.ok?
-    matchers = ['ZeroClipboard.min.js', "ZeroClipboard.setMoviePath('ZeroClipboard10.swf');", 'function setupZeroClipboard()', 'clip = new ZeroClipboard.Client();', 'clip.setText', 'clip.setHandCursor(true);', "clip.glue('clip_button', 'clip_container');"]
+    matchers = ['clipboard.min.js','new ClipboardJS(\'#clip_button\');', "data-clipboard-text"]
     matchers.each do |match|
       assert last_response.body.include?(match)
     end

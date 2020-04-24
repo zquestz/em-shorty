@@ -19,7 +19,7 @@ I added quite a few things.
 4. Added bundler and rvm support.
 5. Added sass support.
 6. Battery of Unit Tests.
-7. Added copy support via ZeroClipboard - http://code.google.com/p/zeroclipboard/
+7. Added copy support via clipboard.js.
 8. XML, JSON, YAML support.
 9. Dalli for speedy memcached support.
 10. Tux is included for console debugging.
