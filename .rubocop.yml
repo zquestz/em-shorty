@@ -22,7 +22,6 @@ Naming/AccessorMethodName:
 
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
     - 'test/**/*'
 
 Lint/RaiseException:
