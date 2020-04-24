@@ -1,4 +1,5 @@
-# encoding: UTF-8
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,18 +12,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20110404050831) do
-
-  create_table "shortened_urls", force: true do |t|
-    t.string   "url"
-    t.integer  "redirect_count", default: 0
-    t.integer  "json_count",     default: 0
-    t.integer  "xml_count",      default: 0
-    t.integer  "yaml_count",     default: 0
-    t.datetime "updated_at"
-    t.datetime "created_at"
+ActiveRecord::Schema.define(version: 20_110_404_050_831) do
+  create_table 'shortened_urls', force: true do |t|
+    t.string   'url'
+    t.integer  'redirect_count', default: 0
+    t.integer  'json_count',     default: 0
+    t.integer  'xml_count',      default: 0
+    t.integer  'yaml_count',     default: 0
+    t.datetime 'updated_at'
+    t.datetime 'created_at'
   end
 
-  add_index "shortened_urls", ["url"], name: "index_shortened_urls_on_url"
-
+  add_index 'shortened_urls', ['url'], name: 'index_shortened_urls_on_url'
 end

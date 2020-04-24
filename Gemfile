@@ -1,24 +1,30 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-gem 'rake'
-gem 'thin'
-gem 'sinatra'
 gem 'activerecord', '~> 4.1.10'
+gem 'alphadecimal'
+gem 'dalli'
+gem 'dotenv'
+gem 'em-http-request'
+gem 'em-resolv-replace'
+gem 'em-synchrony', git: 'https://github.com/igrigorik/em-synchrony'
+gem 'haml'
+gem 'mime-types'
+gem 'mysql2', '~> 0.3.0'
+gem 'rack-fiber_pool'
+gem 'rack-ssl-enforcer'
+gem 'rack-test'
+gem 'rake'
+gem 'sass'
+gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-i18n'
 gem 'sqlite3', '~> 1.3.6'
-gem 'mysql2', '~> 0.3.0'
-gem 'dalli'
-gem 'rack-fiber_pool'
-gem 'em-resolv-replace'
-gem 'alphadecimal'
-gem 'mime-types'
-gem 'haml'
-gem 'sass'
-gem 'rack-test'
-gem 'simplecov', '>= 0.4.0', :require => false, :group => :test
-gem 'em-synchrony', :git => 'https://github.com/igrigorik/em-synchrony'
-gem 'em-http-request'
+gem 'thin'
 gem 'tux'
-gem 'rack-ssl-enforcer'
-gem 'dotenv'
+
+group :test do
+  gem 'rubocop'
+  gem 'simplecov', '>= 0.4.0', require: false, group: :test
+end

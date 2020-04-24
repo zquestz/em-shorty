@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Add the root to the load path.
 $LOAD_PATH << File.dirname(__FILE__)
 

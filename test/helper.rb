@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Add the root to the load path.
 $LOAD_PATH << File.join(File.dirname(__FILE__), '..')
 
@@ -6,7 +8,7 @@ ENV['RACK_ENV'] = 'test'
 
 require 'simplecov'
 SimpleCov.start do
-  add_filter "/test/"
+  add_filter '/test/'
 end
 
 # require items needed for testing

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # Add popular hashing functions to strings.
 # Then wrap in a nice hashify method.
 module Hashify
-  VALID_FORMATS = [:md5, :sha1, :sha2]
-  
+  VALID_FORMATS = %i[md5 sha1 sha2].freeze
+
   def self.included(included_class)
     included_class.class_eval do
       def self.default_hash
@@ -14,19 +16,19 @@ module Hashify
       end
 
       def hashify(format = self.class.default_hash)
-        self.send("to_#{format}") if VALID_FORMATS.include?(format)
+        send("to_#{format}") if VALID_FORMATS.include?(format)
       end
 
       def to_md5
-        Digest::MD5.hexdigest(self.to_s)
+        Digest::MD5.hexdigest(to_s)
       end
 
       def to_sha1
-        Digest::SHA1.hexdigest(self.to_s)
+        Digest::SHA1.hexdigest(to_s)
       end
 
       def to_sha2
-        Digest::SHA2.hexdigest(self.to_s)
+        Digest::SHA2.hexdigest(to_s)
       end
     end
   end

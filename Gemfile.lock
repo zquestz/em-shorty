@@ -25,6 +25,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     alphadecimal (1.1.2)
     arel (5.0.1.20140414130214)
+    ast (2.4.0)
     bond (0.5.1)
     builder (3.2.4)
     concurrent-ruby (1.1.6)
@@ -50,6 +51,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.4)
     json (1.8.6)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -58,6 +60,9 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.3.21)
+    parallel (1.19.1)
+    parser (2.7.1.1)
+      ast (~> 2.4.0)
     public_suffix (4.0.4)
     rack (2.2.2)
     rack-fiber_pool (0.9.3)
@@ -66,10 +71,12 @@ GEM
     rack-ssl-enforcer (0.2.9)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rainbow (3.0.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rexml (3.2.4)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-multi_line (0.3.1)
@@ -78,6 +85,15 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5)
       ripl (>= 0.3.5)
+    rubocop (0.81.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    ruby-progressbar (1.10.1)
     ruby2_keywords (0.0.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -113,6 +129,7 @@ GEM
       sinatra (>= 1.2.1)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
 
 PLATFORMS
   ruby
@@ -132,6 +149,7 @@ DEPENDENCIES
   rack-ssl-enforcer
   rack-test
   rake
+  rubocop
   sass
   simplecov (>= 0.4.0)
   sinatra
