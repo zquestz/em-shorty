@@ -9,7 +9,7 @@ http://screencasts.org/episodes/activerecord-with-sinatra
 
 This project is currently live at:
 
-http://emlink.me
+https://emlink.me
 
 I added quite a few things.
 
