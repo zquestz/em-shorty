@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# em-shorty 0.7.1
+# em-shorty 0.7.2
 # By: Josh Ellithorpe April 2011
 # URL shortner that uses rack fiber pool for optimal performance.
 # thin -R config.ru start
