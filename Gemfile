@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'activerecord', '~> 4.1.10'
 gem 'alphadecimal'
-gem 'dalli', '~> 2.7.10'
+gem 'dalli', '~> 3.2.3'
 gem 'dotenv'
 gem 'em-http-request'
 gem 'em-resolv-replace'

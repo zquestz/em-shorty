@@ -31,7 +31,7 @@ GEM
     concurrent-ruby (1.1.10)
     cookiejar (0.3.3)
     daemons (1.4.1)
-    dalli (2.7.11)
+    dalli (3.2.3)
     docile (1.3.5)
     dotenv (2.8.1)
     em-http-request (1.1.7)
@@ -137,7 +137,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.1.10)
   alphadecimal
-  dalli (~> 2.7.10)
+  dalli (~> 3.2.3)
   dotenv
   em-http-request
   em-resolv-replace
