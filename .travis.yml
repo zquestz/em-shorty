@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - '2.3.8'
 before_install:
-  - gem install bundler
+  - gem install bundler -v 2.3.26
 script:
   - RACK_ENV=test bundle exec rake db:create db:migrate
   - bundle exec rake
