@@ -15,7 +15,7 @@ COPY Gemfile.lock $APP_HOME
 
 # Install all gem dependencies.
 RUN gem install bundler
-RUN bundle install
+RUN bundle install -v 2.3.26
 
 # Copy app now that dependencies are installed.
 COPY . $APP_HOME
