@@ -30,6 +30,44 @@ namespace :db do
   task :load_config do
     require 'shorty_app'
   end
+
+  task :cleanup do
+    bad = [
+      ".*by2.io.*",
+      ".*\\.ru/.*",
+      ".*sex.*",
+      ".*onion.*",
+      ".*dating.*",
+      ".*\\.top.*",
+      ".*amazon.*",
+      ".*\\.online.*",
+      ".*dates.*",
+      ".*bxss.me.*",
+      ".*fuck.*",
+      ".*gethost.*",
+      ".*print.*",
+      ".*import.*",
+      ".*\\.su/.*",
+      ".*inexistent.*",
+      ".*insigit.*",
+      ".*submit.*",
+      ".*\\.la/.*",
+      ".*\\.claims.*",
+      ".*\\.br/.*",
+      ".*atsnx\\.com.*",
+      ".*\\.id/.*",
+      ".*response\\.write.*"
+    ]
+
+    ShortenedUrl.all.each do |u|
+      bad.each do |b|
+        if /#{b}/ =~ u.url
+          puts u.url
+          u.destroy
+        end;nil
+      end
+    end;nil
+  end
 end
 
 namespace :docker do
