@@ -1,9 +1,9 @@
 FROM ruby:2.3.8
-MAINTAINER Josh Ellithorpe <josh@quest@mac.com>
+LABEL org.opencontainers.image.authors="quest@mac.com"
 
 # Setup app environment.
-ENV APP_HOME /app
-ENV HOME /root
+ENV APP_HOME=/app
+ENV HOME=/root
 
 # Copy resources to APP_HOME.
 RUN mkdir $APP_HOME
@@ -14,14 +14,14 @@ COPY Gemfile $APP_HOME
 COPY Gemfile.lock $APP_HOME
 
 # Install all gem dependencies.
-RUN gem install bundler
-RUN bundle install -v 2.3.26
+RUN gem install bundler -v 2.3.27
+RUN bundle install
 
 # Copy app now that dependencies are installed.
 COPY . $APP_HOME
 
 # Setup ENV to be production.
-ENV RACK_ENV production
+ENV RACK_ENV=production
 
 EXPOSE 8080
 CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0", "-p", "8080"]

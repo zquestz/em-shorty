@@ -75,7 +75,7 @@ namespace :docker do
   task :build do
     # TODO: Stream output
     puts 'Building em-shorty docker image'
-    puts `docker build -f Dockerfile -t em-shorty .`
+    puts `docker build --no-cache -f Dockerfile -t em-shorty .`
   end
 end
 
