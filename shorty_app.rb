@@ -23,7 +23,7 @@ Encoding.default_external = Encoding::UTF_8
 require 'dotenv/load'
 require 'fiber'
 require 'rack/fiber_pool'
-require 'mysql2'
+require 'mysql2' unless test?
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/i18n'
