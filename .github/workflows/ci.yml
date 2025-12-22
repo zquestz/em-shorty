@@ -26,10 +26,12 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.3.8'
-          bundler-cache: true
 
       - name: Install bundler
-        run: gem install bundler -v 2.3.27
+        run: gem install bundler -v 2.2.32
+
+      - name: Configure bundler to skip mysql2
+        run: bundle config set --local without 'development production'
 
       - name: Install dependencies
         run: bundle install

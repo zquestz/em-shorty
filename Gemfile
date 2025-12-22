@@ -11,7 +11,6 @@ gem 'em-resolv-replace'
 gem 'em-synchrony', git: 'https://github.com/igrigorik/em-synchrony'
 gem 'haml', '~> 5.2.2'
 gem 'mime-types'
-gem 'mysql2', '~> 0.3.0'
 gem 'parser', '~> 2.7.1'
 gem 'rack-fiber_pool'
 gem 'rack-ssl-enforcer'
@@ -28,4 +27,8 @@ gem 'tux'
 group :test do
   gem 'rubocop', '~> 0.81.0'
   gem 'simplecov', '>= 0.4.0', require: false, group: :test
+end
+
+group :development, :production do
+  gem 'mysql2', '~> 0.3.0'
 end
