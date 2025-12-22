@@ -23,7 +23,7 @@ Encoding.default_external = Encoding::UTF_8
 require 'dotenv/load'
 require 'fiber'
 require 'rack/fiber_pool'
-require 'mysql2' unless test?
+require 'mysql2' unless ENV['RACK_ENV'] == 'test'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/i18n'
@@ -32,7 +32,7 @@ require 'sass'
 require 'shortened_url'
 require 'cache_proxy'
 require 'resolv'
-require 'em-resolv-replace' unless test?
+require 'em-resolv-replace' unless ENV['RACK_ENV'] == 'test'
 require 'mime/types'
 require 'hashify'
 require 'em-synchrony/em-http'
