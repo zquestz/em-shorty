@@ -1,6 +1,6 @@
 # em-shorty
 
-[![Build Status](https://img.shields.io/travis/com/zquestz/em-shorty.svg)](https://travis-ci.org/zquestz/em-shorty)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/zquestz/em-shorty/ci.yml?branch=master)](https://github.com/zquestz/em-shorty/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/zquestz/em-shorty.svg)](https://github.com/zquestz/em-shorty/blob/master/LICENSE)
 
 One of many url shortening apps out there. Was inspired by an article I read at:
